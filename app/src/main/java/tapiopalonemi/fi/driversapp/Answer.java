@@ -3,19 +3,17 @@ package tapiopalonemi.fi.driversapp;
 public class Answer {
     //Fields
     private int answerID;
-    private String answerText;
+    private String answerString;
     private int isRightAnswer;
     private int questionID;
-    private int chosenAnswerID;
 
     public Answer() {}
 
-    public Answer(int answerID, String answerText, int isRightAnswer, int questionID, int chosenAnswerID) {
+    public Answer(int answerID, String answerString, int isRightAnswer, int questionID) {
         this.answerID = answerID;
-        this.answerText = answerText;
+        this.answerString = answerString;
         this.isRightAnswer = isRightAnswer;
         this.questionID = questionID;
-        this.chosenAnswerID = chosenAnswerID;
     }
 
     public int getAnswerID() {
@@ -26,12 +24,12 @@ public class Answer {
         this.answerID = answerID;
     }
 
-    public String getAnswerText() {
-        return answerText;
+    public String getAnswerString() {
+        return answerString;
     }
 
-    public void setAnswerText(String answerText) {
-        this.answerText = answerText;
+    public void setAnswerString(String answerString) {
+        this.answerString = answerString;
     }
 
     public int isRightAnswer() {
@@ -50,11 +48,4 @@ public class Answer {
         this.questionID = questionID;
     }
 
-    public int getChosenAnswerID() {
-        return chosenAnswerID;
-    }
-
-    public void setChosenAnswerID(int chosenAnswerID) {
-        this.chosenAnswerID = chosenAnswerID;
-    }
 }
