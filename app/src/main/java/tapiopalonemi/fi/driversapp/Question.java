@@ -1,6 +1,10 @@
 package tapiopalonemi.fi.driversapp;
 
-import android.database.Cursor;
+//import android.database.Cursor;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -12,6 +16,7 @@ public class Question {
     private Answer rightAnswer;
     private int rightAnswerID;
     private Answer chosenAnswer;
+    private boolean isAnswered = false;
 
     //Constructors
     public Question() { answers = new ArrayList<>(); }
@@ -32,6 +37,43 @@ public class Question {
         this.rightAnswerID = rightAnswerID;
     }
 
+    public Question(JSONObject object) {
+        try {
+            this.questionID = object.getInt("ID");
+            this.questionString = object.getString("question");
+            this.rightAnswerID = object.getInt("rightAnswer");
+            this.answers = answersFromJson(object.getJSONArray("answers"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<Question> questionsFromJson(JSONArray jsonObjects) {
+        ArrayList<Question> questionList = new ArrayList<>();
+        for (int i=0; i < jsonObjects.length(); i++) {
+            try {
+                questionList.add(new Question(jsonObjects.getJSONObject(i)));
+            } catch (JSONException e)  {
+                e.printStackTrace();
+            }
+        }
+        return questionList;
+    }
+
+    public static ArrayList<Answer> answersFromJson(JSONArray jsonObjects) {
+        ArrayList<Answer> answers = new ArrayList<>();
+        for (int i=0; i < jsonObjects.length(); i++) {
+            try {
+                answers.add(new Answer(jsonObjects.getJSONObject(i)));
+            } catch (JSONException e)  {
+                e.printStackTrace();
+            }
+        }
+        return answers;
+    }
+
+
+    //Getters & Setters
     public int getQuestionID() {
         return questionID;
     }
@@ -95,5 +137,13 @@ public class Question {
 
     public void setChosenAnswer(Answer chosenAnswer) {
         this.chosenAnswer = chosenAnswer;
+    }
+
+    public boolean isAnswered() {
+        return isAnswered;
+    }
+
+    public void setAnswered(boolean answered) {
+        isAnswered = answered;
     }
 }
