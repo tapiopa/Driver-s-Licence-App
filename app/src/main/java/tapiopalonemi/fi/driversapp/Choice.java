@@ -112,7 +112,7 @@ public class Choice extends AppCompatActivity {
         this.answer = answer;
     }
 
-    private Answer getAnswer(int answerID, MyDBHandler db) {
+    public Answer getAnswer(int answerID, MyDBHandler db) {
         Log.i("CHOICE", "DB: " + db);
         Log.i("CHOICE", "answer id:; " + answerID);
         Answer answer = db.findAnswerBy(answerID);

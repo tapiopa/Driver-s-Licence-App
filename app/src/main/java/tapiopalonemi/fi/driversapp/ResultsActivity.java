@@ -1,6 +1,5 @@
 package tapiopalonemi.fi.driversapp;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -9,13 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 
@@ -69,7 +65,7 @@ public class ResultsActivity extends AppCompatActivity  {
     public void toExam(MenuItem menuItem) {
         Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
-        intent.putExtra("extra", "extra");
+//        intent.putExtra("extra", "extra");
         startActivity(intent);
     }
 
@@ -88,7 +84,9 @@ public class ResultsActivity extends AppCompatActivity  {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-
+        final ListView resultsList = findViewById(R.id.results_list);
+        final TextView emptyResults  = findViewById(R.id.empty_result);
+        final Button newExamButton = findViewById(R.id.new_exam_button);
         db = new MyDBHandler(this);
 //        db.onCreate(db.getWritableDatabase());
 //        db.getWritableDatabase();
@@ -101,18 +99,34 @@ public class ResultsActivity extends AppCompatActivity  {
 //            Log.i("ANSWER", an.getAnswerString());
 //        }
 
-        final ArrayList<Choice> choices = db.getChoices();
-        final ListView resultsList = findViewById(R.id.results_list);
-        final ArrayAdapter arrayAdapter = new ChoiceAdapter(this, choices);
-
-        resultsList.setAdapter(arrayAdapter);
-
-        for (Choice choice : choices) {
-            Log.i("RESULTS", "Question: " + choice.getQuestion().getQuestionString());
-            Log.i("RESULTS", "Answer: " + choice.getAnswer().getAnswerString());
-            Log.i("RESULTS", "Answer is right: " + (choice.getAnswer().isRightAnswer() != 0));
+        final ArrayList<Choice> choices = db.loadAllChoices();
+        if (choices == null || choices.isEmpty()) {
+            emptyResults.setVisibility(View.VISIBLE);
+            resultsList.setVisibility(View.GONE);
+            newExamButton.setText(R.string.button_take_exam);
+        } else {
+            final ArrayAdapter arrayAdapter = new ChoiceAdapter(this, choices);
+            emptyResults.setVisibility(View.GONE);
+            resultsList.setVisibility(View.VISIBLE);
+            resultsList.setAdapter(arrayAdapter);
+            newExamButton.setText(R.string.button_take_new_exam);
         }
 
+
+
+//        for (Choice choice : choices) {
+//            Log.i("RESULTS", "Question: " + choice.getQuestion().getQuestionString());
+//            Log.i("RESULTS", "Answer: " + choice.getAnswer().getAnswerString());
+//            Log.i("RESULTS", "Answer is right: " + (choice.getAnswer().isRightAnswer() != 0));
+//        }
+
+    }
+
+    public void takeNewExam (View view) {
+        Log.i("RESULTS", "Take Exam clicked");
+        db.deleteAllChoices();
+        Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
+        startActivity(intent);
     }
 
 }

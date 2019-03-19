@@ -1,6 +1,5 @@
 package tapiopalonemi.fi.driversapp;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
@@ -26,6 +25,8 @@ public class ExamActivity extends AppCompatActivity {
 
     public ArrayList<Question> questions = new ArrayList<>();
     public ArrayList<Answer> answers = new ArrayList<>();
+    public ArrayList<Choice> choices = new ArrayList<>();
+
     MyDBHandler db;
     int currentQuestion = -1;
 
@@ -65,13 +66,12 @@ public class ExamActivity extends AppCompatActivity {
         Log.i("DB", "going for questions");
         questions = db.loadQuestions();
         answers = db.loadAllAnswers();
+        choices = db.loadAllChoices();
 
-
-
-
-        for (Answer an : answers) {
-            Log.i("ANSWER", an.getAnswerString());
-        }
+//        for (Answer an : answers) {
+//            Log.i("ANSWER", an.getAnswerString());
+//        }
+        updateQuestionsWithChoices();
         nextQuestion(null);
     }
 
@@ -96,7 +96,7 @@ public class ExamActivity extends AppCompatActivity {
     public void toExam(MenuItem menuItem) {
         Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
-        intent.putExtra("extra", "extra");
+//        intent.putExtra("extra", "extra");
         startActivity(intent);
     }
 
@@ -116,7 +116,7 @@ public class ExamActivity extends AppCompatActivity {
     public void buttonToResults(View view) {
         Log.i("BOTTOM NAVIGATION", "to results button clicked");
         Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
-        intent.putExtra("extra", "extra");
+//        intent.putExtra("extra", "extra");
         startActivity(intent);
     }
 
@@ -181,20 +181,24 @@ public class ExamActivity extends AppCompatActivity {
         final TextView questionString = findViewById(R.id.questionString);
         TextView chosenAnswerView = findViewById(R.id.user_answer);
         final ListView answerList = findViewById(R.id.answerList);
-        final Button resultsButton = findViewById(R.id.results);
+//        final Button resultsButton = findViewById(R.id.results);
         final TextView progressText = findViewById(R.id.progressText);
+        String stringQuestion = "Question ";
+        String stringOf = " of ";
 
         chosenAnswerView.setText("");
 
         if (question != null) {
-            progressText.setText("Question " + (currentQuestion + 1) + " of " + questions.size());
+            String stringProgress = stringQuestion + (currentQuestion + 1) + stringOf + questions.size();
+            progressText.setText(stringProgress);
             //Get answer texts for list view
-            final ArrayList<String> questionsAnswers = new ArrayList<>();
-            for (Answer a : question.getAnswers()) {
-                questionsAnswers.add(a.getAnswerString());
-            }
+//            final ArrayList<String> questionsAnswers = new ArrayList<>();
+//            for (Answer a : question.getAnswers()) {
+//                questionsAnswers.add(a.getAnswerString());
+//            }
+//            String stringQuestion = R.string.question_progress;
 
-            String title = "Question " + Integer.toString(question.getQuestionID());
+            String title = stringQuestion + Integer.toString(question.getQuestionID());
             questionTitle.setText(title);
 //            Log.i("SHOW QUESTION, TITLE: ", questionTitle.getText().toString());
 //            Log.i("SHOW QUESTION, STRING", question.getQuestionString());
@@ -248,10 +252,10 @@ public class ExamActivity extends AppCompatActivity {
                     db.addChoice(question, answer);
                     question.setChosenAnswer(answer);
                     question.setAnswered(true);
-                    if (isAllQuestionsAnswered()) {
-//                        Log.i("SHOW QUESTION", "RESULTS: " + db.countRightChoices() + " / " + questions.size());
-                        resultsButton.setEnabled(true);
-                    }
+//                    if (isAllQuestionsAnswered()) {
+////                        Log.i("SHOW QUESTION", "RESULTS: " + db.countRightChoices() + " / " + questions.size());
+//                        resultsButton.setEnabled(true);
+//                    }
 //                    ((AnswerAdapter) arrayAdapter).markAnswer(position, view, parent);
 //                    arrayAdapter.getView(position, view, parent).invalidate();
 //                    setItems(arrayAdapter, position, view, parent);
@@ -260,7 +264,7 @@ public class ExamActivity extends AppCompatActivity {
 //                    nextQuestion(null);
                     Log.i("EXAM", "chosenAnswer: " + chosenAnswerView.getText());
                     chosenAnswerView.setText(answer.getAnswerString());
-//                    arrayAdapter.getView(position, view, parent).invalidate();
+                    arrayAdapter.getView(position, view, parent).invalidate();
 
                 }
             });
@@ -310,6 +314,21 @@ public class ExamActivity extends AppCompatActivity {
             }
         }
         return true;
+    }
+
+    private void updateQuestionsWithChoices() {
+        for (Question question : questions) {
+            Log.i("UPDATE QUESTION", question.getQuestionString());
+            for (Choice choice : choices) {
+                Log.i("UPDATE CHOICE", choice.getAnswer().getAnswerString());
+                if (choice.getQuestion().getQuestionID() == question.getQuestionID()) {
+                    Log.i("UPDATE CHOICE", "chosen");
+                    Answer answer = db.findAnswerBy(choice.getAnswerID());
+                    question.setChosenAnswer(choice.getAnswer(choice.getAnswerID(), db));
+                    question.setAnswered(true);
+                }
+            }
+        }
     }
 
 }
