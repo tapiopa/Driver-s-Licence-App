@@ -1,12 +1,13 @@
 package tapiopalonemi.fi.driversapp;
 
 //import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
 
 //import java.nio.LongBuffer;
 
-public class Choice extends AppCompatActivity {
+public class Choice /*extends AppCompatActivity*/ {
     private int ID;
     private int questionID;
     private int answerID;
@@ -16,18 +17,20 @@ public class Choice extends AppCompatActivity {
 //    private MyDBHandler db = new MyDBHandler(this);
 
 
-    public Choice() {}
+    // --Commented out by Inspection (19/03/2019, 10.08):public Choice() {}
 
-    public Choice(int ID, int questionID, int answerID) {
-//        db = new MyDBHandler(this);
-
-        this.ID = ID;
-        this.questionID = questionID;
-        this.answerID = answerID;
-//        this.question = this.getQuestion(questionID);
-//        this.answer = this.getAnswer(answerID);
-//        this.answerIsRight = answer.getIsRightAnswer();
-    }
+// --Commented out by Inspection START (19/03/2019, 10.08):
+//    public Choice(int ID, int questionID, int answerID) {
+////        db = new MyDBHandler(this);
+//
+//        this.ID = ID;
+//        this.questionID = questionID;
+//        this.answerID = answerID;
+////        this.question = this.getQuestion(questionID);
+////        this.answer = this.getAnswer(answerID);
+////        this.answerIsRight = answer.getIsRightAnswer();
+//    }
+// --Commented out by Inspection STOP (19/03/2019, 10.08)
 
     public Choice(int ID, int questionID, int answerID, int answerIsRight) {
         this.ID = ID;
@@ -46,22 +49,38 @@ public class Choice extends AppCompatActivity {
         this.answer =  this.getAnswer(answerID, db);
     }
 
-    public Choice(int ID, Question question, Answer answer) {
-        this.ID = ID;
-        this.question = question;
-        this.answer = answer;
-        this.questionID = question.getQuestionID();
-        this.answerID = answer.getAnswerID();
-        this.answerIsRight = answer.getIsRightAnswer();
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
+// --Commented out by Inspection START (19/03/2019, 10.09):
+//    public Choice(int ID, Question question, Answer answer) {
+//        this.ID = ID;
+//        this.question = question;
+//        this.answer = answer;
+//        this.questionID = question.getQuestionID();
+// --Commented out by Inspection START (19/03/2019, 10.09):
+// --Commented out by Inspection START (19/03/2019, 10.09):
+//////        this.answerID = answer.getAnswerID();
+// --Commented out by Inspection START (19/03/2019, 10.09):
+////// --Commented out by Inspection START (19/03/2019, 10.09):
+//// --Commented out by Inspection STOP (19/03/2019, 10.09)
+////////        this.answerIsRight = answer.getIsRightAnswer();
+// --Commented out by Inspection STOP (19/03/2019, 10.09)
+//// --Commented out by Inspection STOP (19/03/2019, 10.09)
+// --Commented out by Inspection STOP (19/03/2019, 10.09)
+//    }
+// --Commented out by Inspection START (19/03/2019, 10.09):
+//// --Commented out by Inspection STOP (19/03/2019, 10.09)
+//
+//    public int getID() {
+//        return ID;
+// --Commented out by Inspection START (19/03/2019, 10.09):
+//// --Commented out by Inspection START (19/03/2019, 10.09):
+////// --Commented out by Inspection STOP (19/03/2019, 10.09)
+////    }
+////
+////    public void setID(int ID) {
+// --Commented out by Inspection STOP (19/03/2019, 10.09)
+//        this.ID = ID;
+// --Commented out by Inspection STOP (19/03/2019, 10.09)
+//    }
 
     public int getQuestionID() {
         return questionID;
@@ -91,16 +110,16 @@ public class Choice extends AppCompatActivity {
         return question;
     }
 
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
+//    public void setQuestion(Question question) {
+// --Commented out by Inspection START (19/03/2019, 10.09):
+//        this.question = question;
+//    }
 
     private Question getQuestion(int questionID, MyDBHandler db) {
-        Log.i("CHOICE", "DB: " + db);
-        Log.i("CHOICE", "question id: " + questionID);
+//        Log.i("CHOICE", "DB: " + db);
+//        Log.i("CHOICE", "question id: " + questionID);
         Question question = db.findQuestionBy(questionID);
-        Log.i("CHOICE", "question: " + question);
-
+//        Log.i("CHOICE", "question: " + question);
         return question;
     }
 

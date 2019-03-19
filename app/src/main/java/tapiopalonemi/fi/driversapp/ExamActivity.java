@@ -17,21 +17,22 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import org.jetbrains.annotations.Nullable;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class ExamActivity extends AppCompatActivity {
     private TextView mTextMessage;
 
-    public ArrayList<Question> questions = new ArrayList<>();
-    public ArrayList<Answer> answers = new ArrayList<>();
-    public ArrayList<Choice> choices = new ArrayList<>();
+    private ArrayList<Question> questions = new ArrayList<>();
+    private ArrayList<Answer> answers = new ArrayList<>();
+    private ArrayList<Choice> choices = new ArrayList<>();
 
-    MyDBHandler db;
-    int currentQuestion = -1;
+    private MyDBHandler db;
+    private int currentQuestion = -1;
 
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -63,7 +64,7 @@ public class ExamActivity extends AppCompatActivity {
         db = new MyDBHandler(this);
         db.onCreate(db.getWritableDatabase());
 //        db.getWritableDatabase();
-        Log.i("DB", "going for questions");
+//        Log.i("DB", "going for questions");
         questions = db.loadQuestions();
         answers = db.loadAllAnswers();
         choices = db.loadAllChoices();
@@ -87,21 +88,21 @@ public class ExamActivity extends AppCompatActivity {
     }
 
     public void toHome(MenuItem menuItem) {
-        Log.i("BOTTOM NAVIGATION", "to home navigation item clicked");
+//        Log.i("BOTTOM NAVIGATION", "to home navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
 
 
     public void toExam(MenuItem menuItem) {
-        Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
+//        Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
 //        intent.putExtra("extra", "extra");
         startActivity(intent);
     }
 
     public void toResults(MenuItem menuItem) {
-        Log.i("BOTTOM NAVIGATION", "to results navigation item clicked");
+//        Log.i("BOTTOM NAVIGATION", "to results navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
         startActivity(intent);
     }
@@ -183,13 +184,14 @@ public class ExamActivity extends AppCompatActivity {
         final ListView answerList = findViewById(R.id.answerList);
 //        final Button resultsButton = findViewById(R.id.results);
         final TextView progressText = findViewById(R.id.progressText);
-        String stringQuestion = "Question ";
-        String stringOf = " of ";
+
+        String stringQuestion = getString(R.string.question_progress);
+        String stringOf = getString(R.string.progress_of);
 
         chosenAnswerView.setText("");
 
         if (question != null) {
-            String stringProgress = stringQuestion + (currentQuestion + 1) + stringOf + questions.size();
+            String stringProgress = stringQuestion + " " + (currentQuestion + 1) + " " + stringOf + " " + questions.size();
             progressText.setText(stringProgress);
             //Get answer texts for list view
 //            final ArrayList<String> questionsAnswers = new ArrayList<>();
@@ -262,7 +264,7 @@ public class ExamActivity extends AppCompatActivity {
 //                    arrayAdapter.
 //                    arrayAdapter.getView(position, view, parent).setBackgroundColor(getResources().getColor(R.color.lightBlue));
 //                    nextQuestion(null);
-                    Log.i("EXAM", "chosenAnswer: " + chosenAnswerView.getText());
+//                    Log.i("EXAM", "chosenAnswer: " + chosenAnswerView.getText());
                     chosenAnswerView.setText(answer.getAnswerString());
                     arrayAdapter.getView(position, view, parent).invalidate();
 
@@ -271,16 +273,16 @@ public class ExamActivity extends AppCompatActivity {
         }
     }
 
-    private void setItems(ArrayAdapter arrayAdapter, int position, View view, ViewGroup parent) {
-        for (int i = 0; i < arrayAdapter.getCount(); i++) {
-            View listItem = arrayAdapter.getView(i, view, parent);
-            if (i == position) {
-                listItem.setBackgroundColor(getResources().getColor(R.color.lightBlue));
-            } else {
-                listItem.setBackgroundColor(Color.WHITE);
-            }
-        }
-    }
+//    private void setItems(ArrayAdapter arrayAdapter, int position, View view, ViewGroup parent) {
+//        for (int i = 0; i < arrayAdapter.getCount(); i++) {
+//            View listItem = arrayAdapter.getView(i, view, parent);
+//            if (i == position) {
+//                listItem.setBackgroundColor(getResources().getColor(R.color.lightBlue));
+//            } else {
+//                listItem.setBackgroundColor(Color.WHITE);
+//            }
+//        }
+//    }
 
     @org.jetbrains.annotations.Nullable
     private Question findQuestion(final int questionIndex) {
@@ -293,36 +295,36 @@ public class ExamActivity extends AppCompatActivity {
         }
     }
 
-    @Nullable
-    private Answer findAnswerBy(Question question, String answerString) {
-        for (Answer a : question.getAnswers()) {
-            if (a.getAnswerString() == answerString) {
-                return a;
-            }
-        }
-        return null;
-    }
-
-    private boolean answerIsRight(Answer answer) {
-        return answer.isRightAnswer() != 0;
-    }
-
-    private boolean isAllQuestionsAnswered() {
-        for (Question question : questions) {
-            if (!question.isAnswered()) {
-                return false;
-            }
-        }
-        return true;
-    }
+//    @Nullable
+//    private Answer findAnswerBy(Question question, String answerString) {
+//        for (Answer a : question.getAnswers()) {
+//            if (a.getAnswerString() == answerString) {
+//                return a;
+//            }
+//        }
+//        return null;
+//    }
+//
+//    private boolean answerIsRight(Answer answer) {
+//        return answer.isRightAnswer() != 0;
+//    }
+//
+//    private boolean isAllQuestionsAnswered() {
+//        for (Question question : questions) {
+//            if (!question.isAnswered()) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
 
     private void updateQuestionsWithChoices() {
         for (Question question : questions) {
-            Log.i("UPDATE QUESTION", question.getQuestionString());
+//            Log.i("UPDATE QUESTION", question.getQuestionString());
             for (Choice choice : choices) {
-                Log.i("UPDATE CHOICE", choice.getAnswer().getAnswerString());
+//                Log.i("UPDATE CHOICE", choice.getAnswer().getAnswerString());
                 if (choice.getQuestion().getQuestionID() == question.getQuestionID()) {
-                    Log.i("UPDATE CHOICE", "chosen");
+//                    Log.i("UPDATE CHOICE", "chosen");
                     Answer answer = db.findAnswerBy(choice.getAnswerID());
                     question.setChosenAnswer(choice.getAnswer(choice.getAnswerID(), db));
                     question.setAnswered(true);

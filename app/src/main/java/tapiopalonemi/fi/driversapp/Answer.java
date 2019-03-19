@@ -78,15 +78,19 @@ public class Answer {
         return isRightAnswer;
     }
 
-    public void setIsRightAnswer(int isRightAnswer) {
-        this.isRightAnswer = isRightAnswer;
-    }
+// --Commented out by Inspection START (19/03/2019, 10.08):
+//    public void setIsRightAnswer(int isRightAnswer) {
+//        this.isRightAnswer = isRightAnswer;
+//    }
+// --Commented out by Inspection STOP (19/03/2019, 10.08)
 
     public Question getQuestion() {
         return question;
     }
 
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
+// --Commented out by Inspection START (19/03/2019, 10.08):
+//    public void setQuestion(Question question) {
+//        this.question = question;
+//    }
+// --Commented out by Inspection STOP (19/03/2019, 10.08)
 }

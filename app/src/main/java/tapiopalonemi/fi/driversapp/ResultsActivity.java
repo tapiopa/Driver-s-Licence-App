@@ -18,11 +18,11 @@ import java.util.ArrayList;
 
 public class ResultsActivity extends AppCompatActivity  {
     private TextView mTextMessage;
-    public ArrayList<Question> questions = new ArrayList<>();
-    public ArrayList<Answer> answers = new ArrayList<>();
-    MyDBHandler db;
+    // --Commented out by Inspection (19/03/2019, 10.09):public ArrayList<Question> questions = new ArrayList<>();
+    // --Commented out by Inspection (19/03/2019, 10.09):public ArrayList<Answer> answers = new ArrayList<>();
+    private MyDBHandler db;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -87,6 +87,10 @@ public class ResultsActivity extends AppCompatActivity  {
         final ListView resultsList = findViewById(R.id.results_list);
         final TextView emptyResults  = findViewById(R.id.empty_result);
         final Button newExamButton = findViewById(R.id.new_exam_button);
+        final TextView scoreText = findViewById(R.id.score_text);
+
+
+
         db = new MyDBHandler(this);
 //        db.onCreate(db.getWritableDatabase());
 //        db.getWritableDatabase();
@@ -99,17 +103,26 @@ public class ResultsActivity extends AppCompatActivity  {
 //            Log.i("ANSWER", an.getAnswerString());
 //        }
 
+
         final ArrayList<Choice> choices = db.loadAllChoices();
+
+        final int numberOfQuestions = db.countNumberOfQuestions();
+        final int numberOfRightAnswers = db.countRightChoices();
+
         if (choices == null || choices.isEmpty()) {
             emptyResults.setVisibility(View.VISIBLE);
             resultsList.setVisibility(View.GONE);
             newExamButton.setText(R.string.button_take_exam);
+            scoreText.setVisibility(View.GONE);
         } else {
             final ArrayAdapter arrayAdapter = new ChoiceAdapter(this, choices);
             emptyResults.setVisibility(View.GONE);
             resultsList.setVisibility(View.VISIBLE);
             resultsList.setAdapter(arrayAdapter);
             newExamButton.setText(R.string.button_take_new_exam);
+            scoreText.setVisibility(View.VISIBLE);
+            String score = "SCORE: " + numberOfRightAnswers + " / " + numberOfQuestions;
+            scoreText.setText(score);
         }
 
 

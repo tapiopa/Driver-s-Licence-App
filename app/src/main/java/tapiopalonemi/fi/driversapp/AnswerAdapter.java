@@ -2,23 +2,26 @@ package tapiopalonemi.fi.driversapp;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
+//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
-public class AnswerAdapter extends ArrayAdapter<Answer> {
+class AnswerAdapter extends ArrayAdapter<Answer> {
 
     public AnswerAdapter(Context context, ArrayList<Answer> answers) {
         super(context, 0, answers);
     }
 
+    @NotNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NotNull ViewGroup parent) {
         Answer answer = getItem(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_answer, parent, false);
@@ -27,6 +30,7 @@ public class AnswerAdapter extends ArrayAdapter<Answer> {
         TextView answerString = convertView.findViewById(R.id.answer_string);
 //        TextView userAnswer = parent.findViewById(R.id.user_answer);
 
+        assert answer != null;
         if (answer.getQuestion().isAnswered() &&
             answer.getQuestion().getChosenAnswer().getAnswerID() == answer.getAnswerID()) {
 //            chosenAnswer.setBackgroundColor(Color.CYAN);
@@ -64,6 +68,5 @@ public class AnswerAdapter extends ArrayAdapter<Answer> {
 //            answerString.setText(answer.getAnswerString());
         }
 
-        return;
     }
 }

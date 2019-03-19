@@ -37,7 +37,7 @@ public class Question {
         this.rightAnswerID = rightAnswerID;
     }
 
-    public Question(JSONObject object) {
+    private Question(JSONObject object) {
         try {
             this.questionID = object.getInt("ID");
             this.questionString = object.getString("question");
@@ -60,7 +60,7 @@ public class Question {
         return questionList;
     }
 
-    public static ArrayList<Answer> answersFromJson(JSONArray jsonObjects) {
+    private static ArrayList<Answer> answersFromJson(JSONArray jsonObjects) {
         ArrayList<Answer> answers = new ArrayList<>();
         for (int i=0; i < jsonObjects.length(); i++) {
             try {
@@ -96,10 +96,6 @@ public class Question {
 
     public void setAnswers(ArrayList<Answer> answers) {
         this.answers = answers;
-    }
-
-    public void findAnswersForQuestion() {
-
     }
 
     public void addAnswer(Answer answer) {

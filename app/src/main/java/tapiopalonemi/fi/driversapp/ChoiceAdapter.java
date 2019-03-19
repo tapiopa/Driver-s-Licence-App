@@ -2,23 +2,26 @@ package tapiopalonemi.fi.driversapp;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
+//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
-public class ChoiceAdapter extends ArrayAdapter<Choice> {
+class ChoiceAdapter extends ArrayAdapter<Choice> {
 
     public ChoiceAdapter(Context context, ArrayList<Choice> choices) {
         super(context, 0, choices);
     }
 
+    @NotNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NotNull ViewGroup parent) {
         Choice choice = getItem(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_choice, parent, false);
@@ -28,6 +31,7 @@ public class ChoiceAdapter extends ArrayAdapter<Choice> {
         TextView choiceIsRight = convertView.findViewById(R.id.choice_answer_is_right);
 
 //        TextView userAnswer = parent.findViewById(R.id.user_answer);
+        assert choice != null;
         choiceQuestion.setText(choice.getQuestion().getQuestionString());
         if (choice.getQuestion().isAnswered() &&
                 choice.getAnswerIsRight() != 0) {
@@ -66,7 +70,6 @@ public class ChoiceAdapter extends ArrayAdapter<Choice> {
 //            answerString.setText(answer.getAnswerString());
         }
 
-        return;
     }
 }
 
