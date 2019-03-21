@@ -1,14 +1,17 @@
 <resources>
-    <string name="app_name">Driver\'s App</string>
+    <string name="app_name" translatable="false">Driver\'s App</string>
     <string name="title_home">Home</string>
-    <string name="title_results">Results</string>
+    <string name="title_results">RESULTS</string>
     <string name="title_exam">Take Exam</string>
     <string name="button_previous">Previous</string>
     <string name="button_next">Next</string>
-    <string name="button_take_exam">Take Exam</string>
-    <string name="button_take_new_exam">Take New Exam</string>
+    <string name="button_take_exam">Start Exam</string>
+    <string name="button_take_new_exam">Start New Exam</string>
     <string name="title_your_answer">Your Answer</string>
     <string name="question_progress">Question </string>
     <string name="progress_of"> of </string>
     <string name="results_exhortation">Go take an exam!</string>
+    <string name="menu_results">Results</string>
+    <string name="sym_right">✔️</string>
+    <string name="button_results">Results</string>
 </resources>

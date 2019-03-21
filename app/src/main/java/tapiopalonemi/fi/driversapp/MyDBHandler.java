@@ -421,6 +421,23 @@ class MyDBHandler extends SQLiteOpenHelper {
         Log.i("MBDATAHANDLER", "Choices deleted");
     }
 
+    public int countChoices() {
+        String query = "SELECT COUNT(*) FROM " + TABLE_USER_CHOICE;
+        Log.i("MYDBHANDLER", query);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        int count = -1;
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            count = Integer.parseInt(cursor.getString(0));
+            cursor.close();
+        } else {
+            count = -1;
+        }
+        db.close();
+        return count;
+    }
+
     public int countRightChoices() {
         String query = "SELECT COUNT(*) FROM " + TABLE_USER_CHOICE + " WHERE " + COLUMN_ANSWER_IS_RIGHT + " = " + 1;
         Log.i("MYDBHANDLER", query);

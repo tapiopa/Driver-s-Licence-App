@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
+//                    navigation.setSelectedItemId(R.id.navigation_home);
                     Log.i("HOME BOTTOM NAVIGATION", "HOME CLICKED");
                     return true;
                 case R.id.navigation_exam:
@@ -60,14 +61,14 @@ public class MainActivity extends AppCompatActivity {
     public void buttonToExam(View view) {
         Log.i("BOTTOM NAVIGATION", "to exam button clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
-        intent.putExtra("extra", "extra");
+//        intent.putExtra("extra", "extra");
         startActivity(intent);
     }
 
     public void buttonToResults(View view) {
         Log.i("BOTTOM NAVIGATION", "to results button clicked");
         Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
-        intent.putExtra("extra", "extra");
+//        intent.putExtra("extra", "extra");
         startActivity(intent);
     }
 
@@ -80,8 +81,7 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-
+//        navigation.setSelectedItemId(R.id.navigation_home);
     }
 
 }

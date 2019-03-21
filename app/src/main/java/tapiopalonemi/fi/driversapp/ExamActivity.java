@@ -27,6 +27,7 @@ public class ExamActivity extends AppCompatActivity {
     private ArrayList<Question> questions = new ArrayList<>();
     private ArrayList<Answer> answers = new ArrayList<>();
     private ArrayList<Choice> choices = new ArrayList<>();
+    ArrayAdapter arrayAdapter;// = new AnswerAdapter(this, answers);
 
     private MyDBHandler db;
     private int currentQuestion = -1;
@@ -60,7 +61,9 @@ public class ExamActivity extends AppCompatActivity {
         mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+//        navigation.setSelectedItemId(R.id.navigation_exam);
 
+        //arrayAdapter = new AnswerAdapter(this, answers);
         db = new MyDBHandler(this);
         db.onCreate(db.getWritableDatabase());
 //        db.getWritableDatabase();
@@ -184,6 +187,13 @@ public class ExamActivity extends AppCompatActivity {
         final ListView answerList = findViewById(R.id.answerList);
 //        final Button resultsButton = findViewById(R.id.results);
         final TextView progressText = findViewById(R.id.progressText);
+        final Button newExamButton = findViewById(R.id.new_exam);
+
+        if (db.countChoices() > 0) {
+            newExamButton.setEnabled(true);
+        } else {
+            newExamButton.setEnabled(false);
+        }
 
         String stringQuestion = getString(R.string.question_progress);
         String stringOf = getString(R.string.progress_of);
@@ -237,7 +247,8 @@ public class ExamActivity extends AppCompatActivity {
 //                }
 //            };
 
-            final ArrayAdapter arrayAdapter = new AnswerAdapter(this, question.getAnswers());
+//            final ArrayAdapter arrayAdapter = new AnswerAdapter(this, question.getAnswers());
+            arrayAdapter = new AnswerAdapter(this, question.getAnswers());
 
             answerList.setAdapter(arrayAdapter);
 
@@ -266,7 +277,8 @@ public class ExamActivity extends AppCompatActivity {
 //                    nextQuestion(null);
 //                    Log.i("EXAM", "chosenAnswer: " + chosenAnswerView.getText());
                     chosenAnswerView.setText(answer.getAnswerString());
-                    arrayAdapter.getView(position, view, parent).invalidate();
+                    arrayAdapter.notifyDataSetChanged();
+//                    arrayAdapter.getView(position, view, parent).invalidate();
 
                 }
             });
@@ -319,15 +331,19 @@ public class ExamActivity extends AppCompatActivity {
 //    }
 
     private void updateQuestionsWithChoices() {
+        Log.i("UPDATE QUESTIONS WITH CHOICES", "updating...");
         for (Question question : questions) {
-//            Log.i("UPDATE QUESTION", question.getQuestionString());
+            Log.i("UPDATE QUESTION", "question string: " + question.getQuestionString());
             for (Choice choice : choices) {
-//                Log.i("UPDATE CHOICE", choice.getAnswer().getAnswerString());
+                Log.i("UPDATE CHOICE", "answer string: " + choice.getAnswer().getAnswerString());
                 if (choice.getQuestion().getQuestionID() == question.getQuestionID()) {
-//                    Log.i("UPDATE CHOICE", "chosen");
-                    Answer answer = db.findAnswerBy(choice.getAnswerID());
-                    question.setChosenAnswer(choice.getAnswer(choice.getAnswerID(), db));
+
+                    Answer answer = choice.getAnswer(choice.getAnswerID(), db);
+                    question.setChosenAnswer(answer);
                     question.setAnswered(true);
+                    Log.i("UPDATE CHOICE", "question: " + question.getQuestionID() + ", answer: " + answer.getAnswerID() +
+                            ", choice question: " + choice.getQuestion().getQuestionID() + ", question chosen anser: " + question.getChosenAnswer().getAnswerID());
+
                 }
             }
         }
