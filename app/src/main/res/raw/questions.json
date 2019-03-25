@@ -1,0 +1,200 @@
+[
+  {
+    "questionID" : 1,
+    "questionString" : "What do you know about vehicle speed limits?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 2,
+    "questionString" : "How much should be the distance between the cars if one is towing another one with a rope",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 3,
+    "questionString" : "What does the red triangle at the rear of a vehicle mean?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 4,
+    "questionString" : "Which of motor vehicle insurance types is compulsory?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 5,
+    "questionString" : "What type of insurance covers vandalism and fire damage to your vehicle?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 6,
+    "questionString" : "With a B license you can drive a combination of a vehicle and a trailer with a total weight of up to ...",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 7,
+    "questionString" : "What can follow if you leave your vehicle traffic insurance unpaid",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 8,
+    "questionString" : "Which of the following refers to vehicle active safety?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 9,
+    "questionString" : "What letter in automatic transmission indicates a driving gear?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 10,
+    "questionString" : "What damages are covered by a motor vehicle insurance?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 11,
+    "questionString" : "When the vehicle is towed with a tow rope...",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 12,
+    "questionString" : "When does a passenger car need to be taken to inspection after its first registration?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 13,
+    "questionString" : "What is passive vehicle safety?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 14,
+    "questionString" : "How do you distinguish between the negative pole and the positive pole of a battery?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 15,
+    "questionString" : "What do you know about the safety devices in your car?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 16,
+    "questionString" : "What is the minimum groove depth in winter tires?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 17,
+    "questionString" : "When should winter tires be used?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 18,
+    "questionString" : "What is active safety system?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 19,
+    "questionString" : "What can happen if there is low air pressure in the rear tires?",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 20,
+    "questionString" : "The driver's fatigue increases the risk of being involved in an accident. Which of the following helps to combat fatigue?",
+    "rightAnswer" : -1,
+    "picture" : "20"
+  },
+  {
+    "questionID" : 21,
+    "questionString" : "The driver's excessive self-confidence in his own competence is a major risk factor since...",
+    "rightAnswer" : -1,
+    "picture" : ""
+  },
+  {
+    "questionID" : 22,
+    "questionString" : "What is the risk associated with the situation in the picture?",
+    "rightAnswer" : -1,
+    "picture" : "22"
+  },
+  {
+    "questionID" : 23,
+    "questionString" : "Which of the following is related to risk factors inside the vehicle?",
+    "rightAnswer" : -1,
+    "picture" : "23"
+  },
+  {
+    "questionID" : 24,
+    "questionString" : "Which of the following driver qualities increases the risk of traffic accidents?",
+    "rightAnswer" : -1,
+    "picture" : "24"
+  },
+  {
+    "questionID" : 25,
+    "questionString" : "The driver's fatigue increases the risk of being involved in an accident. Which of the following helps to combat fatigue while driving?",
+    "rightAnswer" : -1,
+    "picture" : "25"
+  },
+  {
+    "questionID" : 26,
+    "questionString" : "Fatigue decreases your ability to evaluate while driving. Which of the following are symptoms of fatigue?",
+    "rightAnswer" : -1,
+    "picture" : "26"
+  },
+  {
+    "questionID" : 27,
+    "questionString" : "The vehicle is in motion in the picture. What are the risk factors in the situation?",
+    "rightAnswer" : -1,
+    "picture" : "27"
+  },
+  {
+    "questionID" : 28,
+    "questionString" : "Fatigue weakens your ability to evaluate while driving. Which of the following are symptoms of fatigue?",
+    "rightAnswer" : -1,
+    "picture" : "28"
+  },
+  {
+    "questionID" : 29,
+    "questionString" : "The driver's fatigue increases the risk of being involved in an accident. Which of the following can worsen fatigue before driving?",
+    "rightAnswer" : -1,
+    "picture" : "29"
+  },
+  {
+    "questionID" : 30,
+    "questionString" : "I can change lane",
+    "rightAnswer" : -1,
+    "picture" : "30"
+  },
+  {
+    "questionID" : 31,
+    "questionString" : "I can change lane",
+    "rightAnswer" : -1,
+    "picture" : "31"
+  },
+  {
+    "questionID" : 32,
+    "questionString" : "I can change lane",
+    "rightAnswer" : -1,
+    "picture" : "32"
+  },
+  {
+    "questionID" : 33,
+    "questionString" : "I can change lane",
+    "rightAnswer" : -1,
+    "picture" : "33"
+  }
+]

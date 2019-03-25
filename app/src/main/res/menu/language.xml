@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="English"
+        android:id="@+id/english"
+        />
+    <item
+        android:title="Finnish"
+        android:id="@+id/finnish"
+        />
+    <item
+        android:title="Swedish"
+        android:id="@+id/swedish"
+        />
+    <item
+        android:title="Nepali / नेपाली"
+        android:id="@+id/nepali"
+        />
+    <item
+        android:title="Hungarian"
+        android:id="@+id/hungarian"
+        />
+</menu>

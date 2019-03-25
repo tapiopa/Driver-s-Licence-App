@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Driver\'s App</string>
+    <string name="title_home" translatable="false">घर</string>
+    <string name="title_results">परिक्षाफल</string>
+    <string name="title_exam">जाँच</string>
+    <string name="button_previous">अघिल्लो</string>
+    <string name="button_next">अर्को</string>
+    <string name="button_take_exam">जाँच सुरु</string>
+    <string name="button_take_new_exam">नयाँ जाँच सुरु</string>
+    <string name="title_your_answer">तपाँइको उत्तर</string>
+    <string name="question_progress">प्रश्न</string>
+    <string name="progress_of">"/ "</string>
+    <string name="results_exhortation">जाँच सुरु गर</string>
+    <string name="menu_results">परिक्षाफल</string>
+    <string name="title_score">अंक</string>
+    <string name="button_results">परिक्षाफल</string>
+    <string name="sym_right">✔️</string>
+</resources>

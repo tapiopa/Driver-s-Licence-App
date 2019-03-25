@@ -14,4 +14,5 @@
     <string name="menu_results">Results</string>
     <string name="sym_right">✔️</string>
     <string name="button_results">Results</string>
+    <string name="title_score">Score</string>
 </resources>

@@ -16,6 +16,12 @@ public class Question {
     private Answer rightAnswer;
     private int rightAnswerID;
     private Answer chosenAnswer;
+    private String picture;
+
+    public Question(int questionID) {
+        this.questionID = questionID;
+    }
+
     private boolean isAnswered = false;
 
     //Constructors
@@ -39,9 +45,10 @@ public class Question {
 
     private Question(JSONObject object) {
         try {
-            this.questionID = object.getInt("ID");
-            this.questionString = object.getString("question");
+            this.questionID = object.getInt("questionID");
+            this.questionString = object.getString("questionString");
             this.rightAnswerID = object.getInt("rightAnswer");
+            this.picture = object.getString("picture");
             this.answers = answersFromJson(object.getJSONArray("answers"));
         } catch (JSONException e) {
             e.printStackTrace();
@@ -141,5 +148,13 @@ public class Question {
 
     public void setAnswered(boolean answered) {
         isAnswered = answered;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 }

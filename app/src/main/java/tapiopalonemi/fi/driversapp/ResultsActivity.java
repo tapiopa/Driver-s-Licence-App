@@ -122,7 +122,8 @@ public class ResultsActivity extends AppCompatActivity  {
             resultsList.setAdapter(arrayAdapter);
             newExamButton.setText(R.string.button_take_new_exam);
             scoreText.setVisibility(View.VISIBLE);
-            String score = "SCORE: " + numberOfRightAnswers + " / " + numberOfQuestions;
+            String score = getString(R.string.title_score) + " " + LanguageHelper.convertNumber(numberOfRightAnswers, this) + " / " +
+                    LanguageHelper.convertNumber(numberOfQuestions, this);
             scoreText.setText(score);
         }
 

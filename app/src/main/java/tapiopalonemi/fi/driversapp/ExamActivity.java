@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ExamActivity extends AppCompatActivity {
     private TextView mTextMessage;
@@ -75,6 +77,14 @@ public class ExamActivity extends AppCompatActivity {
 //        for (Answer an : answers) {
 //            Log.i("ANSWER", an.getAnswerString());
 //        }
+
+        Locale primaryLocale = this.getResources().getConfiguration().getLocales().get(0);
+//        String locale = primaryLocale.getDisplayName();
+        String nepali = LanguageHelper.convertNumber(123, this);
+
+        Log.i("EXAM ACTIVITY", "Locale: " + primaryLocale);
+        Log.i("EXAM ACTIVITY", "is nepali: " + nepali);
+
         updateQuestionsWithChoices();
         nextQuestion(null);
     }
@@ -187,21 +197,23 @@ public class ExamActivity extends AppCompatActivity {
         final ListView answerList = findViewById(R.id.answerList);
 //        final Button resultsButton = findViewById(R.id.results);
         final TextView progressText = findViewById(R.id.progressText);
-        final Button newExamButton = findViewById(R.id.new_exam);
+        ImageView image = findViewById(R.id.imageView);
+        image.setImageResource(R.drawable.fi_22);
+//        final Button newExamButton = findViewById(R.id.new_exam);
 
-        if (db.countChoices() > 0) {
-            newExamButton.setEnabled(true);
-        } else {
-            newExamButton.setEnabled(false);
-        }
+//        if (db.countChoices() > 0) {
+//            newExamButton.setEnabled(true);
+//        } else {
+//            newExamButton.setEnabled(false);
+//        }
 
-        String stringQuestion = getString(R.string.question_progress);
+        String stringQuestion = getString(R.string.question_progress) + " " + LanguageHelper.convertNumber(currentQuestion + 1, this);
         String stringOf = getString(R.string.progress_of);
 
         chosenAnswerView.setText("");
 
         if (question != null) {
-            String stringProgress = stringQuestion + " " + (currentQuestion + 1) + " " + stringOf + " " + questions.size();
+            String stringProgress = stringQuestion + " " + stringOf + " " + LanguageHelper.convertNumber(questions.size(), this) ;
             progressText.setText(stringProgress);
             //Get answer texts for list view
 //            final ArrayList<String> questionsAnswers = new ArrayList<>();
@@ -210,8 +222,8 @@ public class ExamActivity extends AppCompatActivity {
 //            }
 //            String stringQuestion = R.string.question_progress;
 
-            String title = stringQuestion + Integer.toString(question.getQuestionID());
-            questionTitle.setText(title);
+//            String title = stringQuestion + Integer.toString(question.getQuestionID());
+            questionTitle.setText(stringQuestion);
 //            Log.i("SHOW QUESTION, TITLE: ", questionTitle.getText().toString());
 //            Log.i("SHOW QUESTION, STRING", question.getQuestionString());
             questionString.setText(question.getQuestionString());
