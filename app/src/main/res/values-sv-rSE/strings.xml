@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Driver\'s App</string>
+    <string name="title_home" translatable="false">Hem</string>
+    <string name="title_results">RESULTAT</string>
+    <string name="title_exam">Ta exam</string>
+    <string name="button_next">Nästa</string>
+    <string name="button_take_exam">Ta exam</string>
+    <string name="button_take_new_exam">Ta en ny exam</string>
+    <string name="title_your_answer">Din svar</string>
+    <string name="question_progress">Fråga</string>
+    <string name="progress_of">av</string>
+    <string name="results_exhortation">Testa dina kunskaper!</string>
+    <string name="menu_results">Resultat</string>
+    <string name="button_results">Resultat</string>
+    <string name="sym_right">✔️</string>
+    <string name="button_previous">Förra</string>
+    <string name="title_score">Poäng</string>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Driver\'s App</string>
+    <string name="title_home" translatable="false">Aloitus</string>
+    <string name="title_results">TULOS</string>
+    <string name="title_exam">Testi</string>
+    <string name="button_previous">Edellinen</string>
+    <string name="button_next">Seuraava</string>
+    <string name="button_take_exam">Aloita testi</string>
+    <string name="button_take_new_exam">Aloita uusi testi</string>
+    <string name="title_your_answer">Vastauksesi</string>
+    <string name="question_progress">Kysymys</string>
+    <string name="progress_of">/</string>
+    <string name="results_exhortation">Testaa tietosi!</string>
+    <string name="menu_results">Tulos</string>
+    <string name="sym_right">✔️</string>
+    <string name="button_results">Tulos</string>
+    <string name="title_score">Tulos</string>
+</resources>

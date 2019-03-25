@@ -1,0 +1,572 @@
+[
+  {
+    "answerID" : 1,
+    "questionID" : 1,
+    "answerString" : "The van has a speed limit of 80 km/h if there is no ABS and its unloaded weight is 2000 kg.",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 2,
+    "questionID" : 1,
+    "answerString" : "Truck speed limit is 120 km/h",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 3,
+    "questionID" : 1,
+    "answerString" : "Tractor speed limit is 50km/h",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 4,
+    "questionID" : 2,
+    "answerString" : "Minimum 3m and maximum 6m",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 5,
+    "questionID" : 2,
+    "answerString" : "At least one meter and up to 6m",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 6,
+    "questionID" : 2,
+    "answerString" : "At least 2m and no more than 6m",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 7,
+    "questionID" : 3,
+    "answerString" : "The triangle warns of a slow moving vehicle with the maximum authorized speed of 45 ",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 8,
+    "questionID" : 3,
+    "answerString" : "Overtaking a vehicle with such triangle is prohibited",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 9,
+    "questionID" : 3,
+    "answerString" : "The triangle warns that the vehicle has a problem",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 10,
+    "questionID" : 4,
+    "answerString" : "Motor insurance",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 11,
+    "questionID" : 4,
+    "answerString" : "Motor insurance and comprehensive insurance",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 12,
+    "questionID" : 4,
+    "answerString" : "Comprehensive insurance",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 13,
+    "questionID" : 5,
+    "answerString" : "Car insurance (comprehensive insurance)",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 14,
+    "questionID" : 5,
+    "answerString" : "Motor insurance",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 15,
+    "questionID" : 5,
+    "answerString" : "Life insurance",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 16,
+    "questionID" : 6,
+    "answerString" : "3500kg",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 17,
+    "questionID" : 6,
+    "answerString" : "4000kg",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 18,
+    "questionID" : 6,
+    "answerString" : "2500kg",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 19,
+    "questionID" : 7,
+    "answerString" : "Vehicle traffic insurance is not mandatory",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 20,
+    "questionID" : 7,
+    "answerString" : "You may get a notice from the police",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 21,
+    "questionID" : 7,
+    "answerString" : "This will be marked in your credit report and your vehicle's yearly inspection cannot be done.",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 22,
+    "questionID" : 8,
+    "answerString" : "Stability control",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 23,
+    "questionID" : 8,
+    "answerString" : "The car seat",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 24,
+    "questionID" : 8,
+    "answerString" : "Safety belt",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 25,
+    "questionID" : 9,
+    "answerString" : "D",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 26,
+    "questionID" : 9,
+    "answerString" : "N",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 27,
+    "questionID" : 9,
+    "answerString" : "R",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 28,
+    "questionID" : 10,
+    "answerString" : "Bodily injuries in the policyholder’s own vehicle, and bodily injuries or property damage caused to the innocent party and other parties involved",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 29,
+    "questionID" : 10,
+    "answerString" : "The insured vehicle itself and the loss or damage caused to goods in it",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 30,
+    "questionID" : 10,
+    "answerString" : "All the damages and costs",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 32,
+    "questionID" : 11,
+    "answerString" : "both ends of the tow rope must have warning flags.",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 32,
+    "questionID" : 11,
+    "answerString" : "tow rope does not need to be marked with warning flags",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 33,
+    "questionID" : 11,
+    "answerString" : "There should be a warning flag in the middle of the tow rope",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 34,
+    "questionID" : 12,
+    "answerString" : "After 1 year",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 35,
+    "questionID" : 12,
+    "answerString" : "After 2 years",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 36,
+    "questionID" : 12,
+    "answerString" : "After 4 years",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 37,
+    "questionID" : 13,
+    "answerString" : "Passive safety refers to the system that warns the driver when vehicle's speed exceeds the speed limit.",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 38,
+    "questionID" : 13,
+    "answerString" : "Passive safety helps prevent the car from an accident.",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 39,
+    "questionID" : 13,
+    "answerString" : "Passive safety refers to the devices that aim to protect the driver and the passengers in case of an accident (e.g. seat belts and airbags)",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 40,
+    "questionID" : 14,
+    "answerString" : "The negative pole always has a green plastic ring",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 41,
+    "questionID" : 14,
+    "answerString" : "The negative pole is always on the side of the engine",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 42,
+    "questionID" : 14,
+    "answerString" : "The negative pole is marked with a minus sign.",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 43,
+    "questionID" : 15,
+    "answerString" : "The use of rear seat belt is optional",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 44,
+    "questionID" : 15,
+    "answerString" : "The seat belt needs to be used only outside urban area",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 45,
+    "questionID" : 15,
+    "answerString" : "The use of seat belts helps prevent the injury, especially at low speeds",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 46,
+    "questionID" : 16,
+    "answerString" : "3,0 mm",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 47,
+    "questionID" : 16,
+    "answerString" : "2,0 mm",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 48,
+    "questionID" : 16,
+    "answerString" : "2,5 mm",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 49,
+    "questionID" : 17,
+    "answerString" : "December, January and February",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 50,
+    "questionID" : 17,
+    "answerString" : "September, October, November and December",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 51,
+    "questionID" : 17,
+    "answerString" : "October, November and December",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 52,
+    "questionID" : 18,
+    "answerString" : "It protects the driver and the passengers in the event of an accident.",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 53,
+    "questionID" : 18,
+    "answerString" : "It helps prevent the car from an accident.",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 54,
+    "questionID" : 18,
+    "answerString" : "It protects the driver and the passengers after an accident.",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 55,
+    "questionID" : 19,
+    "answerString" : "The air pressure in the front tires can also reduce",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 56,
+    "questionID" : 19,
+    "answerString" : "The driver needs to constantly adjust the steering on a straight road",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 57,
+    "questionID" : 19,
+    "answerString" : "The engine may overheat",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 58,
+    "questionID" : 20,
+    "answerString" : "Heavy lunch before driving",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 59,
+    "questionID" : 20,
+    "answerString" : "Sufficient night's sleep before driving",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 60,
+    "questionID" : 20,
+    "answerString" : "Stretching before driving",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 61,
+    "questionID" : 21,
+    "answerString" : "it can make you assess the accident risk more realistically.",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 62,
+    "questionID" : 21,
+    "answerString" : "it can make you underestimate the risk of an accident and its consequences.",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 63,
+    "questionID" : 21,
+    "answerString" : "it can make you drive more calmly.",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 64,
+    "questionID" : 22,
+    "answerString" : "The driver appears tired.",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 65,
+    "questionID" : 22,
+    "answerString" : "The driver's head restraint is incorrectly adjusted",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 66,
+    "questionID" : 22,
+    "answerString" : "There are no risk factors in the situation.",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 67,
+    "questionID" : 23,
+    "answerString" : "Parking assistance alarm sound",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 68,
+    "questionID" : 23,
+    "answerString" : "Adjustment of air conditioning or other equipment while driving",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 69,
+    "questionID" : 23,
+    "answerString" : "Automatic air conditioner adjustment",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 70,
+    "questionID" : 24,
+    "answerString" : "a.\tDriver's ability to drive calmly",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 71,
+    "questionID" : 24,
+    "answerString" : "Over-evaluation of the driver's own driving skills",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 72,
+    "questionID" : 24,
+    "answerString" : "Driver's ability to take into account other road users",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 73,
+    "questionID" : 25,
+    "answerString" : "Adjusting air conditioning to cooler",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 74,
+    "questionID" : 25,
+    "answerString" : "Adjusting air conditioning to warmer",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 75,
+    "questionID" : 25,
+    "answerString" : "Listening to music louder",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 76,
+    "questionID" : 26,
+    "answerString" : "You drive past the intersection where you were thinking to turn because you did not notice the road signs.",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 77,
+    "questionID" : 26,
+    "answerString" : "Listening to music louder than normal.",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 78,
+    "questionID" : 26,
+    "answerString" : "You choose to drive shorter route to home.",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 79,
+    "questionID" : 27,
+    "answerString" : "The situation in the picture does not seem to have risk factors",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 80,
+    "questionID" : 27,
+    "answerString" : "Sunshine disturbing the driver",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 81,
+    "questionID" : 27,
+    "answerString" : "The driver's action takes the attention away from the traffic situation and can cause an accident",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 82,
+    "questionID" : 28,
+    "answerString" : "Calm driving",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 83,
+    "questionID" : 28,
+    "answerString" : "Increased concentration",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 84,
+    "questionID" : 28,
+    "answerString" : "Slow reactions, lack of concentration, and less steering corrections",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 85,
+    "questionID" : 29,
+    "answerString" : "Big cup of coffee",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 86,
+    "questionID" : 29,
+    "answerString" : "Light lunch",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 87,
+    "questionID" : 29,
+    "answerString" : "Heavy lunch",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 88,
+    "questionID" : 30,
+    "answerString" : "True",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 89,
+    "questionID" : 30,
+    "answerString" : "False",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 90,
+    "questionID" : 31,
+    "answerString" : "True",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 91,
+    "questionID" : 31,
+    "answerString" : "False",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 92,
+    "questionID" : 32,
+    "answerString" : "True",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 93,
+    "questionID" : 32,
+    "answerString" : "False",
+    "answerIsRight" : 0
+  },
+  {
+    "answerID" : 0,
+    "questionID" : 33,
+    "answerString" : "True",
+    "answerIsRight" : 1
+  },
+  {
+    "answerID" : 33,
+    "questionID" : 0,
+    "answerString" : "False",
+    "answerIsRight" : 0
+  }
+]

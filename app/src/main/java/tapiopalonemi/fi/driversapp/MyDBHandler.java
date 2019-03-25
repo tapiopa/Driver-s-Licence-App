@@ -8,16 +8,22 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
-public class MyDBHandler extends SQLiteOpenHelper {
+class MyDBHandler extends SQLiteOpenHelper {
 
     //information of database
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "driverdatabase8.db";
+    public static final String TABLE_APPLICATION = "application";
     public static final String TABLE_QUESTION = "question";
     public static final String TABLE_ANSWER = "answer";
     public static final String TABLE_USER_CHOICE = "userChoice";
+    public static final String COLUMN_IS_DATA_LOADED = "isDataLoaded";
     public static final String COLUMN_QUESTION_ID = "questionID";
     public static final String COLUMN_QUESTION_STRING = "questionString";
     public static final String COLUMN_RIGHT_ANSWER = "rightAnswer";
@@ -27,10 +33,12 @@ public class MyDBHandler extends SQLiteOpenHelper {
 //    public static final String COLUMN_ANSWER_CHOSEN = "answerChosen";
     public static final String COLUMN_CHOICE_ID = "choiceID";
 
-    //initialize the database
-    public MyDBHandler(Context context, String name,  SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
-    }
+// --Commented out by Inspection START (19/03/2019, 10.09):
+//    //initialize the database
+//    public MyDBHandler(Context context, String name,  SQLiteDatabase.CursorFactory factory, int version) {
+//        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+//    }
+// --Commented out by Inspection STOP (19/03/2019, 10.09)
     public MyDBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -60,11 +68,17 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 COLUMN_ANSWER_ID + " INTEGER, " +
                 COLUMN_ANSWER_IS_RIGHT + " INTEGER " +
                 ")";
+        String CREATE_APPLICATION = "CREATE TABLE IF NOT EXISTS " + TABLE_APPLICATION + "(" +
+                COLUMN_IS_DATA_LOADED + " INTEGER)";
         Log.i("MYDBHANDLER", "create tables");
+        db.execSQL(CREATE_APPLICATION);
         db.execSQL(CREATE_QUESTION);
         db.execSQL(CREATE_ANSWER);
         db.execSQL(CREATE_CHOICE);
         Log.i("MYDBHANDLER", "push Data");
+        db.execSQL("INSERT INTO " + TABLE_APPLICATION + " (" +
+                COLUMN_IS_DATA_LOADED + ") " +
+                "VALUES (0)");
         db.execSQL("INSERT INTO " + TABLE_QUESTION + "(" +
 //                COLUMN_QUESTION_ID + ", " +
                 COLUMN_QUESTION_STRING +  ", " +
@@ -107,6 +121,28 @@ public class MyDBHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {}
 
+    public boolean isDataLoaded() {
+        String query = "SELECT " + COLUMN_IS_DATA_LOADED + " FROM " + TABLE_APPLICATION;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            int isDataLoaded = Integer.parseInt(cursor.getString(0));
+            if (isDataLoaded != 0) {
+
+                cursor.close();
+                db.close();
+                return true;
+            }
+        }
+        db.close();
+        return false;
+    }
+
+    private void setDataLoaded(boolean isLoaded) {
+        String query = "";
+    }
+
     public ArrayList<Question> loadQuestions() {
         ArrayList<Question> result = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_QUESTION;
@@ -126,6 +162,23 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return result;
     }
 
+    public int countNumberOfQuestions() {
+        String query = "SELECT COUNT(*) FROM " + TABLE_QUESTION;
+        Log.i("MYDBHANDLER", query);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        int count = -1;
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            count = Integer.parseInt(cursor.getString(0));
+            cursor.close();
+        } else {
+            count = -1;
+        }
+        db.close();
+        return count;
+    }
+
     public void addQuestion(Question question) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_QUESTION_ID, question.getQuestionID());
@@ -134,6 +187,29 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_QUESTION, null, values);
         db.close();
+    }
+
+    private void addQuestion(JSONObject object) {
+        Question question = new Question();
+        try {
+            question.setQuestionID(object.getInt("questionID"));
+            question.setQuestionString(object.getString("questionString"));
+            question.setRightAnswerID(object.getInt("rightAnswer"));
+            question.setPicture(object.getString("picture"));
+            this.addQuestion(question);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadQuestionsFromJSON(JSONArray jsonQuestions) {
+        for (int i=0; i < jsonQuestions.length(); i++) {
+            try {
+                this.addQuestion(jsonQuestions.getJSONObject(i));
+            } catch (JSONException e)  {
+                e.printStackTrace();
+            }
+        }
     }
 
     public Question findQuestionBy(String questionString) {
@@ -231,19 +307,32 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         cursor.moveToFirst();
-        while (cursor.moveToNext()) {
+        do {
             int id = cursor.getInt(0);
             String answerString = cursor.getString(1);
             int isRightAnswer = cursor.getInt(2);
             result.add(new Answer(id, answerString, isRightAnswer, questionID));
-        }
+        } while (cursor.moveToNext());
         cursor.close();
         db.close();
         return result;
     }
 
     public ArrayList<Answer> loadAnswersForQuestion(Question question) {
-        return loadAnswersForQuestion(question.getQuestionID());
+        ArrayList<Answer> result = new ArrayList<>();
+        String query = "SELECT * FROM " + TABLE_ANSWER + " WHERE " + COLUMN_QUESTION_ID + " = " + question.getQuestionID();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        cursor.moveToFirst();
+        do {
+            int id = cursor.getInt(0);
+            String answerString = cursor.getString(1);
+            int isRightAnswer = cursor.getInt(2);
+            result.add(new Answer(id, answerString, isRightAnswer, question));
+        } while (cursor.moveToNext());
+        cursor.close();
+        db.close();
+        return result;
     }
 
     public void addAnswer(Answer answer) {
@@ -255,6 +344,29 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_ANSWER, null, values);
         db.close();
+    }
+
+    private void addAnswer(JSONObject object) {
+        Answer answer = new Answer();
+        try {
+            answer.setAnswerID(object.getInt("answerID"));
+            answer.setQuestionID(object.getInt("questionID"));
+            answer.setAnswerString(object.getString("answerString"));
+            answer.setRightAnswer(object.getInt("answerIsRight"));
+            this.addAnswer(answer);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadAnswersFromJson(JSONArray jsonObjects) {
+        for (int i=0; i < jsonObjects.length(); i++) {
+            try {
+                this.addAnswer(jsonObjects.getJSONObject(i));
+            } catch (JSONException e)  {
+                e.printStackTrace();
+            }
+        }
     }
 
     public Answer findAnswerBy(String answerString) {
@@ -278,12 +390,12 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     public Answer findAnswerBy(int answerID) {
         String query = "SELECT * FROM " + TABLE_ANSWER + " WHERE " + COLUMN_ANSWER_ID + " = " + "'" + answerID + "'";
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         Answer answer = new Answer();
         if (cursor.moveToFirst()) {
             cursor.moveToFirst();
-            answer.setQuestionID(Integer.parseInt(cursor.getString(0)));
+            answer.setAnswerID(Integer.parseInt(cursor.getString(0)));
             answer.setAnswerString(cursor.getString(1));
             answer.setRightAnswer(Integer.parseInt(cursor.getString(2)));
             answer.setQuestionID(Integer.parseInt(cursor.getString(3)));
@@ -294,27 +406,33 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
         return answer;
     }
+////
+////    public boolean deleteAnswer(int ID) {
+//// --Commented out by Inspection START (19/03/2019, 10.09):
+// --Commented out by Inspection STOP (19/03/2019, 10.09)
+////        boolean result = false;
+////        String query = "SELECT * FROM " + TABLE_ANSWER + " WHERE " + COLUMN_ANSWER_ID + "= '" + String.valueOf(ID) + "'";
+////        SQLiteDatabase db = this.getWritableDatabase();
+// --Commented out by Inspection STOP (19/03/2019, 10.09)
+//        Cursor cursor = db.rawQuery(query, null);
+//        Answer answer = new Answer();
+//        if (cursor.moveToFirst()) {
+//            answer.setQuestionID(Integer.parseInt(cursor.getString(0)));
+//            db.delete(TABLE_ANSWER, COLUMN_ANSWER_ID + "=?",
+//// --Commented out by Inspection START (19/03/2019, 10.09):
+// --Commented out by Inspection STOP (19/03/2019, 10.09)
+//                    new String[] { String.valueOf(answer.getAnswerID()) });
+//            cursor.close();
+//            result = true;
+//        }
+//        db.close();
+//        return result;
+// --Commented out by Inspection STOP (19/03/2019, 10.09)
+//    }
 
-    public boolean deleteAnswer(int ID) {
-        boolean result = false;
-        String query = "SELECT * FROM " + TABLE_ANSWER + " WHERE " + COLUMN_ANSWER_ID + "= '" + String.valueOf(ID) + "'";
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
-        Answer answer = new Answer();
-        if (cursor.moveToFirst()) {
-            answer.setQuestionID(Integer.parseInt(cursor.getString(0)));
-            db.delete(TABLE_ANSWER, COLUMN_ANSWER_ID + "=?",
-                    new String[] { String.valueOf(answer.getAnswerID()) });
-            cursor.close();
-            result = true;
-        }
-        db.close();
-        return result;
-    }
-
-    public boolean deleteAnswer(Answer answer) {
-        return deleteQuestion(answer.getAnswerID());
-    }
+//    public boolean deleteAnswer(Answer answer) {
+//        return deleteQuestion(answer.getAnswerID());
+//    }
 
     public int updateAnswer(int ID, String name, int answerID, int questionID) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -329,39 +447,109 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return updateAnswer(answer.getAnswerID(), answer.getAnswerString(), answer.isRightAnswer(), answer.getQuestionID());
     }
 
-    //Answers for questions
 
-    public void addChoice(Question question, Answer answer) {
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_ANSWER_ID, answer.getAnswerID());
-        values.put(COLUMN_QUESTION_ID, question.getQuestionID());
-        values.put(COLUMN_ANSWER_IS_RIGHT, answer.isRightAnswer());
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.insert(TABLE_USER_CHOICE, null, values);
-        db.close();
-        Log.i("MBDATAHANDLER", "Choice added");
+
+    //Choices
+    public Choice getChoiceByQuestionID(int questionID) {
+        String query = "SELECT * FROM " + TABLE_USER_CHOICE + " WHERE " + COLUMN_QUESTION_ID + " = " + questionID;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+//        Choice choice = new Choice();
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            int id = cursor.getInt(0);
+//            int questionID = cursor.getInt(1);
+            int answerID = cursor.getInt(2);
+            int isRightAnswer = cursor.getInt(3);
+            db.close();
+            cursor = null;
+            return new Choice(id, questionID, answerID, isRightAnswer);
+        }
+        return null;
     }
 
+    //Updates a choice if exists already, otherwise inserts new choice
+    public void addChoice(Question question, Answer answer) {
+        if (question != null && answer != null) {
+            Choice oldChoice = getChoiceByQuestionID(question.getQuestionID());
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_ANSWER_ID, answer.getAnswerID());
+            values.put(COLUMN_QUESTION_ID, question.getQuestionID());
+            values.put(COLUMN_ANSWER_IS_RIGHT, answer.isRightAnswer());
+            SQLiteDatabase db = this.getWritableDatabase();
+            if (oldChoice == null) {
+                db.insert(TABLE_USER_CHOICE, null, values);
+                Log.i("MBDATAHANDLER", "Choice added");
+
+            } else {
+                db.update(TABLE_USER_CHOICE, values, COLUMN_QUESTION_ID + "=" + question.getQuestionID(), null);
+                Log.i("MBDATAHANDLER", "Choice updated");
+            }
+            db.close();
+        } else {
+            Log.i("MYDATAHANDLER", "no question or answer");
+        }
+
+    }
+
+    //Deletes all pre-existing choices. Called when starting a new exam.
     public void deleteAllChoices() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_USER_CHOICE);
         Log.i("MBDATAHANDLER", "Choices deleted");
     }
 
+    public int countChoices() {
+        String query = "SELECT COUNT(*) FROM " + TABLE_USER_CHOICE;
+        Log.i("MYDBHANDLER", query);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        int count = -1;
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            count = Integer.parseInt(cursor.getString(0));
+            cursor.close();
+        } else {
+            count = -1;
+        }
+        db.close();
+        return count;
+    }
+
     public int countRightChoices() {
         String query = "SELECT COUNT(*) FROM " + TABLE_USER_CHOICE + " WHERE " + COLUMN_ANSWER_IS_RIGHT + " = " + 1;
         Log.i("MYDBHANDLER", query);
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
-        int answer = -1;
+        int count = -1;
         if (cursor.moveToFirst()) {
             cursor.moveToFirst();
-            answer = Integer.parseInt(cursor.getString(0));
+            count = Integer.parseInt(cursor.getString(0));
             cursor.close();
         } else {
-            answer = -1;
+            count = -1;
         }
         db.close();
-        return answer;
+        return count;
+    }
+
+    public ArrayList<Choice> loadAllChoices() {
+        String query = "SELECT * FROM " + TABLE_USER_CHOICE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        ArrayList<Choice> choices = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            do {
+                int id = cursor.getInt(0);
+                int questionID = cursor.getInt(1);
+                int answerID = cursor.getInt(2);
+                int isRightAnswer = cursor.getInt(3);
+                choices.add(new Choice(id, questionID, answerID, isRightAnswer, this));
+            } while (cursor.moveToNext());
+        }
+        db.close();
+        cursor = null;
+        return choices;
     }
 }
