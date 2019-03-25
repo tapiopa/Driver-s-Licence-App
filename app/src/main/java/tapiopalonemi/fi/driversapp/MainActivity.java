@@ -66,4 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void Exam(View view) {
+    }
 }

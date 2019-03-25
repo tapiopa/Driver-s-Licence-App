@@ -5,7 +5,6 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     android:background="@drawable/drive"
     android:minHeight="181dp"
     tools:context=".MainActivity">
@@ -18,8 +17,8 @@
         android:layout_marginBottom="96dp"
         android:background="@android:color/holo_blue_bright"
         android:fontFamily="sans-serif"
-        android:onClick="buttonToExam"
-        android:text="@string/title_exam"
+        android:onClick="Exam"
+        android:text="Exam"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -29,7 +28,7 @@
         android:layout_width="100dp"
         android:layout_height="53dp"
         android:layout_marginStart="43dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="95dp"
         android:layout_marginBottom="25dp"
         android:background="@android:color/holo_blue_bright"
         android:onClick="buttonToResults"
@@ -37,7 +36,6 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.412"
         app:layout_constraintStart_toEndOf="@+id/buttonExam" />
 
     <android.support.design.widget.BottomNavigationView
@@ -51,45 +49,36 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonExam"
         app:menu="@menu/navigation" />
-=======
-    tools:context=".MainActivity"
-    tools:layout_editor_absoluteY="81dp">
-
-    <Text View
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_home"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="384dp"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
-        app:menu="@menu/navigation"
-        tools:layout_editor_absoluteY="455dp" />
->>>>>>> master
 
     <Button
         android:id="@+id/Home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="59dp"
         android:background="@android:color/holo_blue_bright"
         android:fontFamily="sans-serif-condensed-light"
         android:text="HOME"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="59dp" />
-=======
-        android:onClick="toExam"
-        android:text="Exam"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="396dp" />
->>>>>>> master
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="256dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="280dp"
+        android:text="DRIVING TIPS"
+        app:layout_constraintBottom_toTopOf="@+id/buttonExam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </android.support.constraint.ConstraintLayout>
