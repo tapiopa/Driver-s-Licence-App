@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
+//        conf.locale = myLocale;
         conf.setLocale(myLocale);
         res.updateConfiguration(conf, dm);
         Intent refresh = new Intent(this, MainActivity.class);

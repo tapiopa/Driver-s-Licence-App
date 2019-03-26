@@ -16,4 +16,5 @@
     <string name="sym_right">✔️</string>
     <string name="button_results">Tulos</string>
     <string name="title_score">Tulos</string>
+    <string name="title_language">Kieli</string>
 </resources>
