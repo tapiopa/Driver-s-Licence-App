@@ -4,6 +4,7 @@ import android.os.Bundle;
 //import android.widget.myListView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
+
 public class Informationactivity extends AppCompatActivity{
 
 
@@ -13,7 +14,7 @@ public class Informationactivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_info);
         final String[] INFORMATIONS = new String[] {
    "Adjust your mirrors correctly","If the car don't start turn high beams on","Use hand brake regularly",
           "Don’t turn the wheels beforehand when making a left turn","Maintain required distance always from other vehicles",
@@ -22,7 +23,7 @@ public class Informationactivity extends AppCompatActivity{
         };
         ListView myListView =  findViewById(R.id.information_list_view);
         final ArrayAdapter<String> kk;
-        kk = new ArrayAdapter<String>(this ,android.R.layout.simple_list_item_1,
+        kk = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
                 INFORMATIONS);
 
 
