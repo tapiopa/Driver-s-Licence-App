@@ -1,12 +1,15 @@
 package tapiopalonemi.fi.driversapp;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 //import android.view.Menu;
 import android.view.Menu;
@@ -14,6 +17,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -103,21 +108,38 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.english:
                 Log.i("LANGUAGE SELECTION", "english");
+                setLocale("en");
                 return true;
             case R.id.finnish:
                 Log.i("LANGUAGE SELECTION", "finnish");
+                setLocale("fi");
                 return true;
             case R.id.swedish:
                 Log.i("LANGUAGE SELECTION", "swedish");
+                setLocale("sv");
                 return true;
             case R.id.hungarian:
                 Log.i("LANGUAGE SELECTION", "hungarian");
+                setLocale("hu");
                 return true;
             case R.id.nepali:
                 Log.i("LANGUAGE SELECTION", "nepali");
+                setLocale("ne");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void setLocale(String lang) {
+        Locale myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.setLocale(myLocale);
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, MainActivity.class);
+        startActivity(refresh);
+        finish();
     }
 }
