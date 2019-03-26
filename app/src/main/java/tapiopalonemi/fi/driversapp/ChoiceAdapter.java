@@ -32,7 +32,16 @@ class ChoiceAdapter extends ArrayAdapter<Choice> {
 
 //        TextView userAnswer = parent.findViewById(R.id.user_answer);
         assert choice != null;
-        choiceQuestion.setText(choice.getQuestion().getQuestionString());
+        choiceQuestion.setTextSize(12.0f);
+        choiceQuestion.setPadding(12, 12, 0, 0);
+
+        choiceAnswer.setTextSize(12.0f);
+        choiceAnswer.setPadding(0, 0, 0, 12);
+        choiceIsRight.setTextSize(12.0f);
+        choiceIsRight.setPadding(12, 0, 0, 12);
+        String question = LanguageHelper.convertNumber((position + 1), convertView.getContext()) + ") " +
+                choice.getQuestion().getQuestionString();
+        choiceQuestion.setText(question);
         if (choice.getQuestion().isAnswered() &&
                 choice.getAnswerIsRight() != 0) {
 //            chosenAnswer.setBackgroundColor(Color.CYAN);

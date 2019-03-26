@@ -67,9 +67,15 @@ public class ExamActivity extends AppCompatActivity {
 
         //arrayAdapter = new AnswerAdapter(this, answers);
         db = new MyDBHandler(this);
-        db.onCreate(db.getWritableDatabase());
+//        db.onCreate(db.getWritableDatabase());
 //        db.getWritableDatabase();
 //        Log.i("DB", "going for questions");
+        if (!db.isDataLoaded()) {
+            Log.d("########EXAM", "data is not loaded");
+            db.firstRun(this);
+            questions = db.loadQuestions();
+
+        }
         questions = db.loadQuestions();
         answers = db.loadAllAnswers();
         choices = db.loadAllChoices();
@@ -78,15 +84,23 @@ public class ExamActivity extends AppCompatActivity {
 //            Log.i("ANSWER", an.getAnswerString());
 //        }
 
-        Locale primaryLocale = this.getResources().getConfiguration().getLocales().get(0);
+//        Locale primaryLocale = this.getResources().getConfiguration().getLocales().get(0);
 //        String locale = primaryLocale.getDisplayName();
-        String nepali = LanguageHelper.convertNumber(123, this);
+//        String nepali = LanguageHelper.convertNumber(123, this);
 
-        Log.i("EXAM ACTIVITY", "Locale: " + primaryLocale);
-        Log.i("EXAM ACTIVITY", "is nepali: " + nepali);
+//        Log.i("EXAM ACTIVITY", "Locale: " + primaryLocale);
+//        Log.i("EXAM ACTIVITY", "is nepali: " + nepali);
 
+        loadAnswersForQuestions();
         updateQuestionsWithChoices();
         nextQuestion(null);
+    }
+
+    private void loadAnswersForQuestions() {
+        for (Question question : questions) {
+            question.setAnswers(db.loadAnswersForQuestion(question.getQuestionID()));
+
+        }
     }
 
     public void startNewExam(View view) {
@@ -197,8 +211,13 @@ public class ExamActivity extends AppCompatActivity {
         final ListView answerList = findViewById(R.id.answerList);
 //        final Button resultsButton = findViewById(R.id.results);
         final TextView progressText = findViewById(R.id.progressText);
-        ImageView image = findViewById(R.id.imageView);
-        image.setImageResource(R.drawable.fi_22);
+        Log.d("EXAM", "picture: " + question.getPicture());
+        if (null != question.getPicture() && question.getPicture().length() > 0) {
+            ImageView imageView = findViewById(R.id.imageView);
+            int imageSrc = getResources().getIdentifier("fi_" + question.getPicture(), "drawable", getPackageName());
+            Log.d("EXAM", "image source: " + imageSrc);
+            imageView.setImageResource(imageSrc);
+        }
 //        final Button newExamButton = findViewById(R.id.new_exam);
 
 //        if (db.countChoices() > 0) {
@@ -343,18 +362,21 @@ public class ExamActivity extends AppCompatActivity {
 //    }
 
     private void updateQuestionsWithChoices() {
-        Log.i("UPDATE QUESTIONS WITH CHOICES", "updating...");
+//        Log.i("UPDATE QUESTIONS WITH CHOICES", "updating...");
+
         for (Question question : questions) {
-            Log.i("UPDATE QUESTION", "question string: " + question.getQuestionString());
+
+//            Log.i("UPDATE QUESTION", "question string: " + question.getQuestionString());
             for (Choice choice : choices) {
-                Log.i("UPDATE CHOICE", "answer string: " + choice.getAnswer().getAnswerString());
+//                Log.i("UPDATE CHOICE", "answer string: " + choice.getAnswer().getAnswerString());
                 if (choice.getQuestion().getQuestionID() == question.getQuestionID()) {
 
                     Answer answer = choice.getAnswer(choice.getAnswerID(), db);
                     question.setChosenAnswer(answer);
-                    question.setAnswered(true);
-                    Log.i("UPDATE CHOICE", "question: " + question.getQuestionID() + ", answer: " + answer.getAnswerID() +
-                            ", choice question: " + choice.getQuestion().getQuestionID() + ", question chosen anser: " + question.getChosenAnswer().getAnswerID());
+                    db.updateQuestion(question);
+//                    question.setAnswered(true);
+//                    Log.i("UPDATE CHOICE", "question: " + question.getQuestionID() + ", answer: " + answer.getAnswerID() +
+//                            ", choice question: " + choice.getQuestion().getQuestionID() + ", question chosen anser: " + question.getChosenAnswer().getAnswerID());
 
                 }
             }

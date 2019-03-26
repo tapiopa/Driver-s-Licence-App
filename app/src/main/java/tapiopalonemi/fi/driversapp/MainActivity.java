@@ -1,6 +1,8 @@
 package tapiopalonemi.fi.driversapp;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -8,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 //import android.view.Menu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -73,11 +76,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
 
         mTextMessage = findViewById(R.id.message);
@@ -88,7 +92,32 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.language, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.english:
+                Log.i("LANGUAGE SELECTION", "english");
+                return true;
+            case R.id.finnish:
+                Log.i("LANGUAGE SELECTION", "finnish");
+                return true;
+            case R.id.swedish:
+                Log.i("LANGUAGE SELECTION", "swedish");
+                return true;
+            case R.id.hungarian:
+                Log.i("LANGUAGE SELECTION", "hungarian");
+                return true;
+            case R.id.nepali:
+                Log.i("LANGUAGE SELECTION", "nepali");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

@@ -30,6 +30,7 @@ class AnswerAdapter extends ArrayAdapter<Answer> {
         }
         TextView chosenAnswer = convertView.findViewById(R.id.chosen_answer);
         TextView answerString = convertView.findViewById(R.id.answer_string);
+        answerString.setPadding(0, 12, 0, 12);
 //        TextView userAnswer = parent.findViewById(R.id.user_answer);
 
 
@@ -37,9 +38,9 @@ class AnswerAdapter extends ArrayAdapter<Answer> {
 
         if (answer.getQuestion().isAnswered() &&
             answer.getQuestion().getChosenAnswer().getAnswerID() == answer.getAnswerID()) {
-            Log.i("ANSWER ADAPTER", "answer: " + answer.getAnswerID());
-            Log.i("ANSWER ADAPTER", "answer.question.chosenAnswer: " + answer.getQuestion().getQuestionID());
-            Log.i("ANSWER ADAPTER", "answer.question.chosenAnswer: " + answer.getQuestion().getChosenAnswer().getAnswerID());
+//            Log.i("ANSWER ADAPTER", "answer: " + answer.getAnswerID());
+//            Log.i("ANSWER ADAPTER", "answer.question.chosenAnswer: " + answer.getQuestion().getQuestionID());
+//            Log.i("ANSWER ADAPTER", "answer.question.chosenAnswer: " + answer.getQuestion().getChosenAnswer().getAnswerID());
 //            chosenAnswer.setBackgroundColor(Color.CYAN);
 //            chosenAnswer.setTextColor(Color.GREEN);
             chosenAnswer.setText(R.string.sym_right);

@@ -2,6 +2,8 @@ package tapiopalonemi.fi.driversapp;
 
 //import android.database.Cursor;
 
+import android.database.sqlite.SQLiteDatabase;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,21 +28,24 @@ public class Question {
 
     //Constructors
     public Question() { answers = new ArrayList<>(); }
+
     public Question(int questionID, String questionString) {
         this.questionID = questionID;
         this.questionString = questionString;
     }
 
-    public Question(int questionID, String questionString, Answer rightAnswer) {
+    public Question(int questionID, String questionString, Answer rightAnswer, String picture) {
         this.questionID = questionID;
         this.questionString = questionString;
         this.rightAnswer = rightAnswer;
+        this.picture = picture;
     }
 
-    public Question(int questionID, String questionString, int rightAnswerID) {
+    public Question(int questionID, String questionString, int rightAnswerID, String picture) {
         this.questionID = questionID;
         this.questionString = questionString;
         this.rightAnswerID = rightAnswerID;
+        this.picture = picture;
     }
 
     private Question(JSONObject object) {
@@ -140,6 +145,8 @@ public class Question {
 
     public void setChosenAnswer(Answer chosenAnswer) {
         this.chosenAnswer = chosenAnswer;
+        this.rightAnswerID = chosenAnswer.getAnswerID();
+        this.isAnswered = true;
     }
 
     public boolean isAnswered() {
