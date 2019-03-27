@@ -3,15 +3,15 @@ package tapiopalonemi.fi.driversapp;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
+//import android.graphics.Bitmap;
+//import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
-//import android.view.Menu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -86,7 +86,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setSubtitle("Go Places>");
+        actionBar.setHomeButtonEnabled(true);
 
 
         mTextMessage = findViewById(R.id.message);

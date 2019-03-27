@@ -3,6 +3,7 @@ package tapiopalonemi.fi.driversapp;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,8 +19,6 @@ import java.util.ArrayList;
 
 public class ResultsActivity extends AppCompatActivity  {
     private TextView mTextMessage;
-    // --Commented out by Inspection (19/03/2019, 10.09):public ArrayList<Question> questions = new ArrayList<>();
-    // --Commented out by Inspection (19/03/2019, 10.09):public ArrayList<Answer> answers = new ArrayList<>();
     private MyDBHandler db;
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -79,6 +78,10 @@ public class ResultsActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setSubtitle("Go Places>");
+        actionBar.setHomeButtonEnabled(true);
 
         mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = findViewById(R.id.navigation);

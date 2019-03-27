@@ -1,12 +1,18 @@
 package tapiopalonemi.fi.driversapp;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +66,10 @@ public class ExamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setSubtitle("Go Places>");
+        actionBar.setHomeButtonEnabled(true);
+
         mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -94,6 +104,55 @@ public class ExamActivity extends AppCompatActivity {
         loadAnswersForQuestions();
         updateQuestionsWithChoices();
         nextQuestion(null);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.language, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.english:
+                Log.i("LANGUAGE SELECTION", "english");
+                setLocale("en");
+                return true;
+            case R.id.finnish:
+                Log.i("LANGUAGE SELECTION", "finnish");
+                setLocale("fi");
+                return true;
+            case R.id.swedish:
+                Log.i("LANGUAGE SELECTION", "swedish");
+                setLocale("sv");
+                return true;
+            case R.id.hungarian:
+                Log.i("LANGUAGE SELECTION", "hungarian");
+                setLocale("hu");
+                return true;
+            case R.id.nepali:
+                Log.i("LANGUAGE SELECTION", "nepali");
+                setLocale("ne");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void setLocale(String lang) {
+        Locale myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+//        conf.locale = myLocale;
+        conf.setLocale(myLocale);
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, ExamActivity.class);
+        startActivity(refresh);
+        finish();
     }
 
     private void loadAnswersForQuestions() {
@@ -211,12 +270,15 @@ public class ExamActivity extends AppCompatActivity {
         final ListView answerList = findViewById(R.id.answerList);
 //        final Button resultsButton = findViewById(R.id.results);
         final TextView progressText = findViewById(R.id.progressText);
+        ImageView imageView = findViewById(R.id.imageView);
         Log.d("EXAM", "picture: " + question.getPicture());
         if (null != question.getPicture() && question.getPicture().length() > 0) {
-            ImageView imageView = findViewById(R.id.imageView);
+
             int imageSrc = getResources().getIdentifier("fi_" + question.getPicture(), "drawable", getPackageName());
             Log.d("EXAM", "image source: " + imageSrc);
             imageView.setImageResource(imageSrc);
+        } else {
+            imageView.setImageResource(0);
         }
 //        final Button newExamButton = findViewById(R.id.new_exam);
 
@@ -246,6 +308,8 @@ public class ExamActivity extends AppCompatActivity {
 //            Log.i("SHOW QUESTION, TITLE: ", questionTitle.getText().toString());
 //            Log.i("SHOW QUESTION, STRING", question.getQuestionString());
             questionString.setText(question.getQuestionString());
+
+//            chosenAnswerView.setText(convertToAlphabet(position));
 
 //            final ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, questionsAnswers) {
 //                @Override
@@ -307,7 +371,8 @@ public class ExamActivity extends AppCompatActivity {
 //                    arrayAdapter.getView(position, view, parent).setBackgroundColor(getResources().getColor(R.color.lightBlue));
 //                    nextQuestion(null);
 //                    Log.i("EXAM", "chosenAnswer: " + chosenAnswerView.getText());
-                    chosenAnswerView.setText(answer.getAnswerString());
+//                    chosenAnswerView.setText(answer.getAnswerString());
+                    chosenAnswerView.setText(convertToAlphabet(position));
                     arrayAdapter.notifyDataSetChanged();
 //                    arrayAdapter.getView(position, view, parent).invalidate();
 
@@ -326,6 +391,47 @@ public class ExamActivity extends AppCompatActivity {
 //            }
 //        }
 //    }
+private String convertToAlphabet(int position) {
+    String result = "";
+    if (position >= 0 && position < 10) {
+        switch (position) {
+            case 0:
+                result += "a";
+                break;
+            case 1:
+                result += "b";
+                break;
+            case 2:
+                result += "c";
+                break;
+            case 3:
+                result += "d";
+                break;
+            case 4:
+                result += "e";
+                break;
+            case 5:
+                result += "f";
+                break;
+            case 6:
+                result += "g";
+                break;
+            case 7:
+                result += "h";
+                break;
+            case 8:
+                result += "i";
+                break;
+            case 9:
+                result += "a";
+                break;
+            default:
+                return result;
+        }
+//        result += ". ";
+    }
+    return result;
+}
 
     @org.jetbrains.annotations.Nullable
     private Question findQuestion(final int questionIndex) {

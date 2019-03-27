@@ -15,6 +15,8 @@ public class LanguageHelper {
         String locale = primaryLocale.getDisplayName();
         if (locale.contains("नेपाली")) {
             convert(number);
+        } else {
+            result = Integer.toString(number);
         }
         return result;
 
