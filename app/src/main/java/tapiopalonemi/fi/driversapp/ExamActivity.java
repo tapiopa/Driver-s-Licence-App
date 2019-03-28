@@ -86,9 +86,19 @@ public class ExamActivity extends AppCompatActivity {
             questions = db.loadQuestions();
 
         }
+
         questions = db.loadQuestions();
         answers = db.loadAllAnswers();
         choices = db.loadAllChoices();
+
+        currentQuestion = db.getLastAnsweredQuestion();
+        currentQuestion -= 2;
+        if (currentQuestion < -1) {
+            currentQuestion = -1;
+        }
+//        if (currentQuestion > 0) {
+//            currentQuestion -= 1;
+//        }
 
 //        for (Answer an : answers) {
 //            Log.i("ANSWER", an.getAnswerString());
