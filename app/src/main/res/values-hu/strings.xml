@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Driver\'s App</string>
+    <string name="title_home">Főmenü</string>
+    <string name="title_results">EREDMÉNYEK</string>
+    <string name="title_exam">Vizsga</string>
+    <string name="button_previous">Előző</string>
+    <string name="button_next">Következő</string>
+    <string name="button_take_exam">Vizsga kezdése</string>
+    <string name="button_take_new_exam">Új vizsga kezdése</string>
+    <string name="title_your_answer">A te válaszod</string>
+    <string name="question_progress">Kérdés</string>
+    <string name="progress_of"> </string>
+    <string name="results_exhortation">Vizsgázz le!</string>
+    <string name="menu_results">Eredmények</string>
+    <string name="sym_right">✔️</string>
+    <string name="button_results">Eredmények</string>
+    <string name="title_score">Pontszám</string>
+    <string name="title_language">Nyelv</string>
 </resources>
