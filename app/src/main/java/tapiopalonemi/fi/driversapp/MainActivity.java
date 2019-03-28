@@ -23,6 +23,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
+    private MyDBHandler db;
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -85,6 +86,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        db = new MyDBHandler(this);
+//        db.onCreate(db.getWritableDatabase());
+//        db.getWritableDatabase();
+//        Log.i("DB", "going for questions");
+        if (!db.isDataLoaded()) {
+            Log.d("HOME", "data is not loaded");
+            db.firstRun(this);
+//            questions = db.loadQuestions();
+
+        }
+
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setSubtitle("Go Places>");
