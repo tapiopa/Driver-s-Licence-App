@@ -76,19 +76,20 @@ public class ExamActivity extends AppCompatActivity {
 //        navigation.setSelectedItemId(R.id.navigation_exam);
 
         //arrayAdapter = new AnswerAdapter(this, answers);
+        
         db = new MyDBHandler(this);
-//        db.onCreate(db.getWritableDatabase());
-//        db.getWritableDatabase();
-//        Log.i("DB", "going for questions");
-        if (!db.isDataLoaded()) {
-            Log.d("########EXAM", "data is not loaded");
-            db.firstRun(this);
-            questions = db.loadQuestions();
-
-        }
         questions = db.loadQuestions();
         answers = db.loadAllAnswers();
         choices = db.loadAllChoices();
+
+        currentQuestion = db.getLastAnsweredQuestion();
+        currentQuestion -= 2;
+        if (currentQuestion < -1) {
+            currentQuestion = -1;
+        }
+//        if (currentQuestion > 0) {
+//            currentQuestion -= 1;
+//        }
 
 //        for (Answer an : answers) {
 //            Log.i("ANSWER", an.getAnswerString());
