@@ -55,6 +55,8 @@ public class ExamActivity extends AppCompatActivity {
                 case R.id.navigation_exam:
                     mTextMessage.setText(R.string.title_exam);
                     return true;
+                case R.id.navigation_exam_se:
+                    return true;
                 case R.id.navigation_results:
                     mTextMessage.setText(R.string.title_results);
                     return true;
@@ -76,6 +78,9 @@ public class ExamActivity extends AppCompatActivity {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 //        navigation.setSelectedItemId(R.id.navigation_exam);
+        finnish = getIntent().getBooleanExtra("finnish", finnish);
+
+        Log.i("EXAM", "country is: " + (finnish? "Finnish" : "Swedish"));
 
         //arrayAdapter = new AnswerAdapter(this, answers);
 
@@ -186,13 +191,21 @@ public class ExamActivity extends AppCompatActivity {
     public void toExam(MenuItem menuItem) {
 //        Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
-//        intent.putExtra("extra", "extra");
+        intent.putExtra("finnish", true);
+        startActivity(intent);
+    }
+
+    public void toExamSe(MenuItem menuItem) {
+//        Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
+        Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
+        intent.putExtra("finnish", false);
         startActivity(intent);
     }
 
     public void toResults(MenuItem menuItem) {
 //        Log.i("BOTTOM NAVIGATION", "to results navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
+        intent.putExtra("finnish", finnish);
         startActivity(intent);
     }
 //
@@ -206,7 +219,7 @@ public class ExamActivity extends AppCompatActivity {
     public void buttonToResults(View view) {
         Log.i("BOTTOM NAVIGATION", "to results button clicked");
         Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
-//        intent.putExtra("extra", "extra");
+        intent.putExtra("finnish", finnish);
         startActivity(intent);
     }
 
@@ -285,6 +298,7 @@ public class ExamActivity extends AppCompatActivity {
 
             int imageSrc = getResources().getIdentifier(country + question.getPicture(), "drawable", getPackageName());
             Log.d("EXAM", "image source: " + imageSrc);
+            imageView.setImageResource(R.drawable.drive);
             imageView.setImageResource(imageSrc);
         } else {
             imageView.setImageResource(0);

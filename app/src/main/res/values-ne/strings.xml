@@ -18,4 +18,7 @@
     <string name="sym_right">✔️</string>
     <string name="title_language">भासा</string>
     <string name="button_driving_tips">चालकलाइ सुजावहरु</string>
+    <string name="title_exam_SE">जाँच सुरु SE</string>
+    <string name="button_take_exam_se">जाँच सुरु SE</string>
+    <string name="button_take_new_exam_se">नयाँ जाँच सुरु SE</string>
 </resources>

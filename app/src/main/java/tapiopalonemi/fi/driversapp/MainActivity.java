@@ -32,17 +32,19 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+//                    mTextMessage.setText(R.string.title_home);
 //                    navigation.setSelectedItemId(R.id.navigation_home);
-                    Log.i("HOME BOTTOM NAVIGATION", "HOME CLICKED");
+//                    Log.i("HOME BOTTOM NAVIGATION", "HOME CLICKED");
                     return true;
                 case R.id.navigation_exam:
-                    mTextMessage.setText(R.string.title_exam);
-                    Log.i("HOME BOTTOM NAVIGATION", "EXAM CLICKED");
+//                    mTextMessage.setText(R.string.title_exam);
+//                    Log.i("HOME BOTTOM NAVIGATION", "EXAM CLICKED");
+                    return true;
+                case R.id.navigation_exam_se:
                     return true;
                 case R.id.navigation_results:
-                    mTextMessage.setText(R.string.title_results);
-                    Log.i("HOME BOTTOM NAVIGATION", "RESULTS CLICKED");
+//                    mTextMessage.setText(R.string.title_results);
+//                    Log.i("HOME BOTTOM NAVIGATION", "RESULTS CLICKED");
                     return true;
             }
             return false;
@@ -58,7 +60,14 @@ public class MainActivity extends AppCompatActivity {
     public void toExam(MenuItem menuItem) {
         Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
-        intent.putExtra("extra", "extra");
+        intent.putExtra("finnish", true);
+        startActivity(intent);
+    }
+
+    public void toExamSe(MenuItem menuItem) {
+        Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
+        Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
+        intent.putExtra("finnish", false);
         startActivity(intent);
     }
 

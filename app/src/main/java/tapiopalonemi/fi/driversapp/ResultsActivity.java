@@ -34,6 +34,8 @@ public class ResultsActivity extends AppCompatActivity  {
                 case R.id.navigation_exam:
                     mTextMessage.setText(R.string.title_exam);
                     return true;
+                case R.id.navigation_exam_se:
+                    return true;
                 case R.id.navigation_results:
                     mTextMessage.setText(R.string.title_results);
                     return true;
@@ -65,7 +67,14 @@ public class ResultsActivity extends AppCompatActivity  {
     public void toExam(MenuItem menuItem) {
         Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
-//        intent.putExtra("extra", "extra");
+        intent.putExtra("finnish", true);
+        startActivity(intent);
+    }
+
+    public void toExamSe(MenuItem menuItem) {
+        Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
+        Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
+        intent.putExtra("finnish", false);
         startActivity(intent);
     }
 
@@ -88,6 +97,8 @@ public class ResultsActivity extends AppCompatActivity  {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 //        navigation.setSelectedItemId(R.id.navigation_results);
+
+        finnish = getIntent().getBooleanExtra("finnish", finnish);
 
         final ListView resultsList = findViewById(R.id.results_list);
         final TextView emptyResults  = findViewById(R.id.empty_result);
@@ -145,6 +156,15 @@ public class ResultsActivity extends AppCompatActivity  {
         Log.i("RESULTS", "Take Exam clicked");
         db.deleteAllChoices();
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
+        intent.putExtra("finnish", true);
+        startActivity(intent);
+    }
+
+    public void takeNewExamSe (View view) {
+        Log.i("RESULTS", "Take exam Se clicked");
+        db.deleteAllChoices();
+        Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
+        intent.putExtra("finnish", false);
         startActivity(intent);
     }
 

@@ -14,6 +14,11 @@
         android:title="@string/title_exam"
         android:onClick="toExam"/>
 
+    <item
+        android:id="@+id/navigation_exam_se"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/title_exam_SE"
+        android:onClick="toExamSe"/>
 
     <item
         android:id="@+id/navigation_results"
