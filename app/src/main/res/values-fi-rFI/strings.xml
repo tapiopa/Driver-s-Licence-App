@@ -17,4 +17,5 @@
     <string name="button_results">Tulos</string>
     <string name="title_score">Tulos</string>
     <string name="title_language">Kieli</string>
+    <string name="button_driving_tips">Tietoa ajamisesta</string>
 </resources>

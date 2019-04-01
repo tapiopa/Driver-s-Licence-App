@@ -274,10 +274,16 @@ public class ExamActivity extends AppCompatActivity {
 //        final Button resultsButton = findViewById(R.id.results);
         final TextView progressText = findViewById(R.id.progressText);
         ImageView imageView = findViewById(R.id.imageView);
+        String country = "";
+        if (finnish) {
+            country = "fi_";
+        } else {
+            country = "se_";
+        }
         Log.d("EXAM", "picture: " + question.getPicture());
         if (null != question.getPicture() && question.getPicture().length() > 0) {
 
-            int imageSrc = getResources().getIdentifier("fi_" + question.getPicture(), "drawable", getPackageName());
+            int imageSrc = getResources().getIdentifier(country + question.getPicture(), "drawable", getPackageName());
             Log.d("EXAM", "image source: " + imageSrc);
             imageView.setImageResource(imageSrc);
         } else {
