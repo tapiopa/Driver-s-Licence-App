@@ -40,13 +40,13 @@ public class Choice /*extends AppCompatActivity*/ {
     }
 
     public Choice(int ID, int questionID, int answerID, int answerIsRight,
-                  MyDBHandler db) {
+                  MyDBHandler db, boolean finnish) {
         this.ID = ID;
         this.questionID = questionID;
         this.answerID = answerID;
         this.answerIsRight = answerIsRight;
-        this.question = this.getQuestion(questionID, db);
-        this.answer =  this.getAnswer(answerID, db);
+        this.question = this.getQuestion(questionID, db, finnish);
+        this.answer =  this.getAnswer(answerID, db, finnish);
     }
 
 // --Commented out by Inspection START (19/03/2019, 10.09):
@@ -115,10 +115,10 @@ public class Choice /*extends AppCompatActivity*/ {
 //        this.question = question;
 //    }
 
-    private Question getQuestion(int questionID, MyDBHandler db) {
+    private Question getQuestion(int questionID, MyDBHandler db, boolean finnish) {
 //        Log.i("CHOICE", "DB: " + db);
 //        Log.i("CHOICE", "question id: " + questionID);
-        Question question = db.findQuestionBy(questionID);
+        Question question = db.findQuestionBy(questionID, finnish);
 //        Log.i("CHOICE", "question: " + question);
         return question;
     }
@@ -131,10 +131,10 @@ public class Choice /*extends AppCompatActivity*/ {
         this.answer = answer;
     }
 
-    public Answer getAnswer(int answerID, MyDBHandler db) {
+    public Answer getAnswer(int answerID, MyDBHandler db, boolean finnish) {
         Log.i("CHOICE", "DB: " + db);
         Log.i("CHOICE", "answer id:; " + answerID);
-        Answer answer = db.findAnswerBy(answerID);
+        Answer answer = db.findAnswerBy(answerID, finnish);
         Log.i("CHOICE", "answer: " + answer);
         this.answerIsRight = answer.getIsRightAnswer();
         this.question.setChosenAnswer(answer);

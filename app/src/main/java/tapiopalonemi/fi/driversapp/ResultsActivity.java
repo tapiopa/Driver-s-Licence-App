@@ -20,6 +20,7 @@ import java.util.ArrayList;
 public class ResultsActivity extends AppCompatActivity  {
     private TextView mTextMessage;
     private MyDBHandler db;
+    private boolean finnish = false;
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -108,9 +109,9 @@ public class ResultsActivity extends AppCompatActivity  {
 //        }
 
 
-        final ArrayList<Choice> choices = db.loadAllChoices();
+        final ArrayList<Choice> choices = db.loadAllChoices(finnish);
 
-        final int numberOfQuestions = db.countNumberOfQuestions();
+        final int numberOfQuestions = db.countNumberOfQuestions(finnish);
         final int numberOfRightAnswers = db.countRightChoices();
 
         if (choices == null || choices.isEmpty()) {

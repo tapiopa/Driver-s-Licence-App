@@ -40,6 +40,8 @@ public class ExamActivity extends AppCompatActivity {
     private MyDBHandler db;
     private int currentQuestion = -1;
 
+    boolean finnish = false;
+
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -76,11 +78,11 @@ public class ExamActivity extends AppCompatActivity {
 //        navigation.setSelectedItemId(R.id.navigation_exam);
 
         //arrayAdapter = new AnswerAdapter(this, answers);
-        
+
         db = new MyDBHandler(this);
-        questions = db.loadQuestions();
-        answers = db.loadAllAnswers();
-        choices = db.loadAllChoices();
+        questions = db.loadQuestions(finnish);
+        answers = db.loadAllAnswers(finnish);
+        choices = db.loadAllChoices(finnish);
 
         currentQuestion = db.getLastAnsweredQuestion();
         currentQuestion -= 2;
@@ -158,7 +160,7 @@ public class ExamActivity extends AppCompatActivity {
 
     private void loadAnswersForQuestions() {
         for (Question question : questions) {
-            question.setAnswers(db.loadAnswersForQuestion(question.getQuestionID()));
+            question.setAnswers(db.loadAnswersForQuestion(question.getQuestionID(), finnish));
 
         }
     }
@@ -438,7 +440,7 @@ private String convertToAlphabet(int position) {
     private Question findQuestion(final int questionIndex) {
         if (questionIndex >= 0 && questionIndex < questions.size()) {
             Question question = questions.get(questionIndex);
-            question.setAnswers(db.loadAnswersForQuestion(question));
+            question.setAnswers(db.loadAnswersForQuestion(question, finnish));
             return question;
         } else {
             return null;
@@ -478,9 +480,9 @@ private String convertToAlphabet(int position) {
 //                Log.i("UPDATE CHOICE", "answer string: " + choice.getAnswer().getAnswerString());
                 if (choice.getQuestion().getQuestionID() == question.getQuestionID()) {
 
-                    Answer answer = choice.getAnswer(choice.getAnswerID(), db);
+                    Answer answer = choice.getAnswer(choice.getAnswerID(), db, finnish);
                     question.setChosenAnswer(answer);
-                    db.updateQuestion(question);
+                    db.updateQuestion(question, finnish);
 //                    question.setAnswered(true);
 //                    Log.i("UPDATE CHOICE", "question: " + question.getQuestionID() + ", answer: " + answer.getAnswerID() +
 //                            ", choice question: " + choice.getQuestion().getQuestionID() + ", question chosen anser: " + question.getChosenAnswer().getAnswerID());

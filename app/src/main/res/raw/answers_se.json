@@ -1,0 +1,1426 @@
+{
+  "answers": [
+{
+"answerID": 1,
+"questionID": 1,
+"answerString" : "a.\t Keep to the centre of my lane and ignore the water.",
+"answerIsRight": 0
+},
+{
+"answerID" : 2,
+"questionID": 1,
+"answerString": "Edge into the oncoming lane to avoid the water.",
+"answerIsRight": 0
+},
+{
+"answerID": 3,
+"questionID": 1,
+"answerString": "Drive at low speed and keep to the left, but inside my lane.",
+"answerIsRight" : 1
+},
+{
+"answerID": 4,
+"questionID" : 1,
+"answerString": "Make a U-turn and take another route.",
+"answerIsRight": 0
+},
+{
+"answerID": 5,
+"questionID": 2,
+"answerString": "Public transport only.",
+"answerIsRight": 0
+},
+{
+"answerID": 6,
+"questionID": 2,
+"answerString" : "Public transport, cyclists and drivers of mopeds class II.",
+"answerIsRight": 1
+},
+{
+"answerID" : 7,
+"questionID": 2,
+"answerString": "All vehicles that can transport at least 8 people.",
+"answerIsRight": 0
+},
+{
+"answerID": 8,
+"questionID": 2,
+"answerString": "d.\t Public transport and drivers of mopeds class I.",
+"answerIsRight" : 0
+},
+{
+"answerID": 9,
+"questionID" : 3,
+"answerString": "A priority road sign is erected at the start of the priority road and is repeated before each junction with another road.",
+"answerIsRight": 0
+},
+{
+"answerID": 10,
+"questionID": 3,
+"answerString": "The intersecting roads connecting to the priority road always have an obligation to stop.",
+"answerIsRight": 0
+},
+{
+"answerID": 11,
+"questionID": 3,
+"answerString" : "A priority road sign is not erected if it is clear that the priority road continues on after the junction.",
+"answerIsRight": 1
+},
+{
+"answerID" : 12,
+"questionID": 3,
+"answerString": "Priority roads do not have any junctions with traffic at the same level.",
+"answerIsRight": 0
+},
+{
+"answerID": 13,
+"questionID": 4,
+"answerString": "I can always turn since it is a right turn.",
+"answerIsRight" : 0
+},
+{
+"answerID": 14,
+"questionID" : 4,
+"answerString": "I cannot turn if I meet another oncoming vehicle at the same time.",
+"answerIsRight": 0
+},
+{
+"answerID": 15,
+"questionID": 4,
+"answerString": "I cannot turn if it involves danger or unnecessary obstruction to the traffic behind me.",
+"answerIsRight": 1
+},
+{
+"answerID": 16,
+"questionID": 4,
+"answerString" : "I can only turn if it does not impact the traffic behind me in any way.",
+"answerIsRight": 0
+},
+{
+"answerID" : 17,
+"questionID": 5,
+"answerString": "Yes",
+"answerIsRight": 1
+},
+{
+"answerID": 18,
+"questionID": 5,
+"answerString": "No",
+"answerIsRight" : 0
+},
+{
+"answerID": 19,
+"questionID" : 6,
+"answerString": "a.\t No, this is normal.",
+"answerIsRight": 0
+},
+{
+"answerID": 20,
+"questionID": 6,
+"answerString": "Yes, that there is a leak in the braking system.",
+"answerIsRight": 1
+},
+{
+"answerID": 21,
+"questionID": 6,
+"answerString" : "Yes, that the ABS is not working.",
+"answerIsRight": 22
+},
+{
+"answerID" : 22,
+"questionID": 6,
+"answerString": "Yes, that the brake discs are worn.",
+"answerIsRight": 0
+},
+{
+"answerID": 23,
+"questionID": 7,
+"answerString": "Yes, since I may not obstruct road users on the carriageway I am turning into.",
+"answerIsRight" : 1
+},
+{
+"answerID": 24,
+"questionID" : 7,
+"answerString": "b.\t No, since it is only a pedestrian crossing and not a bicycle passage.",
+"answerIsRight": 0
+},
+{
+"answerID": 25,
+"questionID": 8,
+"answerString": "Stopping is always permitted.",
+"answerIsRight": 0
+},
+{
+"answerID": 26,
+"questionID": 8,
+"answerString" : "Stopping is never permitted.",
+"answerIsRight": 0
+},
+{
+"answerID" : 27,
+"questionID": 8,
+"answerString": "Stopping is only permitted to set down or pick up passengers.",
+"answerIsRight": 1
+},
+{
+"answerID": 28,
+"questionID": 8,
+"answerString": "d.\t Stopping is only permitted for loading and unloading goods.",
+"answerIsRight" : 0
+},
+{
+"answerID": 29,
+"questionID" : 9,
+"answerString": "a.\t Yes, since the hard shoulder should always be used as an extra lane in conjunction with turning off.",
+"answerIsRight": 0
+},
+{
+"answerID": 30,
+"questionID": 9,
+"answerString": "b.\t Yes, since this makes it easier for other road users.",
+"answerIsRight": 1
+},
+{
+"answerID": 31,
+"questionID": 9,
+"answerString" : "c.\t No, since it entails a high risk of misunderstanding.",
+"answerIsRight": 0
+},
+{
+"answerID" : 32,
+"questionID": 9,
+"answerString": "d.\t No, since the hard shoulder is only to be used in case of emergency.",
+"answerIsRight": 0
+},
+{
+"answerID": 33,
+"questionID": 10,
+"answerString": "If the car has studded tyres, a connected trailer (all types) must have studded tyres. This is to avoid the jack-knife effect.",
+"answerIsRight" : 1
+},
+{
+"answerID": 34,
+"questionID" : 10,
+"answerString": "b.\t If the car has studded tyres, a connected braked trailer must have studded tyres. Unbraked trailers do not require studded tyres since they cannot brake anyway.",
+"answerIsRight": 0
+},
+{
+"answerID": 35,
+"questionID": 10,
+"answerString": "If the car has studded tyres, a connected light trailer does not require studded tyres. This is because light trailers are rarely used for long distances.",
+"answerIsRight": 0
+},
+{
+"answerID": 36,
+"questionID": 11,
+"answerString" : "a.\t The distance you move from noticing the obstacle until you begin to brake.",
+"answerIsRight": 1
+},
+{
+"answerID" : 37,
+"questionID": 11,
+"answerString": "b.\t The distance you move from noticing the obstacle until you are at a complete stop.",
+"answerIsRight": 0
+},
+{
+"answerID": 38,
+"questionID": 11,
+"answerString": "Breaking distance + stopping distance.",
+"answerIsRight" : 0
+},
+{
+"answerID": 39,
+"questionID" : 11,
+"answerString": "Reaction time + breaking distance.",
+"answerIsRight": 0
+},
+{
+"answerID": 40,
+"questionID": 12,
+"answerString": "Yes",
+"answerIsRight": 0
+},
+{
+"answerID": 41,
+"questionID": 12,
+"answerString" : "No",
+"answerIsRight": 1
+},
+{
+"answerID" : 42,
+"questionID": 13,
+"answerString": "a.\t A lane where traffic in both directions are allowed at the same time.",
+"answerIsRight": 0
+},
+{
+"answerID": 43,
+"questionID": 13,
+"answerString": "A changeable lane whose direction is determined by traffic signals.",
+"answerIsRight" : 1
+},
+{
+"answerID": 44,
+"questionID" : 13,
+"answerString": "A lane that may only be used by emergency vehicles.",
+"answerIsRight": 0
+},
+{
+"answerID": 45,
+"questionID": 14,
+"answerString": "4 June 2019",
+"answerIsRight": 0
+},
+{
+"answerID": 46,
+"questionID": 14,
+"answerString" : "b.\t 30 June 2019",
+"answerIsRight": 0
+},
+{
+"answerID" : 47,
+"questionID": 14,
+"answerString": "4 June 2020",
+"answerIsRight": 0
+},
+{
+"answerID": 48,
+"questionID": 14,
+"answerString": "30 June 2021",
+"answerIsRight" : 0
+},
+{
+"answerID": 49,
+"questionID" : 15,
+"answerString": "a.\t Stop and try to find out the speed.",
+"answerIsRight": 0
+},
+{
+"answerID": 50,
+"questionID": 15,
+"answerString": "Assume I may not drive faster than 50 km/h.",
+"answerIsRight": 1
+},
+{
+"answerID": 51,
+"questionID": 15,
+"answerString" : "Follow the base speed limit which 70 km/h.",
+"answerIsRight": 0
+},
+{
+"answerID" : 52,
+"questionID": 15,
+"answerString": "Drive at around 10 km/h until I see the next speed sign.",
+"answerIsRight": 0
+},
+{
+"answerID": 53,
+"questionID": 16,
+"answerString": "a.\t Yes, a short distance in the back seat.",
+"answerIsRight" : 0
+},
+{
+"answerID": 54,
+"questionID" : 16,
+"answerString": "Yes, but only for the purpose of seeking medical care.",
+"answerIsRight": 0
+},
+{
+"answerID": 55,
+"questionID": 16,
+"answerString": "Yes, and there are no limitations since the driver has special training.",
+"answerIsRight": 0
+},
+{
+"answerID": 56,
+"questionID": 16,
+"answerString" : "No, since all taxis are obliged to provide a child safety seat.",
+"answerIsRight": 0
+},
+{
+"answerID" : 57,
+"questionID": 17,
+"answerString": "a.\t Yes, but only if there is a heavy traffic queue.",
+"answerIsRight": 0
+},
+{
+"answerID": 58,
+"questionID": 17,
+"answerString": "Yes, they are always allowed to overtake on the right side.",
+"answerIsRight" : 1
+},
+{
+"answerID": 59,
+"questionID" : 17,
+"answerString": "c.\t No, they are never allowed to overtake on the right side.",
+"answerIsRight": 0
+},
+{
+"answerID": 60,
+"questionID": 18,
+"answerString": "a.\t Yes, it is permitted.",
+"answerIsRight": 0
+},
+{
+"answerID": 61,
+"questionID": 18,
+"answerString" : "No, it is not permitted.",
+"answerIsRight": 0
+},
+{
+"answerID" : 62,
+"questionID": 19,
+"answerString": "150–250 people",
+"answerIsRight": 0
+},
+{
+"answerID": 63,
+"questionID": 19,
+"answerString": "b.\t 250–350 people",
+"answerIsRight" : 1
+},
+{
+"answerID": 64,
+"questionID" : 19,
+"answerString": "350–550 people",
+"answerIsRight": 0
+},
+{
+"answerID": 65,
+"questionID": 19,
+"answerString": "550–700 people",
+"answerIsRight": 0
+},
+{
+"answerID": 66,
+"questionID": 20,
+"answerString" : "Carbon dioxide is an unnatural gas that is only formed during the burning of fossil fuels.",
+"answerIsRight": 0
+},
+{
+"answerID" : 67,
+"questionID": 20,
+"answerString": "b.\t Carbon dioxide contributes to the greenhouse effect.",
+"answerIsRight": 1
+},
+{
+"answerID": 68,
+"questionID": 20,
+"answerString": "Carbon dioxide has been a major problem in the past, but the catalytic converters in new cars filter out all carbon dioxide.",
+"answerIsRight" : 0
+},
+{
+"answerID": 69,
+"questionID" : 20,
+"answerString": "d.\t Carbon dioxide is the only substance that an effective catalytic converter emits.",
+"answerIsRight": 0
+},
+{
+"answerID": 70,
+"questionID": 21,
+"answerString": "a.\t Drive as normal since there are warning signals that indicate if a train is coming.",
+"answerIsRight": 0
+},
+{
+"answerID": 71,
+"questionID": 21,
+"answerString" : "b.\t Slow down, check in both directions, shift into a lower gear and then drive across quickly.",
+"answerIsRight": 1
+},
+{
+"answerID" : 72,
+"questionID": 21,
+"answerString": "Slow down, check in both directions and then drive across slowly.",
+"answerIsRight": 0
+},
+{
+"answerID": 73,
+"questionID": 22,
+"answerString": "a.\t Very slow speed increase.",
+"answerIsRight" : 0
+},
+{
+"answerID": 74,
+"questionID" : 22,
+"answerString": "Skipping gears.",
+"answerIsRight": 1
+},
+{
+"answerID": 75,
+"questionID": 22,
+"answerString": "Driving in as low a gear as possible.",
+"answerIsRight": 0
+},
+{
+"answerID": 76,
+"questionID": 22,
+"answerString" : "aintaining an engine speed of at least 3,000 rpm.",
+"answerIsRight": 0
+},
+{
+"answerID" : 77,
+"questionID": 23,
+"answerString": "A",
+"answerIsRight": 1
+},
+{
+"answerID": 78,
+"questionID": 23,
+"answerString": "B",
+"answerIsRight" : 0
+},
+{
+"answerID": 79,
+"questionID" : 23,
+"answerString": "C",
+"answerIsRight": 0
+},
+{
+"answerID": 80,
+"questionID": 23,
+"answerString": "D",
+"answerIsRight": 0
+},
+{
+"answerID": 81,
+"questionID": 24,
+"answerString" : "Yes, it is permitted.",
+"answerIsRight": 1
+},
+{
+"answerID" : 82,
+"questionID": 24,
+"answerString": "No, since the mandatory sign indicates that I must turn right.",
+"answerIsRight": 0
+},
+{
+"answerID": 83,
+"questionID": 24,
+"answerString": "No, since the road is located at an angle to the left.",
+"answerIsRight" : 0
+},
+{
+"answerID": 84,
+"questionID" : 25,
+"answerString": "No-one, mutual consideration applies.",
+"answerIsRight": 0
+},
+{
+"answerID": 85,
+"questionID": 25,
+"answerString": "b.\t The other car is obliged to give way as the right-hand rule applies.",
+"answerIsRight": 0
+},
+{
+"answerID": 86,
+"questionID": 25,
+"answerString" : "You are obliged to give way as the right-hand rule applies.",
+"answerIsRight": 1
+},
+{
+"answerID" : 87,
+"questionID": 25,
+"answerString": "You are obliged to give way as the road on which you are driving ends at the junction.",
+"answerIsRight": 0
+},
+{
+"answerID": 88,
+"questionID": 26,
+"answerString": "Applies to days before public holidays and on public holidays between 08.00 and 13.00.",
+"answerIsRight" : 0
+},
+{
+"answerID": 89,
+"questionID" : 26,
+"answerString": "The prohibition on the sign above is between 08.00 and 13.00 on national holidays (Sundays or public holidays).",
+"answerIsRight": 0
+},
+{
+"answerID": 90,
+"questionID": 26,
+"answerString": "Applies to Sundays or public holidays between 08.00 and 13.00.",
+"answerIsRight": 1
+},
+{
+"answerID": 91,
+"questionID": 26,
+"answerString" : "Applies to Saturdays and Sundays between 08.00 and 13.00.",
+"answerIsRight": 0
+},
+{
+"answerID" : 92,
+"questionID": 27,
+"answerString": "1 December–31 March",
+"answerIsRight": 0
+},
+{
+"answerID": 93,
+"questionID": 27,
+"answerString": "31 May–1 September",
+"answerIsRight" : 0
+},
+{
+"answerID": 94,
+"questionID" : 27,
+"answerString": "c.\t 16 April–30 September",
+"answerIsRight": 1
+},
+{
+"answerID": 95,
+"questionID": 27,
+"answerString": "d.\t 1 May–30 September",
+"answerIsRight": 0
+},
+{
+"answerID": 96,
+"questionID": 28,
+"answerString" : "a.\t I am obliged to give way to vehicles on the carriageway.",
+"answerIsRight": 1
+},
+{
+"answerID" : 97,
+"questionID": 28,
+"answerString": "b.\t The vehicles on the carriageway must give way to me.",
+"answerIsRight": 0
+},
+{
+"answerID": 98,
+"questionID": 28,
+"answerString": "Since the hard shoulder belongs to the carriageway, nobody is obliged to give way. Mutual consideration must be observed.",
+"answerIsRight" : 0
+},
+{
+"answerID": 99,
+"questionID" : 29,
+"answerString": "Engine braking, skipping gears and using an engine heater.",
+"answerIsRight": 0
+},
+{
+"answerID": 100,
+"questionID": 29,
+"answerString": "When several vehicles are driving in some form of procession.",
+"answerIsRight": 0
+},
+{
+"answerID": 101,
+"questionID": 29,
+"answerString" : "c.\t Calm, safe and planned driving without stress.",
+"answerIsRight": 0
+},
+{
+"answerID" : 102,
+"questionID": 29,
+"answerString": "d.\t Defending your own position by, for example, not letting someone else overtake.",
+"answerIsRight": 0
+},
+{
+"answerID": 103,
+"questionID": 30,
+"answerString": "a.\t No, it is not permitted.",
+"answerIsRight" : 0
+},
+{
+"answerID": 104,
+"questionID" : 30,
+"answerString": "Yes, but only for two-wheeled vehicles.",
+"answerIsRight": 0
+},
+{
+"answerID": 105,
+"questionID": 30,
+"answerString": "Yes, but only for residents.",
+"answerIsRight": 0
+},
+{
+"answerID": 106,
+"questionID": 30,
+"answerString" : "Yes, it is always permitted.",
+"answerIsRight": 1
+},
+{
+"answerID" : 107,
+"questionID": 31,
+"answerString": "Young men have the best reaction time in traffic.",
+"answerIsRight": 0
+},
+{
+"answerID": 108,
+"questionID": 31,
+"answerString": "Young men have a tendency to overestimate their driving ability when they have had their driving licence for a year compared to when they have just gotten their driving licence.",
+"answerIsRight" : 1
+},
+{
+"answerID": 109,
+"questionID" : 31,
+"answerString": "Young men have a tendency to overestimate their driving ability when they have just gotten their driving licence compared to when they have had their driving licence for a year.",
+"answerIsRight": 0
+},
+{
+"answerID": 110,
+"questionID": 31,
+"answerString": "Young men run a 5–6 times greater risk of being involved in a traffic accident compared to those over 75 years old.",
+"answerIsRight": 0
+},
+{
+"answerID": 111,
+"questionID": 32,
+"answerString" : "a.\t Good, because the safety margin to the intersecting road is high.",
+"answerIsRight": 0
+},
+{
+"answerID" : 112,
+"questionID": 32,
+"answerString": "b.\t Not good, because the car is positioned too close to the right side as seen from the driver's perspective.",
+"answerIsRight": 0
+},
+{
+"answerID": 113,
+"questionID": 32,
+"answerString": "Not good, because the car is positioned too far from the stop line.",
+"answerIsRight" : 1
+},
+{
+"answerID": 114,
+"questionID" : 33,
+"answerString": "Yes, if they have an orange jacket.",
+"answerIsRight": 0
+},
+{
+"answerID": 115,
+"questionID": 33,
+"answerString": "Yes, if the person is over 15 years old",
+"answerIsRight": 0
+},
+{
+"answerID": 116,
+"questionID": 33,
+"answerString" : "Yes, if there are children in the vicinity.",
+"answerIsRight": 0
+},
+{
+"answerID" : 117,
+"questionID": 33,
+"answerString": "No",
+"answerIsRight": 1
+},
+{
+"answerID": 118,
+"questionID": 34,
+"answerString": "a.\t 0.1 per mille of alcohol in the blood.",
+"answerIsRight" : 0
+},
+{
+"answerID": 119,
+"questionID" : 34,
+"answerString": "b.\t 0.2 per mille of alcohol in the blood.",
+"answerIsRight": 1
+},
+{
+"answerID": 120,
+"questionID": 34,
+"answerString": "c.\t 1.0 per mille of alcohol in the blood",
+"answerIsRight": 0
+},
+{
+"answerID": 121,
+"questionID": 34,
+"answerString" : "1.2 per mille of alcohol in the blood.",
+"answerIsRight": 0
+},
+{
+"answerID" : 122,
+"questionID": 35,
+"answerString": "February.",
+"answerIsRight": 0
+},
+{
+"answerID": 123,
+"questionID": 35,
+"answerString": "June",
+"answerIsRight" : 0
+},
+{
+"answerID": 124,
+"questionID" : 35,
+"answerString": "December",
+"answerIsRight": 1
+},
+{
+"answerID": 125,
+"questionID": 35,
+"answerString": "d.\t There is no noticeable difference between the months.",
+"answerIsRight": 0
+},
+{
+"answerID": 126,
+"questionID": 36,
+"answerString" : "The right hand rule.",
+"answerIsRight": 0
+},
+{
+"answerID" : 127,
+"questionID": 36,
+"answerString": "b.\t You are obliged to give way.",
+"answerIsRight": 0
+},
+{
+"answerID": 128,
+"questionID": 36,
+"answerString": "rivers of vehicles on the connecting road are obliged to give way or stop.",
+"answerIsRight" : 1
+},
+{
+"answerID": 129,
+"questionID" : 37,
+"answerString": "a.\t I should always give way to a bus if it indicates to pull out.",
+"answerIsRight": 0
+},
+{
+"answerID": 130,
+"questionID": 37,
+"answerString": "When the bus indicates to pull out and the speed limit is at most 50 km/h.",
+"answerIsRight": 1
+},
+{
+"answerID": 131,
+"questionID": 37,
+"answerString" : "When the bus indicates to pull out and the speed limit is over 50 km/h.",
+"answerIsRight": 0
+},
+{
+"answerID" : 132,
+"questionID": 37,
+"answerString": "d.\t Never, since the bus is not in motion.",
+"answerIsRight": 0
+},
+{
+"answerID": 133,
+"questionID": 38,
+"answerString": "A",
+"answerIsRight" : 0
+},
+{
+"answerID": 134,
+"questionID" : 38,
+"answerString": "B",
+"answerIsRight": 1
+},
+{
+"answerID": 135,
+"questionID": 38,
+"answerString": "C",
+"answerIsRight": 0
+},
+{
+"answerID": 136,
+"questionID": 38,
+"answerString" : "D",
+"answerIsRight": 0
+},
+{
+"answerID" : 137,
+"questionID": 39,
+"answerString": "The ABS system is not activated.",
+"answerIsRight": 0
+},
+{
+"answerID": 138,
+"questionID": 39,
+"answerString": "b.\t The anti-skid system is not activated.",
+"answerIsRight" : 1
+},
+{
+"answerID": 139,
+"questionID" : 39,
+"answerString": "c.\t The high beam is turned off.",
+"answerIsRight": 0
+},
+{
+"answerID": 140,
+"questionID": 39,
+"answerString": "e heated rear window is turned off.",
+"answerIsRight": 0
+},
+{
+"answerID": 141,
+"questionID": 40,
+"answerString" : "I can always pass an amber signal since it is only a warning before a red signal.",
+"answerIsRight": 0
+},
+{
+"answerID" : 142,
+"questionID": 40,
+"answerString": "I can pass an amber signal if I do not have time to stop in a safe manner when the signal changes from green to amber.",
+"answerIsRight": 1
+},
+{
+"answerID": 143,
+"questionID": 40,
+"answerString": "c.\t I can never pass an amber signal since it has the same meaning as a red signal.",
+"answerIsRight" : 0
+},
+{
+"answerID": 144,
+"questionID" : 41,
+"answerString": "I can park in this space all of Wednesday without paying a charge.",
+"answerIsRight": 0
+},
+{
+"answerID": 145,
+"questionID": 41,
+"answerString": "I may not park in this space between 00.00 and 06.00.",
+"answerIsRight": 1
+},
+{
+"answerID": 146,
+"questionID": 41,
+"answerString" : "c.\t I can park in this space all of Wednesday provided that I pay a charge.",
+"answerIsRight": 0
+},
+{
+"answerID" : 147,
+"questionID": 41,
+"answerString": "I may not park in this space as the parking area is only for residents.",
+"answerIsRight": 0
+},
+{
+"answerID": 148,
+"questionID": 42,
+"answerString": "a.\t Petrol and diesel.",
+"answerIsRight" : 1
+},
+{
+"answerID": 149,
+"questionID" : 42,
+"answerString": "Ethanol and biogas.",
+"answerIsRight": 0
+},
+{
+"answerID": 150,
+"questionID": 42,
+"answerString": "Electricity and rapeseed oil.",
+"answerIsRight": 0
+},
+{
+"answerID": 151,
+"questionID": 43,
+"answerString" : "Always the lane furthest to the right.",
+"answerIsRight": 0
+},
+{
+"answerID" : 152,
+"questionID": 43,
+"answerString": "Always the lane furthest to the left.",
+"answerIsRight": 0
+},
+{
+"answerID": 153,
+"questionID": 43,
+"answerString": "The lane that is best suited to reaching my destination.",
+"answerIsRight" : 1
+},
+{
+"answerID": 154,
+"questionID" : 44,
+"answerString": "Yes, it is always permitted.",
+"answerIsRight": 0
+},
+{
+"answerID": 155,
+"questionID": 44,
+"answerString": "b.\t Yes, but only if there is heavy fog.",
+"answerIsRight": 0
+},
+{
+"answerID": 156,
+"questionID": 44,
+"answerString" : "c.\t No, it is never permitted.",
+"answerIsRight": 1
+},
+{
+"answerID" : 157,
+"questionID": 45,
+"answerString": "The exit ramp is always on the left side.",
+"answerIsRight": 0
+},
+{
+"answerID": 158,
+"questionID": 45,
+"answerString": "The exit ramp can either be on the right of left side.",
+"answerIsRight" : 1
+},
+{
+"answerID": 159,
+"questionID" : 45,
+"answerString": "c.\t The exit ramp is always on the right side.",
+"answerIsRight": 0
+},
+{
+"answerID": 160,
+"questionID": 46,
+"answerString": "Closer than 30 metres before and 30 metres after.",
+"answerIsRight": 1
+},
+{
+"answerID": 161,
+"questionID": 46,
+"answerString" : "Closer than 50 metres before and 50 metres after.",
+"answerIsRight": 0
+},
+{
+"answerID" : 162,
+"questionID": 46,
+"answerString": "Closer than 200 metres before and 50 metres after.",
+"answerIsRight": 0
+},
+{
+"answerID": 163,
+"questionID": 46,
+"answerString": "d.\t The parking prohibition applies to the next junction on both sides of the level crossing.",
+"answerIsRight" : 0
+},
+{
+"answerID": 164,
+"questionID" : 47,
+"answerString": "The driver may not turn into A as the mandatory sign located after the junction indicates that this is not permitted.",
+"answerIsRight": 0
+},
+{
+"answerID": 165,
+"questionID": 47,
+"answerString": "The driver may turn into A as there is a broken lane line a bit further on.",
+"answerIsRight": 0
+},
+{
+"answerID": 166,
+"questionID": 47,
+"answerString" : "c.\t The driver may not turn into A as the lane is demarcated with a solid line before the junction.",
+"answerIsRight": 1
+},
+{
+"answerID" : 167,
+"questionID": 48,
+"answerString": "a.\t The three second rule.",
+"answerIsRight": 0
+},
+{
+"answerID": 168,
+"questionID": 48,
+"answerString": "The right-hand rule.",
+"answerIsRight" : 0
+},
+{
+"answerID": 169,
+"questionID" : 48,
+"answerString": "c.\t The exit rule.",
+"answerIsRight": 1
+},
+{
+"answerID": 170,
+"questionID": 48,
+"answerString": "d.\t The turning rule.",
+"answerIsRight": 0
+},
+{
+"answerID": 171,
+"questionID": 49,
+"answerString" : "a.\t 30 km/h.",
+"answerIsRight": 1
+},
+{
+"answerID" : 172,
+"questionID": 49,
+"answerString": "b.\t 50 km/h.",
+"answerIsRight": 0
+},
+{
+"answerID": 173,
+"questionID": 49,
+"answerString": "70 km/h.",
+"answerIsRight" : 0
+},
+{
+"answerID": 174,
+"questionID" : 49,
+"answerString": "90 km/h.",
+"answerIsRight": 0
+},
+{
+"answerID": 175,
+"questionID": 49,
+"answerString": "e.\t There is no limit.",
+"answerIsRight": 0
+},
+{
+"answerID": 176,
+"questionID": 50,
+"answerString" : "Yes, since it is a heavy traffic queue.",
+"answerIsRight": 0
+},
+{
+"answerID" : 177,
+"questionID": 50,
+"answerString": "b.\t No, since the solid line indicates that overtaking is prohibited.",
+"answerIsRight": 0
+},
+{
+"answerID": 178,
+"questionID": 50,
+"answerString": "c.\t No, since in that case I have to drive across the solid line.",
+"answerIsRight" : 1
+},
+{
+"answerID": 179,
+"questionID" : 50,
+"answerString": "d.\t No, since I risk not being able to re-enter the correct lane due to the length of the queue.",
+"answerIsRight": 0
+},
+{
+"answerID": 180,
+"questionID": 51,
+"answerString": "a.\t Worn tyres work better than new tyres in the rain, but worse under normal conditions.",
+"answerIsRight": 0
+},
+{
+"answerID": 181,
+"questionID": 51,
+"answerString" : "b.\t Worn tyres work particularly badly in the rain.",
+"answerIsRight": 0
+},
+{
+"answerID" : 182,
+"questionID": 51,
+"answerString": "When it is raining, there is no difference in grip level between worn and new tyres.",
+"answerIsRight": 0
+},
+{
+"answerID": 183,
+"questionID": 52,
+"answerString": "a.\t Parking is prohibited directly under this sign. No prohibition to the right and left.",
+"answerIsRight" : 0
+},
+{
+"answerID": 184,
+"questionID" : 52,
+"answerString": "Stopping and parking is prohibited directly under the sign.",
+"answerIsRight": 0
+},
+{
+"answerID": 185,
+"questionID": 52,
+"answerString": "c.\t Parking is prohibited on both sides of the sign.",
+"answerIsRight": 1
+},
+{
+"answerID": 186,
+"questionID": 53,
+"answerString" : "The right lane.",
+"answerIsRight": 1
+},
+{
+"answerID" : 187,
+"questionID": 53,
+"answerString": "b.\t The left lane.",
+"answerIsRight": 0
+},
+{
+"answerID": 188,
+"questionID": 53,
+"answerString": "The option best suited to my destination.",
+"answerIsRight" : 0
+},
+{
+"answerID": 189,
+"questionID" : 54,
+"answerString": "Approximately 0.5 cl",
+"answerIsRight": 0
+},
+{
+"answerID": 190,
+"questionID": 54,
+"answerString": "Approximately 4 cl",
+"answerIsRight": 0
+},
+{
+"answerID": 191,
+"questionID": 54,
+"answerString" : "Approximately 9 cl",
+"answerIsRight": 1
+},
+{
+"answerID" : 192,
+"questionID": 54,
+"answerString": "Approximately 16 cl",
+"answerIsRight": 0
+},
+{
+"answerID": 193,
+"questionID": 55,
+"answerString": "a.\t 1–2%",
+"answerIsRight" : 0
+},
+{
+"answerID": 194,
+"questionID" : 56,
+"answerString": "50%",
+"answerIsRight": 0
+},
+{
+"answerID": 195,
+"questionID": 57,
+"answerString": "98–99%",
+"answerIsRight": 1
+},
+{
+"answerID": 196,
+"questionID": 56,
+"answerString" : "The mandatory sign on the right of the picture means it is not permitted.",
+"answerIsRight": 1
+},
+{
+"answerID" : 197,
+"questionID": 56,
+"answerString": "b.\t Turning off from a road is always prohibited if there is no clear exit road.",
+"answerIsRight": 0
+},
+{
+"answerID": 198,
+"questionID": 56,
+"answerString": "Driving across the prohibited area on the asphalt is not allowed.",
+"answerIsRight" : 0
+},
+{
+"answerID": 199,
+"questionID" : 56,
+"answerString": "d.\t The curve of the turn is not big enough.",
+"answerIsRight": 0
+},
+{
+"answerID": 200,
+"questionID": 57,
+"answerString": "a.\t It will be 9 times longer.",
+"answerIsRight": 1
+},
+{
+"answerID": 201,
+"questionID": 57,
+"answerString" : "b.\t It will be 3 times longer.",
+"answerIsRight": 0
+},
+{
+"answerID" : 202,
+"questionID": 57,
+"answerString": "It will be 2 times longer.",
+"answerIsRight": 0
+},
+{
+"answerID": 203,
+"questionID": 57,
+"answerString": "It will not change",
+"answerIsRight" : 0
+},
+{
+"answerID": 204,
+"questionID" : 58,
+"answerString": "a.\t Road church",
+"answerIsRight": 0
+},
+{
+"answerID": 205,
+"questionID": 58,
+"answerString": "Built-up area",
+"answerIsRight": 1
+},
+{
+"answerID": 206,
+"questionID": 58,
+"answerString" : "c.\t Low-speed section",
+"answerIsRight": 0
+},
+{
+"answerID" : 207,
+"questionID": 58,
+"answerString": "Recommended lower speed",
+"answerIsRight": 0
+},
+{
+"answerID": 208,
+"questionID": 59,
+"answerString": "a.\t I am obliged to give way since it is a roundabout.",
+"answerIsRight" : 0
+},
+{
+"answerID": 209,
+"questionID" : 59,
+"answerString": "b.\t The silver car is obliged to give way as the right-hand rule applies.",
+"answerIsRight": 0
+},
+{
+"answerID": 210,
+"questionID": 59,
+"answerString": "c.\t I am obliged to give way since the silver car is driving on a priority road.",
+"answerIsRight": 0
+},
+{
+"answerID": 211,
+"questionID": 59,
+"answerString" : "The silver car is obliged to give way since I am in a roundabout.",
+"answerIsRight": 1
+},
+{
+"answerID" : 212,
+"questionID": 60,
+"answerString": "a.\t At 3.5 metres",
+"answerIsRight": 0
+},
+{
+"answerID": 213,
+"questionID": 60,
+"answerString": "At 4.5 metres",
+"answerIsRight" : 1
+},
+{
+"answerID": 214,
+"questionID" : 60,
+"answerString": "At 5 metres",
+"answerIsRight": 0
+},
+{
+"answerID": 215,
+"questionID": 60,
+"answerString": "Never",
+"answerIsRight": 0
+},
+{
+"answerID": 216,
+"questionID": 61,
+"answerString" : "No, since there is a solid line on my side.",
+"answerIsRight": 0
+},
+{
+"answerID" : 217,
+"questionID": 61,
+"answerString": "Yes, and I am allowed to cross over the solid line if necessary.",
+"answerIsRight": 1
+},
+{
+"answerID": 218,
+"questionID": 61,
+"answerString": "c.\t Yes, provided that I do not need to cross over the solid line.",
+"answerIsRight" : 0
+},
+{
+"answerID": 219,
+"questionID" : 62,
+"answerString": "That I have an obligation to give way in 100 metres.",
+"answerIsRight": 0
+},
+{
+"answerID": 220,
+"questionID": 62,
+"answerString": "b.\t That I am obliged to stop in 100 metres.",
+"answerIsRight": 1
+},
+{
+"answerID": 221,
+"questionID": 62,
+"answerString" : "That I have an obligation to give way at the signs and I am obliged to stop 100 metres further on.",
+"answerIsRight": 0
+},
+{
+"answerID" : 222,
+"questionID": 63,
+"answerString": "The roadworks are ending on the 30th of the current month.",
+"answerIsRight": 0
+},
+{
+"answerID": 223,
+"questionID": 63,
+"answerString": "Recommended maximum speed.",
+"answerIsRight" : 1
+},
+{
+"answerID": 224,
+"questionID" : 63,
+"answerString": "The sign is not a road sign; it is intended for road workers.",
+"answerIsRight": 0
+},
+{
+"answerID": 225,
+"questionID": 63,
+"answerString": "Recommended minimum speed.",
+"answerIsRight": 0
+},
+{
+"answerID": 226,
+"questionID": 64,
+"answerString" : "Turn right after 1 km.",
+"answerIsRight": 1
+},
+{
+"answerID" : 227,
+"questionID": 64,
+"answerString": "Continue on straight.",
+"answerIsRight": 0
+},
+{
+"answerID": 228,
+"questionID": 65,
+"answerString": "Facilitates cold starts.",
+"answerIsRight" : 0
+},
+{
+"answerID": 229,
+"questionID" : 65,
+"answerString": "b.\t Reduces engine noise (silencer).",
+"answerIsRight": 0
+},
+{
+"answerID": 230,
+"questionID": 65,
+"answerString": "c.\t Converts over 80% of the harmful substances in the exhaust to water and carbon dioxide.",
+"answerIsRight": 1
+},
+{
+"answerID": 240,
+"questionID": 65,
+"answerString" : "Reduces the car's carbon dioxide emissions by over 80%.",
+"answerIsRight": 0
+},
+{
+"answerID" : 232,
+"questionID": 66,
+"answerString": "a.\t Parking is prohibited directly under this sign. No prohibition to the right and left.",
+"answerIsRight": 0
+},
+{
+"answerID": 233,
+"questionID": 66,
+"answerString": "Stopping and parking is prohibited directly under the sign.",
+"answerIsRight" : 0
+},
+{
+"answerID": 234,
+"questionID" : 66,
+"answerString": "Parking is prohibited on both sides of the sign.",
+"answerIsRight": 1
+},
+{
+"answerID": 235,
+"questionID": 67,
+"answerString": "No, you will then be charged with absconding.",
+"answerIsRight": 0
+},
+{
+"answerID": 236,
+"questionID": 67,
+"answerString" : "Yes, you never have any obligation to stop at an accident.",
+"answerIsRight": 0
+},
+{
+"answerID" : 237,
+"questionID": 67,
+"answerString": "c.\t Yes, if you have not witnessed the accident and it is clear that your help is not needed.",
+"answerIsRight": 1
+}
+]
+}

@@ -29,7 +29,9 @@ class MyDBHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "driverdatabase8.db";
     public static final String TABLE_APPLICATION = "application";
     public static final String TABLE_QUESTION = "question";
+    public static final String TABLE_QUESTION_SE = "questionSE";
     public static final String TABLE_ANSWER = "answer";
+    public static final String TABLE_ANSWER_SE = "answerSE";
     public static final String TABLE_USER_CHOICE = "userChoice";
     public static final String COLUMN_APPLICATION_ID = "applicationID";
     public static final String COLUMN_IS_DATA_LOADED = "isDataLoaded";
@@ -64,12 +66,16 @@ class MyDBHandler extends SQLiteOpenHelper {
         Log.i("DB", "clear database");
         String dropApplication = "DROP TABLE IF EXISTS " + TABLE_APPLICATION;
         String dropQuestions = "DROP TABLE IF EXISTS " + TABLE_QUESTION;
+        String dropSEQuestions = "DROP TABLE IF EXISTS " + TABLE_QUESTION_SE;
         String dropAnswers = "DROP TABLE IF EXISTS " + TABLE_ANSWER;
+        String dropSEAnswers = "DROP TABLE IF EXISTS " + TABLE_ANSWER_SE;
         String dropChoices = "DROP TABLE IF EXISTS " + TABLE_USER_CHOICE;
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(dropApplication);
         db.execSQL(dropQuestions);
+        db.execSQL(dropSEQuestions);
         db.execSQL(dropAnswers);
+        db.execSQL(dropSEAnswers);
         db.execSQL(dropChoices);
 //        db.close();
     }
@@ -127,7 +133,19 @@ class MyDBHandler extends SQLiteOpenHelper {
                 COLUMN_RIGHT_ANSWER + " INTEGER, " +
                 COLUMN_QUESTION_PICTURE + " VARCHAR " +
                 ")";
+        String CREATE_QUESTION_SE = "CREATE TABLE IF NOT EXISTS " + TABLE_QUESTION_SE + "(" +
+                COLUMN_QUESTION_ID + " INTEGER PRIMARY KEY, " +
+                COLUMN_QUESTION_STRING + " VARCHAR, " +
+                COLUMN_RIGHT_ANSWER + " INTEGER, " +
+                COLUMN_QUESTION_PICTURE + " VARCHAR " +
+                ")";
         String CREATE_ANSWER = "CREATE TABLE IF NOT EXISTS " + TABLE_ANSWER + "(" +
+                COLUMN_ANSWER_ID + " INTEGER PRIMARY KEY, " +
+                COLUMN_ANSWER_STRING + " VARCHAR, " +
+                COLUMN_ANSWER_IS_RIGHT + " INTEGER, " +
+                COLUMN_QUESTION_ID + " INTEGER " +
+                ")";
+        String CREATE_ANSWER_SE = "CREATE TABLE IF NOT EXISTS " + TABLE_ANSWER_SE + "(" +
                 COLUMN_ANSWER_ID + " INTEGER PRIMARY KEY, " +
                 COLUMN_ANSWER_STRING + " VARCHAR, " +
                 COLUMN_ANSWER_IS_RIGHT + " INTEGER, " +
@@ -147,17 +165,13 @@ class MyDBHandler extends SQLiteOpenHelper {
         Log.i("MYDBHANDLER", "create tables");
         db.execSQL(CREATE_APPLICATION);
         db.execSQL(CREATE_QUESTION);
+        db.execSQL(CREATE_QUESTION_SE);
         db.execSQL(CREATE_ANSWER);
+        db.execSQL(CREATE_ANSWER_SE);
         db.execSQL(CREATE_CHOICE);
         db.execSQL("INSERT INTO " + TABLE_APPLICATION + " (" +
                 COLUMN_APPLICATION_ID + ", " + COLUMN_IS_DATA_LOADED + ", " + COLUMN_LAST_ANSWERED_QUESTION + ") " +
                 "VALUES (1, 0, -1)");
-//        db.execSQL("UPDATE " + TABLE_APPLICATION +
-//                " SET " + COLUMN_IS_DATA_LOADED + "  (0)" +
-//                " WHERE " + COLUMN_APPLICATION_ID + " = 1");
-//        db.execSQL("UPDATE " + TABLE_APPLICATION +
-//                " SET (" + COLUMN_LAST_ANSWERED_QUESTION + ") (-1)" +
-//                " WHERE " + COLUMN_APPLICATION_ID + " = 1");
     }
 
     @Override
@@ -170,14 +184,26 @@ class MyDBHandler extends SQLiteOpenHelper {
         if (!this.isDataLoaded()) {
             try {
 //                JSONObject jsonObject = new JSONObject(this.loadJSONFromAsset(context));
-                JSONObject jsonQuestionsObject = new JSONObject(this.loadQuestionJSONFromResources(context));
+                JSONObject jsonObject =
+                        new JSONObject(this.loadJSONFromResources(context, R.raw.questions));
 //                Log.d("firstRun, jsonObject", jsonObject.toString());
-                JSONArray jsonQuestions = jsonQuestionsObject.getJSONArray("questions");
-                this.loadQuestionsFromJSON(jsonQuestions);
+                JSONArray jsonArray = jsonObject.getJSONArray("questions");
+                this.loadQuestionsFromJSON(jsonArray, true);
 
-                JSONObject jsonAnswersObject = new JSONObject(this.loadAnswersJSONFromResources(context));
-                JSONArray jsonAnswers = jsonAnswersObject.getJSONArray("answers");
-                this.loadAnswersFromJson(jsonAnswers);
+                jsonObject =
+                        new JSONObject(this.loadJSONFromResources(context, R.raw.questions_se));
+//                Log.d("firstRun, jsonObject", jsonObject.toString());
+                jsonArray = jsonObject.getJSONArray("questions");
+                this.loadQuestionsFromJSON(jsonArray, false);
+
+                jsonObject = new JSONObject(this.loadJSONFromResources(context, R.raw.answers));
+                jsonArray = jsonObject.getJSONArray("answers");
+                this.loadAnswersFromJson(jsonArray, true);
+                this.setDataLoaded(true);
+
+                jsonObject = new JSONObject(this.loadJSONFromResources(context, R.raw.answers_se));
+                jsonArray = jsonObject.getJSONArray("answers");
+                this.loadAnswersFromJson(jsonArray, false);
                 this.setDataLoaded(true);
             } catch (JSONException e) {
                 Log.d("JSONEXCEPTION", e.getLocalizedMessage());
@@ -185,11 +211,11 @@ class MyDBHandler extends SQLiteOpenHelper {
         }
     }
 
-    public String loadQuestionJSONFromResources(Context context) {
+    public String loadJSONFromResources(Context context, int resource) {
         String json = null;
         try {
 //            InputStream is = context.getAssets().open("questions.json");
-            InputStream is = context.getResources().openRawResource(R.raw.questions);
+            InputStream is = context.getResources().openRawResource(resource);
             Writer writer = new StringWriter();
             char[] buffer = new char[1024];
             try {
@@ -215,35 +241,35 @@ class MyDBHandler extends SQLiteOpenHelper {
         return json;
     }
 
-    public String loadAnswersJSONFromResources(Context context) {
-        String json = null;
-        try {
-//            InputStream is = context.getAssets().open("questions.json");
-            InputStream is = context.getResources().openRawResource(R.raw.answers);
-            Writer writer = new StringWriter();
-            char[] buffer = new char[1024];
-            try {
-                Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-                int n;
-                while ((n = reader.read(buffer)) != -1) {
-                    writer.write(buffer, 0, n);
-                }
-            } finally {
-                is.close();
-            }
-            json = writer.toString();
-//            String jsonString = writer.toString();
-//            int size = is.available();
-//            byte[] buffer = new byte[size];
-//            is.read(buffer);
-//            is.close();
-//            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
+//    public String loadAnswersJSONFromResources(Context context) {
+//        String json = null;
+//        try {
+////            InputStream is = context.getAssets().open("questions.json");
+//            InputStream is = context.getResources().openRawResource(R.raw.answers);
+//            Writer writer = new StringWriter();
+//            char[] buffer = new char[1024];
+//            try {
+//                Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+//                int n;
+//                while ((n = reader.read(buffer)) != -1) {
+//                    writer.write(buffer, 0, n);
+//                }
+//            } finally {
+//                is.close();
+//            }
+//            json = writer.toString();
+////            String jsonString = writer.toString();
+////            int size = is.available();
+////            byte[] buffer = new byte[size];
+////            is.read(buffer);
+////            is.close();
+////            json = new String(buffer, "UTF-8");
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//            return null;
+//        }
+//        return json;
+//    }
 
     public boolean isDataLoaded() {
         String query = "SELECT " + COLUMN_IS_DATA_LOADED + " FROM " + TABLE_APPLICATION;
@@ -323,9 +349,14 @@ class MyDBHandler extends SQLiteOpenHelper {
         db.update(TABLE_APPLICATION, values, where, null);
     }
 
-    public ArrayList<Question> loadQuestions() {
+    public ArrayList<Question> loadQuestions(boolean finnish) {
+        String query;
         ArrayList<Question> result = new ArrayList<>();
-        String query = "SELECT * FROM " + TABLE_QUESTION;
+        if (finnish) {
+            query = "SELECT * FROM " + TABLE_QUESTION;
+        } else {
+            query = "SELECT * FROM " + TABLE_QUESTION_SE;
+        }
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         cursor.moveToFirst();
@@ -343,8 +374,13 @@ class MyDBHandler extends SQLiteOpenHelper {
         return result;
     }
 
-    public int countNumberOfQuestions() {
-        String query = "SELECT COUNT(*) FROM " + TABLE_QUESTION;
+    public int countNumberOfQuestions(boolean finnish) {
+        String query;
+        if (finnish) {
+            query = "SELECT COUNT(*) FROM " + TABLE_QUESTION;
+        } else  {
+            query = "SELECT COUNT(*) FROM " + TABLE_QUESTION_SE;
+        }
         Log.i("MYDBHANDLER", "count number of questions: " + query);
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
@@ -360,42 +396,51 @@ class MyDBHandler extends SQLiteOpenHelper {
         return count;
     }
 
-    public void addQuestion(Question question) {
+    public void addQuestion(Question question, boolean finnish) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_QUESTION_ID, question.getQuestionID());
         values.put(COLUMN_QUESTION_STRING, question.getQuestionString());
         values.put(COLUMN_RIGHT_ANSWER, question.getRightAnswerID());
         values.put(COLUMN_QUESTION_PICTURE, question.getPicture());
         SQLiteDatabase db = this.getWritableDatabase();
-        db.insert(TABLE_QUESTION, null, values);
+        if (finnish) {
+            db.insert(TABLE_QUESTION, null, values);
+        } else {
+            db.insert(TABLE_QUESTION_SE, null, values);
+        }
         db.close();
     }
 
-    private void addQuestion(JSONObject object) {
+    private void addQuestion(JSONObject object, boolean finnish) {
         Question question = new Question();
         try {
             question.setQuestionID(object.getInt("questionID"));
             question.setQuestionString(object.getString("questionString"));
             question.setRightAnswerID(object.getInt("rightAnswer"));
             question.setPicture(object.getString("picture"));
-            this.addQuestion(question);
+            this.addQuestion(question, finnish);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public void loadQuestionsFromJSON(JSONArray jsonQuestions) {
+    public void loadQuestionsFromJSON(JSONArray jsonQuestions, boolean finnish) {
         for (int i=0; i < jsonQuestions.length(); i++) {
             try {
-                this.addQuestion(jsonQuestions.getJSONObject(i));
+                this.addQuestion(jsonQuestions.getJSONObject(i), finnish);
             } catch (JSONException e)  {
                 e.printStackTrace();
             }
         }
     }
 
-    public Question findQuestionBy(String questionString) {
-        String query = "SELECT * FROM " + TABLE_QUESTION + " WHERE " + COLUMN_QUESTION_STRING + " = " + "'" + questionString + "'";
+    public Question findQuestionBy(String questionString, boolean finnish) {
+        String query;
+        if (finnish) {
+            query = "SELECT * FROM " + TABLE_QUESTION + " WHERE " + COLUMN_QUESTION_STRING + " = " + "'" + questionString + "'";
+        } else {
+            query = "SELECT * FROM " + TABLE_QUESTION_SE + " WHERE " + COLUMN_QUESTION_STRING + " = " + "'" + questionString + "'";
+        }
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         Question question = new Question();
@@ -413,8 +458,13 @@ class MyDBHandler extends SQLiteOpenHelper {
         return question;
     }
 
-    public Question findQuestionBy(int questionID) {
-        String query = "SELECT * FROM " + TABLE_QUESTION + " WHERE " + COLUMN_QUESTION_ID + " = " + "'" + questionID + "'";
+    public Question findQuestionBy(int questionID, boolean finnish) {
+        String query;
+        if (finnish) {
+            query = "SELECT * FROM " + TABLE_QUESTION + " WHERE " + COLUMN_QUESTION_ID + " = " + "'" + questionID + "'";
+        } else {
+            query = "SELECT * FROM " + TABLE_QUESTION_SE + " WHERE " + COLUMN_QUESTION_ID + " = " + "'" + questionID + "'";
+        }
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         Question question = new Question();
@@ -432,9 +482,14 @@ class MyDBHandler extends SQLiteOpenHelper {
         return question;
     }
 
-    public boolean deleteQuestion(int ID) {
+    public boolean deleteQuestion(int ID, boolean finnish) {
         boolean result = false;
-        String query = "SELECT * FROM " + TABLE_QUESTION + " WHERE " + COLUMN_QUESTION_ID + "= '" + String.valueOf(ID) + "'";
+        String query;
+        if (finnish) {
+            query = "SELECT * FROM " + TABLE_QUESTION + " WHERE " + COLUMN_QUESTION_ID + "= '" + String.valueOf(ID) + "'";
+        } else {
+            query = "SELECT * FROM " + TABLE_QUESTION_SE + " WHERE " + COLUMN_QUESTION_ID + "= '" + String.valueOf(ID) + "'";
+        }
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         Question question = new Question();
@@ -449,41 +504,54 @@ class MyDBHandler extends SQLiteOpenHelper {
         return result;
     }
 
-    public boolean deleteQuestion(Question question) {
-        return deleteQuestion(question.getQuestionID());
+    public boolean deleteQuestion(Question question, boolean finnish) {
+        return deleteQuestion(question.getQuestionID(), finnish);
     }
 
-    public int updateQuestion(int ID, String name, int answerID, String picture) {
+    public int updateQuestion(int ID, String name, int answerID, String picture, boolean finnish) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues args = new ContentValues();
         args.put(COLUMN_QUESTION_ID, ID);
         args.put(COLUMN_QUESTION_STRING, name);
         args.put(COLUMN_RIGHT_ANSWER, answerID);
         args.put(COLUMN_QUESTION_PICTURE, picture);
-        return db.update(TABLE_QUESTION, args,COLUMN_QUESTION_ID + "=" + ID, null);
+        if (finnish) {
+            return db.update(TABLE_QUESTION, args, COLUMN_QUESTION_ID + "=" + ID, null);
+        } else {
+            return db.update(TABLE_QUESTION_SE , args, COLUMN_QUESTION_ID + "=" + ID, null);
+        }
     }
 
-    public int updateQuestion(Question question) {
+    public int updateQuestion(Question question, boolean finnish) {
         return updateQuestion(question.getQuestionID(),
                 question.getQuestionString(),
                 question.getRightAnswerID(),
-                question.getPicture());
+                question.getPicture(), finnish);
     }
 
-    public int updateQuestionWithRightAnswer(Question question, Answer answer) {
+    public int updateQuestionWithRightAnswer(Question question, Answer answer, boolean finnish) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues args = new ContentValues();
         args.put(COLUMN_QUESTION_ID, question.getQuestionID());
         args.put(COLUMN_QUESTION_STRING, question.getQuestionString());
         args.put(COLUMN_RIGHT_ANSWER, answer.getAnswerID());
         args.put(COLUMN_QUESTION_PICTURE, question.getPicture());
-        return db.update(TABLE_QUESTION, args,COLUMN_QUESTION_ID + "=" + question.getQuestionID(), null);
+        if (finnish) {
+            return db.update(TABLE_QUESTION, args, COLUMN_QUESTION_ID + "=" + question.getQuestionID(), null);
+        } else {
+            return db.update(TABLE_QUESTION, args, COLUMN_QUESTION_ID + "=" + question.getQuestionID(), null);
+        }
     }
 
     //ANSWERS
-    public ArrayList<Answer> loadAllAnswers() {
+    public ArrayList<Answer> loadAllAnswers(boolean finnish) {
         ArrayList<Answer> result = new ArrayList<>();
-        String query = "SELECT * FROM " + TABLE_ANSWER;
+        String query;
+        if (finnish) {
+            query = "SELECT * FROM " + TABLE_ANSWER;
+        } else {
+            query = "SELECT * FROM " + TABLE_ANSWER_SE;
+        }
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         cursor.moveToFirst();
@@ -499,9 +567,14 @@ class MyDBHandler extends SQLiteOpenHelper {
         return result;
     }
 
-    public ArrayList<Answer> loadAnswersForQuestion(int questionID) {
+    public ArrayList<Answer> loadAnswersForQuestion(int questionID, boolean finnish) {
         ArrayList<Answer> result = new ArrayList<>();
-        String query = "SELECT * FROM " + TABLE_ANSWER + " WHERE " + COLUMN_QUESTION_ID + " = " + questionID;
+        String query;
+        if (finnish) {
+            query = "SELECT * FROM " + TABLE_ANSWER + " WHERE " + COLUMN_QUESTION_ID + " = " + questionID;
+        } else {
+            query = "SELECT * FROM " + TABLE_ANSWER_SE + " WHERE " + COLUMN_QUESTION_ID + " = " + questionID;
+        }
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         int rightAnswerID = -1;
@@ -517,9 +590,15 @@ class MyDBHandler extends SQLiteOpenHelper {
         } while (cursor.moveToNext());
 //        Log.d("DBHANDLER", "right answer: " + rightAnswerID);
         cursor.close();
-        query = "SELECT " + COLUMN_RIGHT_ANSWER +
-                " FROM " + TABLE_QUESTION +
-                " WHERE " + COLUMN_QUESTION_ID + " = " + Integer.toString(questionID);
+        if (finnish) {
+            query = "SELECT " + COLUMN_RIGHT_ANSWER +
+                    " FROM " + TABLE_QUESTION +
+                    " WHERE " + COLUMN_QUESTION_ID + " = " + Integer.toString(questionID);
+        } else {
+            query = "SELECT " + COLUMN_RIGHT_ANSWER +
+                    " FROM " + TABLE_QUESTION_SE +
+                    " WHERE " + COLUMN_QUESTION_ID + " = " + Integer.toString(questionID);
+        }
         cursor = db.rawQuery(query, null);
         boolean updateQuestion = false;
         int existingRightAnswer = -1;
@@ -533,10 +612,15 @@ class MyDBHandler extends SQLiteOpenHelper {
             cursor.close();
         }
         if (updateQuestion) {
-            query = "UPDATE " + TABLE_QUESTION +
-                    " SET " + COLUMN_RIGHT_ANSWER + " = " + Integer.toString(rightAnswerID) +
-                    " WHERE " + COLUMN_QUESTION_ID + " = " + Integer.toString(questionID);
-
+            if (finnish) {
+                query = "UPDATE " + TABLE_QUESTION +
+                        " SET " + COLUMN_RIGHT_ANSWER + " = " + Integer.toString(rightAnswerID) +
+                        " WHERE " + COLUMN_QUESTION_ID + " = " + Integer.toString(questionID);
+            } else {
+                query = "UPDATE " + TABLE_QUESTION_SE +
+                        " SET " + COLUMN_RIGHT_ANSWER + " = " + Integer.toString(rightAnswerID) +
+                        " WHERE " + COLUMN_QUESTION_ID + " = " + Integer.toString(questionID);
+            }
             Log.d("DBHANDLER", "change right answer id query: " + query);
             ContentValues values = new ContentValues();
             values.put(COLUMN_RIGHT_ANSWER, Integer.toString(rightAnswerID));
@@ -549,9 +633,15 @@ class MyDBHandler extends SQLiteOpenHelper {
 //            cursor.close();
 
             //debug
-            query = "SELECT " + COLUMN_RIGHT_ANSWER +
-                    " FROM " + TABLE_QUESTION +
-                    " WHERE " + COLUMN_QUESTION_ID + " = " + Integer.toString(questionID);
+            if (finnish) {
+                query = "SELECT " + COLUMN_RIGHT_ANSWER +
+                        " FROM " + TABLE_QUESTION +
+                        " WHERE " + COLUMN_QUESTION_ID + " = " + Integer.toString(questionID);
+            } else {
+                query = "SELECT " + COLUMN_RIGHT_ANSWER +
+                        " FROM " + TABLE_QUESTION_SE +
+                        " WHERE " + COLUMN_QUESTION_ID + " = " + Integer.toString(questionID);
+            }
             cursor = db.rawQuery(query, null);
 //            boolean updateQuestion = false;
 //            int existingRightAnswer = -1;
@@ -571,9 +661,14 @@ class MyDBHandler extends SQLiteOpenHelper {
         return result;
     }
 
-    public ArrayList<Answer> loadAnswersForQuestion(Question question) {
+    public ArrayList<Answer> loadAnswersForQuestion(Question question, boolean finnish) {
         ArrayList<Answer> result = new ArrayList<>();
-        String query = "SELECT * FROM " + TABLE_ANSWER + " WHERE " + COLUMN_QUESTION_ID + " = " + question.getQuestionID();
+        String query = "";
+        if (finnish) {
+            query = "SELECT * FROM " + TABLE_ANSWER + " WHERE " + COLUMN_QUESTION_ID + " = " + question.getQuestionID();
+        } else {
+            query = "SELECT * FROM " + TABLE_ANSWER_SE + " WHERE " + COLUMN_QUESTION_ID + " = " + question.getQuestionID();
+        }
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         cursor.moveToFirst();
@@ -588,42 +683,51 @@ class MyDBHandler extends SQLiteOpenHelper {
         return result;
     }
 
-    public void addAnswer(Answer answer) {
+    public void addAnswer(Answer answer, boolean finnish) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_ANSWER_ID, answer.getAnswerID());
         values.put(COLUMN_ANSWER_STRING, answer.getAnswerString());
         values.put(COLUMN_ANSWER_IS_RIGHT, answer.isRightAnswer());
         values.put(COLUMN_QUESTION_ID, answer.getQuestionID());
         SQLiteDatabase db = this.getWritableDatabase();
-        db.insert(TABLE_ANSWER, null, values);
+        if (finnish) {
+            db.insert(TABLE_ANSWER, null, values);
+        } else {
+            db.insert(TABLE_ANSWER_SE, null, values);
+        }
 //        db.close();
     }
 
-    private void addAnswer(JSONObject object) {
+    private void addAnswer(JSONObject object, boolean finnish) {
         Answer answer = new Answer();
         try {
             answer.setAnswerID(object.getInt("answerID"));
             answer.setQuestionID(object.getInt("questionID"));
             answer.setAnswerString(object.getString("answerString"));
             answer.setRightAnswer(object.getInt("answerIsRight"));
-            this.addAnswer(answer);
+            this.addAnswer(answer, finnish);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    private void loadAnswersFromJson(JSONArray jsonObjects) {
+    private void loadAnswersFromJson(JSONArray jsonObjects, boolean finnish) {
         for (int i=0; i < jsonObjects.length(); i++) {
             try {
-                this.addAnswer(jsonObjects.getJSONObject(i));
+                this.addAnswer(jsonObjects.getJSONObject(i), finnish);
             } catch (JSONException e)  {
                 e.printStackTrace();
             }
         }
     }
 
-    public Answer findAnswerBy(String answerString) {
-        String query = "SELECT * FROM " + TABLE_ANSWER + " WHERE " + COLUMN_ANSWER_STRING + " = " + "'" + answerString + "'";
+    public Answer findAnswerBy(String answerString, boolean finnish) {
+        String query;
+        if (finnish) {
+            query = "SELECT * FROM " + TABLE_ANSWER + " WHERE " + COLUMN_ANSWER_STRING + " = " + "'" + answerString + "'";
+        } else {
+            query = "SELECT * FROM " + TABLE_ANSWER_SE + " WHERE " + COLUMN_ANSWER_STRING + " = " + "'" + answerString + "'";
+        }
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         Answer answer = new Answer();
@@ -642,8 +746,13 @@ class MyDBHandler extends SQLiteOpenHelper {
         return answer;
     }
 
-    public Answer findAnswerBy(int answerID) {
-        String query = "SELECT * FROM " + TABLE_ANSWER + " WHERE " + COLUMN_ANSWER_ID + " = " + "'" + answerID + "'";
+    public Answer findAnswerBy(int answerID, boolean finnish) {
+        String query;
+        if (finnish) {
+            query = "SELECT * FROM " + TABLE_ANSWER + " WHERE " + COLUMN_ANSWER_ID + " = " + "'" + answerID + "'";
+        } else {
+            query = "SELECT * FROM " + TABLE_ANSWER_SE + " WHERE " + COLUMN_ANSWER_ID + " = " + "'" + answerID + "'";
+        }
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         Answer answer = new Answer();
@@ -689,7 +798,7 @@ class MyDBHandler extends SQLiteOpenHelper {
 //        return deleteQuestion(answer.getAnswerID());
 //    }
 
-    public int updateAnswer(int ID, String name, int answerID, int questionID) {
+    public int updateAnswer(int ID, String name, int answerID, int questionID, boolean finnish) {
         Log.i("DB", "update answer, answerID: " + ID + ", questionID: " + questionID +
                 ", answerString: " + name + ", ");
         SQLiteDatabase db = this.getWritableDatabase();
@@ -698,11 +807,15 @@ class MyDBHandler extends SQLiteOpenHelper {
         args.put(COLUMN_QUESTION_ID, questionID);
         args.put(COLUMN_ANSWER_STRING, name);
 //        args.put(COLUMN_ANSWER_IS_RIGHT, answerID);
-        return db.update(TABLE_ANSWER, args,COLUMN_ANSWER_ID + " = " + ID, null);
+        if (finnish) {
+            return db.update(TABLE_ANSWER, args, COLUMN_ANSWER_ID + " = " + ID, null);
+        } else {
+            return db.update(TABLE_ANSWER_SE, args, COLUMN_ANSWER_ID + " = " + ID, null);
+        }
     }
 
-    public int updateAnswer(Answer answer) {
-        return updateAnswer(answer.getAnswerID(), answer.getAnswerString(), answer.isRightAnswer(), answer.getQuestionID());
+    public int updateAnswer(Answer answer, boolean finnish) {
+        return updateAnswer(answer.getAnswerID(), answer.getAnswerString(), answer.isRightAnswer(), answer.getQuestionID(), finnish);
     }
 
 
@@ -801,7 +914,7 @@ class MyDBHandler extends SQLiteOpenHelper {
         return count;
     }
 
-    public ArrayList<Choice> loadAllChoices() {
+    public ArrayList<Choice> loadAllChoices(boolean finnish) {
         String query = "SELECT * FROM " + TABLE_USER_CHOICE;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
@@ -813,7 +926,7 @@ class MyDBHandler extends SQLiteOpenHelper {
                 int questionID = cursor.getInt(1);
                 int answerID = cursor.getInt(2);
                 int isRightAnswer = cursor.getInt(3);
-                choices.add(new Choice(id, questionID, answerID, isRightAnswer, this));
+                choices.add(new Choice(id, questionID, answerID, isRightAnswer, this, finnish));
             } while (cursor.moveToNext());
         }
         cursor.close();
