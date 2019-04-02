@@ -17,7 +17,8 @@
     <string name="title_score">Score</string>
     <string name="title_language">Language</string>
     <string name="button_driving_tips">Driving Tips</string>
-    <string name="title_exam_SE">Take Exam SE</string>
+    <string name="title_exam_SE">Exam SE</string>
+    <string name="title_exam_fi">Exam</string>
     <string name="button_take_exam_se">Exam SE</string>
     <string name="button_take_new_exam_se">Take New Exam SE</string>
 </resources>

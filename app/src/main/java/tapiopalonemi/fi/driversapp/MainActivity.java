@@ -32,18 +32,19 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-//                    mTextMessage.setText(R.string.title_home);
+                    mTextMessage.setText(R.string.title_home);
 //                    navigation.setSelectedItemId(R.id.navigation_home);
 //                    Log.i("HOME BOTTOM NAVIGATION", "HOME CLICKED");
                     return true;
                 case R.id.navigation_exam:
-//                    mTextMessage.setText(R.string.title_exam);
+                    mTextMessage.setText(R.string.title_exam);
 //                    Log.i("HOME BOTTOM NAVIGATION", "EXAM CLICKED");
                     return true;
-                case R.id.navigation_exam_se:
-                    return true;
+//                case R.id.navigation_exam_se:
+//                    mTextMessage.setText(R.string.title_exam_SE);
+//                    return true;
                 case R.id.navigation_results:
-//                    mTextMessage.setText(R.string.title_results);
+                    mTextMessage.setText(R.string.title_results);
 //                    Log.i("HOME BOTTOM NAVIGATION", "RESULTS CLICKED");
                     return true;
             }

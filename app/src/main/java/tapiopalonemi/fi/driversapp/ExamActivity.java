@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +24,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import android.support.v4.view.GestureDetectorCompat;
+import android.view.MotionEvent;
+
 import org.jetbrains.annotations.Nullable;
 import org.w3c.dom.Text;
 
@@ -36,6 +40,8 @@ public class ExamActivity extends AppCompatActivity {
     private ArrayList<Answer> answers = new ArrayList<>();
     private ArrayList<Choice> choices = new ArrayList<>();
     ArrayAdapter arrayAdapter;// = new AnswerAdapter(this, answers);
+    // This is the gesture detector compat instance.
+    private GestureDetectorCompat gestureDetectorCompat = null;
 
     private MyDBHandler db;
     private int currentQuestion = -1;
@@ -55,8 +61,9 @@ public class ExamActivity extends AppCompatActivity {
                 case R.id.navigation_exam:
                     mTextMessage.setText(R.string.title_exam);
                     return true;
-                case R.id.navigation_exam_se:
-                    return true;
+//                case R.id.navigation_exam_se:
+//                    mTextMessage.setText(R.string.title_exam_SE);
+//                    return true;
                 case R.id.navigation_results:
                     mTextMessage.setText(R.string.title_results);
                     return true;
@@ -74,6 +81,15 @@ public class ExamActivity extends AppCompatActivity {
         actionBar.setSubtitle("Go Places>");
         actionBar.setHomeButtonEnabled(true);
 
+        // Create a common gesture listener object.
+        DetectSwipeGestureListener gestureListener = new DetectSwipeGestureListener();
+
+        // Set activity in the listener.
+        gestureListener.setActivity(this);
+
+        // Create the gesture detector with the gesture listener.
+        gestureDetectorCompat = new GestureDetectorCompat(this, gestureListener);
+
         mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -85,33 +101,31 @@ public class ExamActivity extends AppCompatActivity {
         //arrayAdapter = new AnswerAdapter(this, answers);
 
         db = new MyDBHandler(this);
+        loadStuff(finnish);
+        currentQuestion = db.getLastAnsweredQuestion();
+        loadAnswersForQuestions();
+        updateQuestionsWithChoices();
+        nextQuestion(null);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        // Pass activity on touch event to the gesture detector.
+        gestureDetectorCompat.onTouchEvent(event);
+        // Return true to tell android OS that event has been consumed, do not pass it to other event listeners.
+        return true;
+    }
+
+    private void loadStuff(boolean finnish) {
+        Log.i("EXA<", "loadStuff, finnish: " + finnish);
         questions = db.loadQuestions(finnish);
         answers = db.loadAllAnswers(finnish);
         choices = db.loadAllChoices(finnish);
 
-        currentQuestion = db.getLastAnsweredQuestion();
         currentQuestion -= 2;
         if (currentQuestion < -1) {
             currentQuestion = -1;
         }
-//        if (currentQuestion > 0) {
-//            currentQuestion -= 1;
-//        }
-
-//        for (Answer an : answers) {
-//            Log.i("ANSWER", an.getAnswerString());
-//        }
-
-//        Locale primaryLocale = this.getResources().getConfiguration().getLocales().get(0);
-//        String locale = primaryLocale.getDisplayName();
-//        String nepali = LanguageHelper.convertNumber(123, this);
-
-//        Log.i("EXAM ACTIVITY", "Locale: " + primaryLocale);
-//        Log.i("EXAM ACTIVITY", "is nepali: " + nepali);
-
-        loadAnswersForQuestions();
-        updateQuestionsWithChoices();
-        nextQuestion(null);
     }
 
     @Override
@@ -173,10 +187,28 @@ public class ExamActivity extends AppCompatActivity {
     public void startNewExam(View view) {
         db.deleteAllChoices();
         currentQuestion = -1;
-        for (Question question : questions) {
-            question.setChosenAnswer(null);
-            question.setAnswered(false);
-        }
+//        for (Question question : questions) {
+//            question.setChosenAnswer(null);
+//            question.setAnswered(false);
+//        }
+        finnish = true;
+        loadStuff(finnish);
+        db.setLastAnsweredQuestion(-1);
+        nextQuestion(null);
+
+    }
+
+    public void startNewExamSe(View view) {
+        db.deleteAllChoices();
+        currentQuestion = -1;
+//        for (Question question : questions) {
+//            question.setChosenAnswer(null);
+//            question.setAnswered(false);
+//        }
+        finnish = false;
+        db.setLastAnsweredQuestion(-1);
+        loadStuff(finnish);
+
         nextQuestion(null);
 
     }
@@ -231,6 +263,9 @@ public class ExamActivity extends AppCompatActivity {
         Button nextButton = findViewById(R.id.nextButton);
         Button previousButton = findViewById(R.id.backButton);
         currentQuestion = currentQuestion + 1;
+        if (currentQuestion < 0) {
+            currentQuestion = 0;
+        }
 
         if (currentQuestion < questions.size() - 1) {
             nextButton.setEnabled(true);
@@ -258,11 +293,14 @@ public class ExamActivity extends AppCompatActivity {
 
     public void previousQuestion(View view) {
         Log.i("EXAM", "Previous question");
-        Log.i("EXAM", "Current question: " + (currentQuestion - 1));
+
         Button previousButton = findViewById(R.id.backButton);
         Button nextButton = findViewById(R.id.nextButton);
         currentQuestion = currentQuestion - 1;
-
+        if (currentQuestion < 0) {
+            currentQuestion = 0;
+        }
+        Log.i("EXAM", "Current question: " + (currentQuestion));
         if (currentQuestion > 0) {
             Log.i("EXAM", "Current question is > 0");
             previousButton.setEnabled(true);
@@ -293,9 +331,10 @@ public class ExamActivity extends AppCompatActivity {
         } else {
             country = "se_";
         }
-        Log.d("EXAM", "picture: " + question.getPicture());
-        if (null != question.getPicture() && question.getPicture().length() > 0) {
 
+    if (null != question && null != question.getPicture() &&
+            question.getPicture().length() > 0) {
+            Log.d("EXAM", "picture: " + question.getPicture());
             int imageSrc = getResources().getIdentifier(country + question.getPicture(), "drawable", getPackageName());
             Log.d("EXAM", "image source: " + imageSrc);
             imageView.setImageResource(R.drawable.drive);

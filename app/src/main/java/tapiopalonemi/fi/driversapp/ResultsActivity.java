@@ -34,8 +34,8 @@ public class ResultsActivity extends AppCompatActivity  {
                 case R.id.navigation_exam:
                     mTextMessage.setText(R.string.title_exam);
                     return true;
-                case R.id.navigation_exam_se:
-                    return true;
+//                case R.id.navigation_exam_se:
+//                    return true;
                 case R.id.navigation_results:
                     mTextMessage.setText(R.string.title_results);
                     return true;
