@@ -21,4 +21,9 @@
     <string name="title_exam_fi">Exam</string>
     <string name="button_take_exam_se">Exam SE</string>
     <string name="button_take_new_exam_se">Take New Exam SE</string>
+
+    <string name="title_activity_fullscreen_image">FullscreenImageActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_image">ImageActivity</string>
 </resources>

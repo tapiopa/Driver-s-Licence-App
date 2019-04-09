@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
@@ -18,46 +19,49 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
-    private MyDBHandler db;
-
-    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
-//                    navigation.setSelectedItemId(R.id.navigation_home);
-//                    Log.i("HOME BOTTOM NAVIGATION", "HOME CLICKED");
-                    return true;
-                case R.id.navigation_exam:
-                    mTextMessage.setText(R.string.title_exam);
-//                    Log.i("HOME BOTTOM NAVIGATION", "EXAM CLICKED");
-                    return true;
-//                case R.id.navigation_exam_se:
-//                    mTextMessage.setText(R.string.title_exam_SE);
+//    private TextView mTextMessage;
+//
+//    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+//            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+//
+//        @Override
+//        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//            switch (item.getItemId()) {
+//                case R.id.navigation_home:
+//                    mTextMessage.setText(R.string.title_home);
+////                    navigation.setSelectedItemId(R.id.navigation_home);
+////                    Log.i("HOME BOTTOM NAVIGATION", "HOME CLICKED");
 //                    return true;
-                case R.id.navigation_results:
-                    mTextMessage.setText(R.string.title_results);
-//                    Log.i("HOME BOTTOM NAVIGATION", "RESULTS CLICKED");
-                    return true;
-            }
-            return false;
-        }
-    };
+//                case R.id.navigation_exam:
+//                    mTextMessage.setText(R.string.title_exam);
+////                    Log.i("HOME BOTTOM NAVIGATION", "EXAM CLICKED");
+//                    return true;
+////                case R.id.navigation_exam_se:
+////                    mTextMessage.setText(R.string.title_exam_SE);
+////                    return true;
+//                case R.id.navigation_results:
+//                    mTextMessage.setText(R.string.title_results);
+////                    Log.i("HOME BOTTOM NAVIGATION", "RESULTS CLICKED");
+//                    return true;
+//            }
+//            return false;
+//        }
+//    };
 
+    //Go to home page
     public void toHome(MenuItem menuItem) {
         Log.i("BOTTOM NAVIGATION", "to home navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
 
+    //Go to Finnish exam page
     public void toExam(MenuItem menuItem) {
         Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
@@ -65,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Go to Swedish exam page
     public void toExamSe(MenuItem menuItem) {
         Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
@@ -72,12 +77,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Go to results page
     public void toResults(MenuItem menuItem) {
         Log.i("BOTTOM NAVIGATION", "to results navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
         startActivity(intent);
     }
 
+    //Go to Finnish exam page (button)
     public void buttonToExam(View view) {
         Log.i("BOTTOM NAVIGATION", "to exam button clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
@@ -85,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Go to Swedish exam page (button)
     public void buttonToResults(View view) {
         Log.i("BOTTOM NAVIGATION", "to results button clicked");
         Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
@@ -97,29 +105,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        db = new MyDBHandler(this);
-//        db.onCreate(db.getWritableDatabase());
-//        db.getWritableDatabase();
-//        Log.i("DB", "going for questions");
-        if (!db.isDataLoaded()) {
+        MyDBHandler db = new MyDBHandler(this);
+        //Do some housekeeping if first time run of this app
+        if (db.isNotDataLoaded()) {
             Log.d("HOME", "data is not loaded");
             db.firstRun(this);
-//            questions = db.loadQuestions();
-
         }
 
+        //Set some action bar items
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setSubtitle("Go Places>");
+//        actionBar.setHomeButtonEnabled(true);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setSubtitle("Go Places>");
-        actionBar.setHomeButtonEnabled(true);
-
-
-        mTextMessage = findViewById(R.id.message);
-        BottomNavigationView navigation = findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-//        navigation.setSelectedItemId(R.id.navigation_home);
+//        mTextMessage = findViewById(R.id.message);
+//        BottomNavigationView navigation = findViewById(R.id.navigation);
+//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        Fresco.initialize(this);
     }
 
+    //Create options menu for language selection
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -127,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    //Handle selecting a language in language menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -156,12 +163,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void setLocale(String lang) {
+    //Set locale according to language selection
+    private void setLocale(String lang) {
         Locale myLocale = new Locale(lang);
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
-//        conf.locale = myLocale;
         conf.setLocale(myLocale);
         res.updateConfiguration(conf, dm);
         Intent refresh = new Intent(this, MainActivity.class);

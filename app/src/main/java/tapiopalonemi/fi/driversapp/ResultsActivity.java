@@ -58,12 +58,14 @@ public class ResultsActivity extends AppCompatActivity  {
 //        startActivity(intent);
 //    }
 
+    //Go to home page
     public void toHome(MenuItem menuItem) {
         Log.i("BOTTOM NAVIGATION", "to home navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
 
+    //Go to Finnish exam page
     public void toExam(MenuItem menuItem) {
         Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
@@ -71,6 +73,7 @@ public class ResultsActivity extends AppCompatActivity  {
         startActivity(intent);
     }
 
+    //Go to Swedish exam page
     public void toExamSe(MenuItem menuItem) {
         Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
@@ -78,6 +81,7 @@ public class ResultsActivity extends AppCompatActivity  {
         startActivity(intent);
     }
 
+    //Go to results page
     public void toResults(MenuItem menuItem) {
         Log.i("BOTTOM NAVIGATION", "to results navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
@@ -89,9 +93,10 @@ public class ResultsActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setSubtitle("Go Places>");
-        actionBar.setHomeButtonEnabled(true);
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setSubtitle("Go Places>");
+//        actionBar.setHomeButtonEnabled(true);
+
 
         mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = findViewById(R.id.navigation);
@@ -108,23 +113,13 @@ public class ResultsActivity extends AppCompatActivity  {
 
 
         db = new MyDBHandler(this);
-//        db.onCreate(db.getWritableDatabase());
-//        db.getWritableDatabase();
-//        Log.i("DB", "going for questions");
-//        questions = db.loadQuestions();
-//        answers = db.loadAllAnswers();
-//        db.deleteAllChoices();
-
-//        for (Answer an : answers) {
-//            Log.i("ANSWER", an.getAnswerString());
-//        }
-
 
         final ArrayList<Choice> choices = db.loadAllChoices(finnish);
 
         final int numberOfQuestions = db.countNumberOfQuestions(finnish);
         final int numberOfRightAnswers = db.countRightChoices();
 
+        //If there are no results, show a text view with a message to take test. Else show results
         if (choices == null || choices.isEmpty()) {
             emptyResults.setVisibility(View.VISIBLE);
             resultsList.setVisibility(View.GONE);
@@ -141,17 +136,9 @@ public class ResultsActivity extends AppCompatActivity  {
                     LanguageHelper.convertNumber(numberOfQuestions, this);
             scoreText.setText(score);
         }
-
-
-
-//        for (Choice choice : choices) {
-//            Log.i("RESULTS", "Question: " + choice.getQuestion().getQuestionString());
-//            Log.i("RESULTS", "Answer: " + choice.getAnswer().getAnswerString());
-//            Log.i("RESULTS", "Answer is right: " + (choice.getAnswer().isRightAnswer() != 0));
-//        }
-
     }
 
+    //Go to new Finnish exam
     public void takeNewExam (View view) {
         Log.i("RESULTS", "Take Exam clicked");
         db.deleteAllChoices();
@@ -160,6 +147,7 @@ public class ResultsActivity extends AppCompatActivity  {
         startActivity(intent);
     }
 
+    //Go to new Swedish exam
     public void takeNewExamSe (View view) {
         Log.i("RESULTS", "Take exam Se clicked");
         db.deleteAllChoices();

@@ -1,7 +1,7 @@
 package tapiopalonemi.fi.driversapp;
 
 import android.content.Context;
-import android.graphics.Color;
+//import android.graphics.Color;
 //import android.util.Log;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,7 +40,8 @@ class AnswerAdapter extends ArrayAdapter<Answer> {
 
 //        chosenAnswer.setText(R.string.sym_right);
 
-        if (answer.getQuestion().isAnswered() &&
+        if (null != answer && null != answer.getQuestion() && answer.getQuestion().isAnswered() &&
+                null != answer.getQuestion().getChosenAnswer() && answer.getQuestion().getChosenAnswer().getAnswerID() >= 0 &&
                 answer.getQuestion().getChosenAnswer().getAnswerID() == answer.getAnswerID()) {
 //            Log.i("ANSWER ADAPTER", "answer: " + answer.getAnswerID());
 //            Log.i("ANSWER ADAPTER", "answer.question.chosenAnswer: " + answer.getQuestion().getQuestionID());

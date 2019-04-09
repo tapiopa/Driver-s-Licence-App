@@ -4,9 +4,9 @@ import android.content.Context;
 
 import java.util.Locale;
 
-public class LanguageHelper {
+class LanguageHelper {
 
-    static String result = "";
+    private static String result = "";
 
     public static String convertNumber(int number, Context context) {
 //        String result = "";

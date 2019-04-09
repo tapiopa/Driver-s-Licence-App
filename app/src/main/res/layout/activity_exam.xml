@@ -24,8 +24,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
         android:text="Question 0"
         android:textSize="24sp"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,18 +39,22 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="Question String"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_exam" />
 
     <ListView
         android:id="@+id/answerList"
         android:layout_width="363dp"
-        android:layout_height="144dp"
+        android:layout_height="254dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionString" />
 
@@ -56,123 +62,110 @@
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
         android:onClick="nextQuestion"
         android:text="@string/button_next"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintBottom_toTopOf="@+id/button_exam_se"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
         android:onClick="previousQuestion"
         android:text="@string/button_previous"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintBottom_toTopOf="@+id/button_exam"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigation"
-        app:itemIconTint="@color/bottom_navigation_colors"
-        app:itemTextColor="@color/bottom_navigation_colors"
-        android:layout_alignParentBottom="true"/>
-
-    <Button
-        android:id="@+id/results"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="58dp"
-        android:layout_marginBottom="16dp"
-        android:enabled="false"
-        android:onClick="buttonToResults"
-        android:text="@string/menu_results"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintEnd_toStartOf="@+id/nextButton"
-        app:layout_constraintStart_toEndOf="@+id/backButton" />
 
     <TextView
         android:id="@+id/progressText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="69dp"
-        android:layout_marginEnd="73dp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="16dp"
         android:text="Question 00 / 00"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintEnd_toStartOf="@+id/nextButton"
-        app:layout_constraintStart_toEndOf="@+id/backButton" />
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/user_answer_title"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/title_your_answer"
         android:textAlignment="center"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/backButton"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/button_exam"
+        app:layout_constraintStart_toEndOf="@+id/backButton" />
 
     <TextView
         android:id="@+id/user_answer"
-        android:layout_width="323dp"
+        android:layout_width="108dp"
         android:layout_height="28dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
         android:text="ANSWER"
+        android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/nextButton"
-        app:layout_constraintStart_toEndOf="@+id/user_answer_title" />
+        app:layout_constraintBottom_toTopOf="@+id/button_exam_se"
+        app:layout_constraintEnd_toStartOf="@+id/nextButton" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="371dp"
         android:layout_height="205dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/backButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answerList"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/button_exam_se"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginStart="8dp"
         android:onClick="startNewExamSe"
         android:text="@string/button_take_new_exam_se"
-        app:layout_constraintBottom_toTopOf="@+id/user_answer"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_exam" />
 
     <Button
         android:id="@+id/button_exam"
         android:layout_width="wrap_content"
         android:layout_height="53dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginStart="8dp"
         android:onClick="startNewExam"
         android:text="@string/button_take_new_exam"
-        app:layout_constraintBottom_toTopOf="@+id/user_answer"
+        app:layout_constraintBottom_toBottomOf="@+id/button_exam_se"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:onClick="buttonToResults"
+        android:text="@string/button_results"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_exam"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteX="8dp" />
 
 
 </android.support.constraint.ConstraintLayout>

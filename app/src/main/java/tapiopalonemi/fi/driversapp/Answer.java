@@ -20,14 +20,14 @@ public class Answer {
         this.questionID = questionID;
     }
 
-    public Answer(int answerID, String answerString,
-                  int isRightAnswer, Question question) {
-        this.answerID = answerID;
-        this.answerString = answerString;
-        this.isRightAnswer = isRightAnswer;
-        this.question = question;
-        this.questionID = question.getQuestionID();
-    }
+//    public Answer(int answerID, String answerString,
+//                  int isRightAnswer, Question question) {
+//        this.answerID = answerID;
+//        this.answerString = answerString;
+//        this.isRightAnswer = isRightAnswer;
+//        this.question = question;
+//        this.questionID = question.getQuestionID();
+//    }
 
     public Answer(JSONObject object) {
         try {

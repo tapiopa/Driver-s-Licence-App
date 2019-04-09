@@ -8,9 +8,36 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ExamActivity"></activity>
-        <activity android:name=".ResultsActivity"></activity>
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+            android:name=".ImageActivity"
+            android:label="@string/title_activity_image"
+            android:parentActivityName=".ExamActivity"
+            android:theme="@style/NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tapiopalonemi.fi.driversapp.ExamActivity" />
+        </activity>
+        <activity
+            android:name=".FullscreenImageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fullscreen_image"
+            android:parentActivityName=".ExamActivity"
+            android:theme="@style/FullscreenTheme"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tapiopalonemi.fi.driversapp.ExamActivity" />
+        </activity> <!-- android:theme="@style/AppTheme" -->
+        <activity
+            android:name=".ExamActivity"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".ResultsActivity" />
+        <activity android:name=".Informationactivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

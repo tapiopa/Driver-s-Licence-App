@@ -10,4 +10,6 @@
     <color name="colorDivider">#2FE897</color>
     <color name="colorBorder">#a7a4a4</color>
     <color name="colorExtra">#fffac1</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

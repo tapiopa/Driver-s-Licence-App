@@ -82,29 +82,29 @@ public class Choice /*extends AppCompatActivity*/ {
 // --Commented out by Inspection STOP (19/03/2019, 10.09)
 //    }
 
-    public int getQuestionID() {
-        return questionID;
-    }
+//    public int getQuestionID() {
+//        return questionID;
+//    }
 
-    public void setQuestionID(int questionID) {
-        this.questionID = questionID;
-    }
+//    public void setQuestionID(int questionID) {
+//        this.questionID = questionID;
+//    }
 
     public int getAnswerID() {
         return answerID;
     }
 
-    public void setAnswerID(int answerID) {
-        this.answerID = answerID;
-    }
+//    public void setAnswerID(int answerID) {
+//        this.answerID = answerID;
+//    }
 
     public int getAnswerIsRight() {
         return answerIsRight;
     }
 
-    public void setAnswerIsRight(int answerIsRight) {
-        this.answerIsRight = answerIsRight;
-    }
+//    public void setAnswerIsRight(int answerIsRight) {
+//        this.answerIsRight = answerIsRight;
+//    }
 
     public Question getQuestion() {
         return question;
@@ -118,9 +118,8 @@ public class Choice /*extends AppCompatActivity*/ {
     private Question getQuestion(int questionID, MyDBHandler db, boolean finnish) {
 //        Log.i("CHOICE", "DB: " + db);
 //        Log.i("CHOICE", "question id: " + questionID);
-        Question question = db.findQuestionBy(questionID, finnish);
-//        Log.i("CHOICE", "question: " + question);
-        return question;
+        //        Log.i("CHOICE", "question: " + question);
+        return db.findQuestionBy(questionID, finnish);
     }
 
     public Answer getAnswer() {

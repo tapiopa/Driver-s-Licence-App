@@ -2,11 +2,11 @@ package tapiopalonemi.fi.driversapp;
 
 //import android.database.Cursor;
 
-import android.database.sqlite.SQLiteDatabase;
+//import android.database.sqlite.SQLiteDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
+//import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -20,9 +20,9 @@ public class Question {
     private Answer chosenAnswer;
     private String picture;
 
-    public Question(int questionID) {
-        this.questionID = questionID;
-    }
+//    public Question(int questionID) {
+//        this.questionID = questionID;
+//    }
 
     private boolean isAnswered = false;
 
@@ -34,12 +34,12 @@ public class Question {
         this.questionString = questionString;
     }
 
-    public Question(int questionID, String questionString, Answer rightAnswer, String picture) {
-        this.questionID = questionID;
-        this.questionString = questionString;
-        this.rightAnswer = rightAnswer;
-        this.picture = picture;
-    }
+//    public Question(int questionID, String questionString, Answer rightAnswer, String picture) {
+//        this.questionID = questionID;
+//        this.questionString = questionString;
+//        this.rightAnswer = rightAnswer;
+//        this.picture = picture;
+//    }
 
     public Question(int questionID, String questionString, int rightAnswerID, String picture) {
         this.questionID = questionID;
@@ -48,29 +48,29 @@ public class Question {
         this.picture = picture;
     }
 
-    private Question(JSONObject object) {
-        try {
-            this.questionID = object.getInt("questionID");
-            this.questionString = object.getString("questionString");
-            this.rightAnswerID = object.getInt("rightAnswer");
-            this.picture = object.getString("picture");
-            this.answers = answersFromJson(object.getJSONArray("answers"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
+//    private Question(JSONObject object) {
+//        try {
+//            this.questionID = object.getInt("questionID");
+//            this.questionString = object.getString("questionString");
+//            this.rightAnswerID = object.getInt("rightAnswer");
+//            this.picture = object.getString("picture");
+//            this.answers = answersFromJson(object.getJSONArray("answers"));
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
-    public static ArrayList<Question> questionsFromJson(JSONArray jsonObjects) {
-        ArrayList<Question> questionList = new ArrayList<>();
-        for (int i=0; i < jsonObjects.length(); i++) {
-            try {
-                questionList.add(new Question(jsonObjects.getJSONObject(i)));
-            } catch (JSONException e)  {
-                e.printStackTrace();
-            }
-        }
-        return questionList;
-    }
+//    public static ArrayList<Question> questionsFromJson(JSONArray jsonObjects) {
+//        ArrayList<Question> questionList = new ArrayList<>();
+//        for (int i=0; i < jsonObjects.length(); i++) {
+//            try {
+//                questionList.add(new Question(jsonObjects.getJSONObject(i)));
+//            } catch (JSONException e)  {
+//                e.printStackTrace();
+//            }
+//        }
+//        return questionList;
+//    }
 
     private static ArrayList<Answer> answersFromJson(JSONArray jsonObjects) {
         ArrayList<Answer> answers = new ArrayList<>();
@@ -110,26 +110,26 @@ public class Question {
         this.answers = answers;
     }
 
-    public void addAnswer(Answer answer) {
-        if (this.answers == null) {
-            this.answers = new ArrayList<>();
-        }
-        this.answers.add(answer);
-    }
-
-    public void removeAnswer(Answer answer) {
-        if (this.answers != null) {
-            this.answers.remove(answer);
-        }
-    }
-
-    public Answer getRightAnswer() {
-        return rightAnswer;
-    }
-
-    public void setRightAnswer(Answer rightAnswer) {
-        this.rightAnswer = rightAnswer;
-    }
+//    public void addAnswer(Answer answer) {
+//        if (this.answers == null) {
+//            this.answers = new ArrayList<>();
+//        }
+//        this.answers.add(answer);
+//    }
+//
+//    public void removeAnswer(Answer answer) {
+//        if (this.answers != null) {
+//            this.answers.remove(answer);
+//        }
+//    }
+//
+//    public Answer getRightAnswer() {
+//        return rightAnswer;
+//    }
+//
+//    public void setRightAnswer(Answer rightAnswer) {
+//        this.rightAnswer = rightAnswer;
+//    }
 
     public int getRightAnswerID() {
         return rightAnswerID;

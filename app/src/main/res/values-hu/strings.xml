@@ -17,4 +17,7 @@
     <string name="button_results">Eredmények</string>
     <string name="title_score">Pontszám</string>
     <string name="title_language">Nyelv</string>
+    <string name="title_exam_fi">Vizsga</string>
+    <string name="title_exam_SE">Vizsga SE</string>
+    <string name="button_take_exam_se">Vizsga SE</string>
 </resources>
