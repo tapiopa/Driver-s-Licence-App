@@ -99,7 +99,19 @@ public class MainActivity extends AppCompatActivity {
 //        intent.putExtra("extra", "extra");
         startActivity(intent);
     }
-
+    public void buttonToInformations(View view) {
+        Log.i("BOTTOM NAVIGATION", "to DRIVING TIPS button clicked");
+        Intent intent = new Intent(getApplicationContext(), Informationactivity.class);
+//        intent.putExtra("extra", "extra");
+        startActivity(intent);
+    }
+    public void buttonToDrivingSymbols(View view) {
+        Log.i("BOTTOM NAVIGATION", "to DRIVING SYMBOLS button clicked");
+        Intent intent = new Intent(getApplicationContext(), DrivingSymbols.class);
+//        intent.putExtra("extra", "extra");
+        startActivity(intent);
+    }
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
