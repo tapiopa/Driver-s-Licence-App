@@ -1,0 +1,27 @@
+{
+  "info": [
+    {
+      "infoID": 1,
+      "infoString":"INFORMATIONS",
+      "infoPage": 1
+    },
+
+    {
+      "infoID": 2,
+      "infoString":"INFORMATIONS2",
+      "infoPage": 2
+    },
+    {
+      "infoID": 3,
+      "infoString":"INFORMATIONS3",
+      "infoPage": 3
+    },
+    {
+      "infoID": 4,
+      "infoString":"INFORMATIONS4",
+      "infoPage": 4
+    }
+
+  ]
+
+}
