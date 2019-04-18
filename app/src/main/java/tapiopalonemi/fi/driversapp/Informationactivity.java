@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
 import android.widget.Button;
+import android.support.v7.widget.Toolbar;
 
 
 public class Informationactivity extends AppCompatActivity {
@@ -19,6 +20,10 @@ public class Informationactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
+        Toolbar myToolbar = findViewById(R.id.toolbarinformation);
+        setSupportActionBar(myToolbar);
+        myToolbar.setTitle(R.string.app_name);
+
         final String[] INFORMATIONS = new String[]{
                 "Adjust your mirrors correctly", "If the car don't start turn high beams on", "Use hand brake regularly",
                 "Don’t turn the wheels beforehand when making a left turn", "Maintain required distance always from other vehicles",
