@@ -439,7 +439,7 @@ class MyDBHandler extends SQLiteOpenHelper {
         }
     }
 
-    public ArrayList<DrivingInfo> loadQuestions() {
+    public ArrayList<DrivingInfo> loadTips() {
         ArrayList<DrivingInfo> tips = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_DRIVING_TIPS;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -487,6 +487,32 @@ class MyDBHandler extends SQLiteOpenHelper {
                 e.printStackTrace();
             }
         }
+    }
+
+    public int minTipPage() {
+        int minTipPage = -1;
+        String query = "SELECT MIN(" + COLUMN_TIP_PAGE + ") FROM " + TABLE_DRIVING_TIPS;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            minTipPage = cursor.getInt(0);
+        }
+        cursor.close();
+        return minTipPage;
+    }
+
+    public int maxTipPage() {
+        int maxTipPage = -1;
+        String query = "SELECT MAX(" + COLUMN_TIP_PAGE + ") FROM " + TABLE_DRIVING_TIPS;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            maxTipPage = cursor.getInt(0);
+        }
+        cursor.close();
+        return maxTipPage;
     }
 //    //Finds and returns a question (either from Finnish or Swedish exam question) by a question string.
 //    public Question findQuestionBy(String questionString, boolean finnish) {
