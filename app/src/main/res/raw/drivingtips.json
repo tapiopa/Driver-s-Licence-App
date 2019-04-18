@@ -1,0 +1,156 @@
+{
+  "info": [
+    {
+      "infoID": 1,
+      "infoString":"Adjust your mirrors correctly",
+      "infoPage": 1
+    },
+
+    {
+      "infoID": 2,
+      "infoString":"If the car don't start turn high beams on",
+      "infoPage": 1
+    },
+    {
+      "infoID": 3,
+      "infoString":"Use hand brake regularly",
+      "infoPage": 1
+    },
+    {
+      "infoID": 4,
+      "infoString":"Don’t turn the wheels beforehand when making a left turn",
+      "infoPage": 1
+    },
+
+    {
+      "infoID": 5,
+      "infoString":"Maintain required distance always from other vehicles",
+      "infoPage": 1
+    },
+    {
+      "infoID": 6,
+      "infoString":"Don’t turn the wheels beforehand when making a left turn",
+      "infoPage": 1
+    },
+    {
+      "infoID": 7,
+      "infoString":  "Park with precision",
+      "infoPage": 1
+    },
+    {
+      "infoID": 8,
+      "infoString": "follow the vehicle of neighbouring lane",
+      "infoPage": 1
+    },
+    {
+      "infoID": 9,
+      "infoString":"Be careful with signs on roads as well as traffic lights",
+      "infoPage": 2
+    },
+    {
+      "infoID": 10,
+      "infoString": "Always follow the speed limits",
+      "infoPage": 2
+    },
+
+    {
+      "infoID": 11,
+      "infoString": "Give pedestrians the right-of-way in crosswalks",
+      "infoPage": 2
+    },
+    {
+      "infoID": 12,
+      "infoString": "Always check your seat belt",
+      "infoPage": 2
+    },
+    {
+      "infoID": 13,
+      "infoString":"Park with precision",
+      "infoPage": 2
+    },
+    {
+      "infoID": 14,
+      "infoString":"Keep winter Survival kit in winter time",
+      "infoPage": 2
+    },
+    {
+      "infoID": 15,
+      "infoString":"plan route in advanced for long trips",
+      "infoPage": 2
+    },
+
+    {
+      "infoID": 16,
+      "infoString": "Don't take alcohol and drugs while drive",
+      "infoPage": 3
+    },
+    {
+      "infoID": 17,
+      "infoString": "Don't assume that other cars know what you are doing",
+      "infoPage": 3
+    },
+    {
+      "infoID": 18,
+      "infoString":  "Don't play loud music in your vehicle",
+      "infoPage": 3
+    },
+    {
+      "infoID": 19,
+      "infoString":  "Don't Talk on your cellphone and drive",
+      "infoPage": 3
+    },
+    {
+      "infoID": 20,
+      "infoString":  "Don't treat your vehicle like a toy",
+      "infoPage": 3
+    },
+    {
+      "infoID": 21,
+      "infoString":  "Don't leave your valueables in your car",
+      "infoPage": 3
+    },
+    {
+      "infoID": 22,
+      "infoString":   "Give priority to emergency vehicles",
+      "infoPage": 3
+    },
+
+    {
+      "infoID": 23,
+      "infoString": "If you face an accident make sure nobody in car is injured",
+      "infoPage": 4
+    },
+    {
+      "infoID": 24,
+      "infoString": "Check the conditions of other side vehicles",
+      "infoPage": 4
+    },
+    {
+      "infoID": 25,
+      "infoString": "Call Police immediately",
+      "infoPage": 4
+    },
+    {
+      "infoID": 26,
+      "infoString":"Stay at the scene",
+      "infoPage": 4
+    },
+    {
+      "infoID": 27,
+      "infoString": "Stay Calm and contact your insurance provider",
+      "infoPage": 4
+    },
+    {
+      "infoID": 28,
+      "infoString":  "Give your liscence and other documents to Insurance and Police",
+      "infoPage": 4
+    },
+    {
+      "infoID": 29,
+      "infoString":  "Don't be Abusive",
+      "infoPage": 4
+    }
+
+  ]
+
+}
