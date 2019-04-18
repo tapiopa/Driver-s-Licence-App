@@ -7,7 +7,7 @@
     <string name="button_previous">Edellinen</string>
     <string name="button_next">Seuraava</string>
     <string name="button_take_exam">Aloita testi</string>
-    <string name="button_take_new_exam">Aloita uusi testi</string>
+    <string name="button_take_new_exam">Uusi testi FI</string>
     <string name="title_your_answer">Vastauksesi</string>
     <string name="question_progress">Kysymys</string>
     <string name="progress_of">/</string>
@@ -17,9 +17,11 @@
     <string name="button_results">Tulos</string>
     <string name="title_score">Tulos</string>
     <string name="title_language">Kieli</string>
-    <string name="button_driving_tips">Tietoa ajamisesta</string>
+    <string name="button_driving_tips">Ajovinkkejä</string>
     <string name="title_exam_SE">Testi SE</string>
     <string name="button_take_exam_se">Testi SE</string>
     <string name="button_take_new_exam_se">Uusi testi SE</string>
-    <string name="title_exam_fi">Testi</string>
+    <string name="title_exam_fi">Testi FI</string>
+    <string name="button_change_results">Muuta vastauksia</string>
+    <string name="traffic_signs">Liikennemerkit</string>
 </resources>

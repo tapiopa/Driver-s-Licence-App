@@ -48,30 +48,6 @@ public class Question {
         this.picture = picture;
     }
 
-//    private Question(JSONObject object) {
-//        try {
-//            this.questionID = object.getInt("questionID");
-//            this.questionString = object.getString("questionString");
-//            this.rightAnswerID = object.getInt("rightAnswer");
-//            this.picture = object.getString("picture");
-//            this.answers = answersFromJson(object.getJSONArray("answers"));
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//    public static ArrayList<Question> questionsFromJson(JSONArray jsonObjects) {
-//        ArrayList<Question> questionList = new ArrayList<>();
-//        for (int i=0; i < jsonObjects.length(); i++) {
-//            try {
-//                questionList.add(new Question(jsonObjects.getJSONObject(i)));
-//            } catch (JSONException e)  {
-//                e.printStackTrace();
-//            }
-//        }
-//        return questionList;
-//    }
-
     private static ArrayList<Answer> answersFromJson(JSONArray jsonObjects) {
         ArrayList<Answer> answers = new ArrayList<>();
         for (int i=0; i < jsonObjects.length(); i++) {
@@ -110,27 +86,6 @@ public class Question {
         this.answers = answers;
     }
 
-//    public void addAnswer(Answer answer) {
-//        if (this.answers == null) {
-//            this.answers = new ArrayList<>();
-//        }
-//        this.answers.add(answer);
-//    }
-//
-//    public void removeAnswer(Answer answer) {
-//        if (this.answers != null) {
-//            this.answers.remove(answer);
-//        }
-//    }
-//
-//    public Answer getRightAnswer() {
-//        return rightAnswer;
-//    }
-//
-//    public void setRightAnswer(Answer rightAnswer) {
-//        this.rightAnswer = rightAnswer;
-//    }
-
     public int getRightAnswerID() {
         return rightAnswerID;
     }
@@ -145,7 +100,7 @@ public class Question {
 
     public void setChosenAnswer(Answer chosenAnswer) {
         this.chosenAnswer = chosenAnswer;
-        this.rightAnswerID = chosenAnswer.getAnswerID();
+        //this.rightAnswerID = chosenAnswer.getAnswerID();
         this.isAnswered = true;
     }
 
@@ -163,5 +118,17 @@ public class Question {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+//    @androidx.annotation.NonNull
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append("ID: ").append(this.questionID).append(" ").append(this.questionString)
+                .append(", answerID: ").append(this.rightAnswerID);
+        if (null != this.chosenAnswer) {
+            result.append(", chosen answer: " + this.chosenAnswer.getAnswerID());
+        }
+        return result.toString();
     }
 }

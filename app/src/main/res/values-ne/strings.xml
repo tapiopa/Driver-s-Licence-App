@@ -7,7 +7,7 @@
     <string name="button_previous">अघिल्लो</string>
     <string name="button_next">अर्को</string>
     <string name="button_take_exam">जाँच सुरु</string>
-    <string name="button_take_new_exam">नयाँ जाँच सुरु</string>
+    <string name="button_take_new_exam">नयाँ जाँच सुरु FI</string>
     <string name="title_your_answer">तपाँइको उत्तर</string>
     <string name="question_progress">प्रश्न</string>
     <string name="progress_of">"/ "</string>
@@ -18,8 +18,8 @@
     <string name="sym_right">✔️</string>
     <string name="title_language">भासा</string>
     <string name="button_driving_tips">चालकलाइ सुजावहरु</string>
-    <string name="title_exam_SE">जाँच सुरु SE</string>
+    <string name="title_exam_SE">जाँच SE</string>
     <string name="button_take_exam_se">जाँच सुरु SE</string>
     <string name="button_take_new_exam_se">नयाँ जाँच सुरु SE</string>
-    <string name="title_exam_fi">जाँच</string>
+    <string name="title_exam_fi">जाँच FI</string>
 </resources>

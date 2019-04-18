@@ -14,23 +14,6 @@ public class Choice /*extends AppCompatActivity*/ {
     private int answerIsRight;
     private Question question;
     private Answer answer;
-//    private MyDBHandler db = new MyDBHandler(this);
-
-
-    // --Commented out by Inspection (19/03/2019, 10.08):public Choice() {}
-
-// --Commented out by Inspection START (19/03/2019, 10.08):
-//    public Choice(int ID, int questionID, int answerID) {
-////        db = new MyDBHandler(this);
-//
-//        this.ID = ID;
-//        this.questionID = questionID;
-//        this.answerID = answerID;
-////        this.question = this.getQuestion(questionID);
-////        this.answer = this.getAnswer(answerID);
-////        this.answerIsRight = answer.getIsRightAnswer();
-//    }
-// --Commented out by Inspection STOP (19/03/2019, 10.08)
 
     public Choice(int ID, int questionID, int answerID, int answerIsRight) {
         this.ID = ID;
@@ -49,76 +32,20 @@ public class Choice /*extends AppCompatActivity*/ {
         this.answer =  this.getAnswer(answerID, db, finnish);
     }
 
-// --Commented out by Inspection START (19/03/2019, 10.09):
-//    public Choice(int ID, Question question, Answer answer) {
-//        this.ID = ID;
-//        this.question = question;
-//        this.answer = answer;
-//        this.questionID = question.getQuestionID();
-// --Commented out by Inspection START (19/03/2019, 10.09):
-// --Commented out by Inspection START (19/03/2019, 10.09):
-//////        this.answerID = answer.getAnswerID();
-// --Commented out by Inspection START (19/03/2019, 10.09):
-////// --Commented out by Inspection START (19/03/2019, 10.09):
-//// --Commented out by Inspection STOP (19/03/2019, 10.09)
-////////        this.answerIsRight = answer.getIsRightAnswer();
-// --Commented out by Inspection STOP (19/03/2019, 10.09)
-//// --Commented out by Inspection STOP (19/03/2019, 10.09)
-// --Commented out by Inspection STOP (19/03/2019, 10.09)
-//    }
-// --Commented out by Inspection START (19/03/2019, 10.09):
-//// --Commented out by Inspection STOP (19/03/2019, 10.09)
-//
-//    public int getID() {
-//        return ID;
-// --Commented out by Inspection START (19/03/2019, 10.09):
-//// --Commented out by Inspection START (19/03/2019, 10.09):
-////// --Commented out by Inspection STOP (19/03/2019, 10.09)
-////    }
-////
-////    public void setID(int ID) {
-// --Commented out by Inspection STOP (19/03/2019, 10.09)
-//        this.ID = ID;
-// --Commented out by Inspection STOP (19/03/2019, 10.09)
-//    }
-
-//    public int getQuestionID() {
-//        return questionID;
-//    }
-
-//    public void setQuestionID(int questionID) {
-//        this.questionID = questionID;
-//    }
 
     public int getAnswerID() {
         return answerID;
     }
 
-//    public void setAnswerID(int answerID) {
-//        this.answerID = answerID;
-//    }
-
     public int getAnswerIsRight() {
         return answerIsRight;
     }
-
-//    public void setAnswerIsRight(int answerIsRight) {
-//        this.answerIsRight = answerIsRight;
-//    }
 
     public Question getQuestion() {
         return question;
     }
 
-//    public void setQuestion(Question question) {
-// --Commented out by Inspection START (19/03/2019, 10.09):
-//        this.question = question;
-//    }
-
     private Question getQuestion(int questionID, MyDBHandler db, boolean finnish) {
-//        Log.i("CHOICE", "DB: " + db);
-//        Log.i("CHOICE", "question id: " + questionID);
-        //        Log.i("CHOICE", "question: " + question);
         return db.findQuestionBy(questionID, finnish);
     }
 
@@ -131,10 +58,10 @@ public class Choice /*extends AppCompatActivity*/ {
     }
 
     public Answer getAnswer(int answerID, MyDBHandler db, boolean finnish) {
-        Log.i("CHOICE", "DB: " + db);
-        Log.i("CHOICE", "answer id:; " + answerID);
+//        Log.i("CHOICE", "DB: " + db);
+//        Log.i("CHOICE", "answer id:; " + answerID);
         Answer answer = db.findAnswerBy(answerID, finnish);
-        Log.i("CHOICE", "answer: " + answer);
+//        Log.i("CHOICE", "answer: " + answer);
         this.answerIsRight = answer.getIsRightAnswer();
         this.question.setChosenAnswer(answer);
         this.question.setAnswered(true);

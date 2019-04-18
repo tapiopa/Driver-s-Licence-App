@@ -56,14 +56,20 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
         android:layout_marginStart="100dp"
+=======
+        android:layout_marginStart="16dp"
+>>>>>>> Stashed changes
         android:layout_marginTop="9dp"
-        android:layout_marginEnd="94dp"
         android:layout_marginBottom="17dp"
         android:onClick="previousInformation"
+<<<<<<< Updated upstream
         android:text="PREVIOUS"
+=======
+        android:text="@string/button_previous"
+>>>>>>> Stashed changes
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/information_list_view" />
 
@@ -71,15 +77,13 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="94dp"
         android:layout_marginTop="9dp"
-        android:layout_marginEnd="101dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="17dp"
         android:onClick="nextInformation"
-        android:text="NEXT"
+        android:text="@string/button_next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/information_list_view" />
 
 

@@ -6,7 +6,7 @@
     <string name="title_exam">Ta exam</string>
     <string name="button_next">Nästa</string>
     <string name="button_take_exam">Ta exam</string>
-    <string name="button_take_new_exam">Ta en ny exam</string>
+    <string name="button_take_new_exam">Ny exam FI</string>
     <string name="title_your_answer">Din svar</string>
     <string name="question_progress">Fråga</string>
     <string name="progress_of">av</string>
@@ -18,8 +18,10 @@
     <string name="title_score">Poäng</string>
     <string name="title_language">Språk</string>
     <string name="button_driving_tips">Körtips</string>
-    <string name="title_exam_SE">Ta exam SE</string>
-    <string name="button_take_exam_se">Ta exam SE</string>
-    <string name="button_take_new_exam_se">Ta en ny exam SE</string>
-    <string name="title_exam_fi">Exam</string>
+    <string name="title_exam_SE">Exam SE</string>
+    <string name="button_take_exam_se">Exam SE</string>
+    <string name="button_take_new_exam_se">Ny exam SE</string>
+    <string name="title_exam_fi">Exam FI</string>
+    <string name="button_change_results">Ändra dina svar</string>
+    <string name="traffic_signs">Vägskyltar</string>
 </resources>

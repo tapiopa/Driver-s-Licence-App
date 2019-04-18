@@ -13,9 +13,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-class ChoiceAdapter extends ArrayAdapter<Choice> {
+class ResultsAdapter extends ArrayAdapter<Choice> {
 
-    public ChoiceAdapter(Context context, ArrayList<Choice> choices) {
+    public ResultsAdapter(Context context, ArrayList<Choice> choices) {
         super(context, 0, choices);
     }
 

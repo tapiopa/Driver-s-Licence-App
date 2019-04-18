@@ -3,7 +3,7 @@
 {
 "answerID": 1,
 "questionID": 1,
-"answerString" : "a.\t Keep to the centre of my lane and ignore the water.",
+"answerString" : "Keep to the centre of my lane and ignore the water.",
 "answerIsRight": 0
 },
 {
@@ -45,7 +45,7 @@
 {
 "answerID": 8,
 "questionID": 2,
-"answerString": "d.\t Public transport and drivers of mopeds class I.",
+"answerString": "Public transport and drivers of mopeds class I.",
 "answerIsRight" : 0
 },
 {
@@ -111,7 +111,7 @@
 {
 "answerID": 19,
 "questionID" : 6,
-"answerString": "a.\t No, this is normal.",
+"answerString": "No, this is normal.",
 "answerIsRight": 0
 },
 {
@@ -141,7 +141,7 @@
 {
 "answerID": 24,
 "questionID" : 7,
-"answerString": "b.\t No, since it is only a pedestrian crossing and not a bicycle passage.",
+"answerString": "No, since it is only a pedestrian crossing and not a bicycle passage.",
 "answerIsRight": 0
 },
 {
@@ -165,31 +165,31 @@
 {
 "answerID": 28,
 "questionID": 8,
-"answerString": "d.\t Stopping is only permitted for loading and unloading goods.",
+"answerString": "topping is only permitted for loading and unloading goods.",
 "answerIsRight" : 0
 },
 {
 "answerID": 29,
 "questionID" : 9,
-"answerString": "a.\t Yes, since the hard shoulder should always be used as an extra lane in conjunction with turning off.",
+"answerString": "Yes, since the hard shoulder should always be used as an extra lane in conjunction with turning off.",
 "answerIsRight": 0
 },
 {
 "answerID": 30,
 "questionID": 9,
-"answerString": "b.\t Yes, since this makes it easier for other road users.",
+"answerString": "Yes, since this makes it easier for other road users.",
 "answerIsRight": 1
 },
 {
 "answerID": 31,
 "questionID": 9,
-"answerString" : "c.\t No, since it entails a high risk of misunderstanding.",
+"answerString" : "No, since it entails a high risk of misunderstanding.",
 "answerIsRight": 0
 },
 {
 "answerID" : 32,
 "questionID": 9,
-"answerString": "d.\t No, since the hard shoulder is only to be used in case of emergency.",
+"answerString": "No, since the hard shoulder is only to be used in case of emergency.",
 "answerIsRight": 0
 },
 {
@@ -201,7 +201,7 @@
 {
 "answerID": 34,
 "questionID" : 10,
-"answerString": "b.\t If the car has studded tyres, a connected braked trailer must have studded tyres. Unbraked trailers do not require studded tyres since they cannot brake anyway.",
+"answerString": "If the car has studded tyres, a connected braked trailer must have studded tyres. Unbraked trailers do not require studded tyres since they cannot brake anyway.",
 "answerIsRight": 0
 },
 {
@@ -213,13 +213,13 @@
 {
 "answerID": 36,
 "questionID": 11,
-"answerString" : "a.\t The distance you move from noticing the obstacle until you begin to brake.",
+"answerString" : "The distance you move from noticing the obstacle until you begin to brake.",
 "answerIsRight": 1
 },
 {
 "answerID" : 37,
 "questionID": 11,
-"answerString": "b.\t The distance you move from noticing the obstacle until you are at a complete stop.",
+"answerString": "The distance you move from noticing the obstacle until you are at a complete stop.",
 "answerIsRight": 0
 },
 {
@@ -249,7 +249,7 @@
 {
 "answerID" : 42,
 "questionID": 13,
-"answerString": "a.\t A lane where traffic in both directions are allowed at the same time.",
+"answerString": "A lane where traffic in both directions are allowed at the same time.",
 "answerIsRight": 0
 },
 {
@@ -273,7 +273,7 @@
 {
 "answerID": 46,
 "questionID": 14,
-"answerString" : "b.\t 30 June 2019",
+"answerString" : "30 June 2019",
 "answerIsRight": 0
 },
 {
@@ -291,7 +291,7 @@
 {
 "answerID": 49,
 "questionID" : 15,
-"answerString": "a.\t Stop and try to find out the speed.",
+"answerString": "Stop and try to find out the speed.",
 "answerIsRight": 0
 },
 {
@@ -315,7 +315,7 @@
 {
 "answerID": 53,
 "questionID": 16,
-"answerString": "a.\t Yes, a short distance in the back seat.",
+"answerString": "Yes, a short distance in the back seat.",
 "answerIsRight" : 0
 },
 {
@@ -339,7 +339,7 @@
 {
 "answerID" : 57,
 "questionID": 17,
-"answerString": "a.\t Yes, but only if there is a heavy traffic queue.",
+"answerString": "Yes, but only if there is a heavy traffic queue.",
 "answerIsRight": 0
 },
 {
@@ -351,13 +351,13 @@
 {
 "answerID": 59,
 "questionID" : 17,
-"answerString": "c.\t No, they are never allowed to overtake on the right side.",
+"answerString": "No, they are never allowed to overtake on the right side.",
 "answerIsRight": 0
 },
 {
 "answerID": 60,
 "questionID": 18,
-"answerString": "a.\t Yes, it is permitted.",
+"answerString": "Yes, it is permitted.",
 "answerIsRight": 0
 },
 {
@@ -375,7 +375,7 @@
 {
 "answerID": 63,
 "questionID": 19,
-"answerString": "b.\t 250–350 people",
+"answerString": "250–350 people",
 "answerIsRight" : 1
 },
 {
@@ -399,7 +399,7 @@
 {
 "answerID" : 67,
 "questionID": 20,
-"answerString": "b.\t Carbon dioxide contributes to the greenhouse effect.",
+"answerString": "Carbon dioxide contributes to the greenhouse effect.",
 "answerIsRight": 1
 },
 {
@@ -411,19 +411,19 @@
 {
 "answerID": 69,
 "questionID" : 20,
-"answerString": "d.\t Carbon dioxide is the only substance that an effective catalytic converter emits.",
+"answerString": "Carbon dioxide is the only substance that an effective catalytic converter emits.",
 "answerIsRight": 0
 },
 {
 "answerID": 70,
 "questionID": 21,
-"answerString": "a.\t Drive as normal since there are warning signals that indicate if a train is coming.",
+"answerString": "Drive as normal since there are warning signals that indicate if a train is coming.",
 "answerIsRight": 0
 },
 {
 "answerID": 71,
 "questionID": 21,
-"answerString" : "b.\t Slow down, check in both directions, shift into a lower gear and then drive across quickly.",
+"answerString" : "Slow down, check in both directions, shift into a lower gear and then drive across quickly.",
 "answerIsRight": 1
 },
 {
@@ -435,7 +435,7 @@
 {
 "answerID": 73,
 "questionID": 22,
-"answerString": "a.\t Very slow speed increase.",
+"answerString": "Very slow speed increase.",
 "answerIsRight" : 0
 },
 {
@@ -453,7 +453,7 @@
 {
 "answerID": 76,
 "questionID": 22,
-"answerString" : "aintaining an engine speed of at least 3,000 rpm.",
+"answerString" : "Maintaining an engine speed of at least 3,000 rpm.",
 "answerIsRight": 0
 },
 {
@@ -507,7 +507,7 @@
 {
 "answerID": 85,
 "questionID": 25,
-"answerString": "b.\t The other car is obliged to give way as the right-hand rule applies.",
+"answerString": "The other car is obliged to give way as the right-hand rule applies.",
 "answerIsRight": 0
 },
 {
@@ -561,25 +561,25 @@
 {
 "answerID": 94,
 "questionID" : 27,
-"answerString": "c.\t 16 April–30 September",
+"answerString": "16 April–30 September",
 "answerIsRight": 1
 },
 {
 "answerID": 95,
 "questionID": 27,
-"answerString": "d.\t 1 May–30 September",
+"answerString": "1 May–30 September",
 "answerIsRight": 0
 },
 {
 "answerID": 96,
 "questionID": 28,
-"answerString" : "a.\t I am obliged to give way to vehicles on the carriageway.",
+"answerString" : "I am obliged to give way to vehicles on the carriageway.",
 "answerIsRight": 1
 },
 {
 "answerID" : 97,
 "questionID": 28,
-"answerString": "b.\t The vehicles on the carriageway must give way to me.",
+"answerString": "The vehicles on the carriageway must give way to me.",
 "answerIsRight": 0
 },
 {
@@ -603,19 +603,19 @@
 {
 "answerID": 101,
 "questionID": 29,
-"answerString" : "c.\t Calm, safe and planned driving without stress.",
+"answerString" : "Calm, safe and planned driving without stress.",
 "answerIsRight": 0
 },
 {
 "answerID" : 102,
 "questionID": 29,
-"answerString": "d.\t Defending your own position by, for example, not letting someone else overtake.",
+"answerString": "Defending your own position by, for example, not letting someone else overtake.",
 "answerIsRight": 0
 },
 {
 "answerID": 103,
 "questionID": 30,
-"answerString": "a.\t No, it is not permitted.",
+"answerString": "No, it is not permitted.",
 "answerIsRight" : 0
 },
 {
@@ -663,13 +663,13 @@
 {
 "answerID": 111,
 "questionID": 32,
-"answerString" : "a.\t Good, because the safety margin to the intersecting road is high.",
+"answerString" : "Good, because the safety margin to the intersecting road is high.",
 "answerIsRight": 0
 },
 {
 "answerID" : 112,
 "questionID": 32,
-"answerString": "b.\t Not good, because the car is positioned too close to the right side as seen from the driver's perspective.",
+"answerString": "Not good, because the car is positioned too close to the right side as seen from the driver's perspective.",
 "answerIsRight": 0
 },
 {
@@ -705,19 +705,19 @@
 {
 "answerID": 118,
 "questionID": 34,
-"answerString": "a.\t 0.1 per mille of alcohol in the blood.",
+"answerString": "0.1 per mille of alcohol in the blood.",
 "answerIsRight" : 0
 },
 {
 "answerID": 119,
 "questionID" : 34,
-"answerString": "b.\t 0.2 per mille of alcohol in the blood.",
+"answerString": "0.2 per mille of alcohol in the blood.",
 "answerIsRight": 1
 },
 {
 "answerID": 120,
 "questionID": 34,
-"answerString": "c.\t 1.0 per mille of alcohol in the blood",
+"answerString": "1.0 per mille of alcohol in the blood",
 "answerIsRight": 0
 },
 {
@@ -747,7 +747,7 @@
 {
 "answerID": 125,
 "questionID": 35,
-"answerString": "d.\t There is no noticeable difference between the months.",
+"answerString": "There is no noticeable difference between the months.",
 "answerIsRight": 0
 },
 {
@@ -759,7 +759,7 @@
 {
 "answerID" : 127,
 "questionID": 36,
-"answerString": "b.\t You are obliged to give way.",
+"answerString": "You are obliged to give way.",
 "answerIsRight": 0
 },
 {
@@ -771,7 +771,7 @@
 {
 "answerID": 129,
 "questionID" : 37,
-"answerString": "a.\t I should always give way to a bus if it indicates to pull out.",
+"answerString": "I should always give way to a bus if it indicates to pull out.",
 "answerIsRight": 0
 },
 {
@@ -789,7 +789,7 @@
 {
 "answerID" : 132,
 "questionID": 37,
-"answerString": "d.\t Never, since the bus is not in motion.",
+"answerString": "Never, since the bus is not in motion.",
 "answerIsRight": 0
 },
 {
@@ -825,19 +825,19 @@
 {
 "answerID": 138,
 "questionID": 39,
-"answerString": "b.\t The anti-skid system is not activated.",
+"answerString": "The anti-skid system is not activated.",
 "answerIsRight" : 1
 },
 {
 "answerID": 139,
 "questionID" : 39,
-"answerString": "c.\t The high beam is turned off.",
+"answerString": "The high beam is turned off.",
 "answerIsRight": 0
 },
 {
 "answerID": 140,
 "questionID": 39,
-"answerString": "e heated rear window is turned off.",
+"answerString": "The heated rear window is turned off.",
 "answerIsRight": 0
 },
 {
@@ -855,7 +855,7 @@
 {
 "answerID": 143,
 "questionID": 40,
-"answerString": "c.\t I can never pass an amber signal since it has the same meaning as a red signal.",
+"answerString": "I can never pass an amber signal since it has the same meaning as a red signal.",
 "answerIsRight" : 0
 },
 {
@@ -873,7 +873,7 @@
 {
 "answerID": 146,
 "questionID": 41,
-"answerString" : "c.\t I can park in this space all of Wednesday provided that I pay a charge.",
+"answerString" : "I can park in this space all of Wednesday provided that I pay a charge.",
 "answerIsRight": 0
 },
 {
@@ -885,7 +885,7 @@
 {
 "answerID": 148,
 "questionID": 42,
-"answerString": "a.\t Petrol and diesel.",
+"answerString": "Petrol and diesel.",
 "answerIsRight" : 1
 },
 {
@@ -927,13 +927,13 @@
 {
 "answerID": 155,
 "questionID": 44,
-"answerString": "b.\t Yes, but only if there is heavy fog.",
+"answerString": "Yes, but only if there is heavy fog.",
 "answerIsRight": 0
 },
 {
 "answerID": 156,
 "questionID": 44,
-"answerString" : "c.\t No, it is never permitted.",
+"answerString" : "No, it is never permitted.",
 "answerIsRight": 1
 },
 {
@@ -951,7 +951,7 @@
 {
 "answerID": 159,
 "questionID" : 45,
-"answerString": "c.\t The exit ramp is always on the right side.",
+"answerString": "The exit ramp is always on the right side.",
 "answerIsRight": 0
 },
 {
@@ -975,7 +975,7 @@
 {
 "answerID": 163,
 "questionID": 46,
-"answerString": "d.\t The parking prohibition applies to the next junction on both sides of the level crossing.",
+"answerString": "The parking prohibition applies to the next junction on both sides of the level crossing.",
 "answerIsRight" : 0
 },
 {
@@ -993,13 +993,13 @@
 {
 "answerID": 166,
 "questionID": 47,
-"answerString" : "c.\t The driver may not turn into A as the lane is demarcated with a solid line before the junction.",
+"answerString" : "The driver may not turn into A as the lane is demarcated with a solid line before the junction.",
 "answerIsRight": 1
 },
 {
 "answerID" : 167,
 "questionID": 48,
-"answerString": "a.\t The three second rule.",
+"answerString": "The three second rule.",
 "answerIsRight": 0
 },
 {
@@ -1011,25 +1011,25 @@
 {
 "answerID": 169,
 "questionID" : 48,
-"answerString": "c.\t The exit rule.",
+"answerString": "The exit rule.",
 "answerIsRight": 1
 },
 {
 "answerID": 170,
 "questionID": 48,
-"answerString": "d.\t The turning rule.",
+"answerString": "The turning rule.",
 "answerIsRight": 0
 },
 {
 "answerID": 171,
 "questionID": 49,
-"answerString" : "a.\t 30 km/h.",
+"answerString" : "30 km/h.",
 "answerIsRight": 1
 },
 {
 "answerID" : 172,
 "questionID": 49,
-"answerString": "b.\t 50 km/h.",
+"answerString": "50 km/h.",
 "answerIsRight": 0
 },
 {
@@ -1047,7 +1047,7 @@
 {
 "answerID": 175,
 "questionID": 49,
-"answerString": "e.\t There is no limit.",
+"answerString": "There is no limit.",
 "answerIsRight": 0
 },
 {
@@ -1059,31 +1059,31 @@
 {
 "answerID" : 177,
 "questionID": 50,
-"answerString": "b.\t No, since the solid line indicates that overtaking is prohibited.",
+"answerString": "No, since the solid line indicates that overtaking is prohibited.",
 "answerIsRight": 0
 },
 {
 "answerID": 178,
 "questionID": 50,
-"answerString": "c.\t No, since in that case I have to drive across the solid line.",
+"answerString": "No, since in that case I have to drive across the solid line.",
 "answerIsRight" : 1
 },
 {
 "answerID": 179,
 "questionID" : 50,
-"answerString": "d.\t No, since I risk not being able to re-enter the correct lane due to the length of the queue.",
+"answerString": "No, since I risk not being able to re-enter the correct lane due to the length of the queue.",
 "answerIsRight": 0
 },
 {
 "answerID": 180,
 "questionID": 51,
-"answerString": "a.\t Worn tyres work better than new tyres in the rain, but worse under normal conditions.",
+"answerString": "Worn tyres work better than new tyres in the rain, but worse under normal conditions.",
 "answerIsRight": 0
 },
 {
 "answerID": 181,
 "questionID": 51,
-"answerString" : "b.\t Worn tyres work particularly badly in the rain.",
+"answerString" : "Worn tyres work particularly badly in the rain.",
 "answerIsRight": 0
 },
 {
@@ -1095,7 +1095,7 @@
 {
 "answerID": 183,
 "questionID": 52,
-"answerString": "a.\t Parking is prohibited directly under this sign. No prohibition to the right and left.",
+"answerString": "Parking is prohibited directly under this sign. No prohibition to the right and left.",
 "answerIsRight" : 0
 },
 {
@@ -1107,7 +1107,7 @@
 {
 "answerID": 185,
 "questionID": 52,
-"answerString": "c.\t Parking is prohibited on both sides of the sign.",
+"answerString": "Parking is prohibited on both sides of the sign.",
 "answerIsRight": 1
 },
 {
@@ -1119,7 +1119,7 @@
 {
 "answerID" : 187,
 "questionID": 53,
-"answerString": "b.\t The left lane.",
+"answerString": "The left lane.",
 "answerIsRight": 0
 },
 {
@@ -1155,7 +1155,7 @@
 {
 "answerID": 193,
 "questionID": 55,
-"answerString": "a.\t 1–2%",
+"answerString": "1–2%",
 "answerIsRight" : 0
 },
 {
@@ -1179,7 +1179,7 @@
 {
 "answerID" : 197,
 "questionID": 56,
-"answerString": "b.\t Turning off from a road is always prohibited if there is no clear exit road.",
+"answerString": "Turning off from a road is always prohibited if there is no clear exit road.",
 "answerIsRight": 0
 },
 {
@@ -1191,19 +1191,19 @@
 {
 "answerID": 199,
 "questionID" : 56,
-"answerString": "d.\t The curve of the turn is not big enough.",
+"answerString": "The curve of the turn is not big enough.",
 "answerIsRight": 0
 },
 {
 "answerID": 200,
 "questionID": 57,
-"answerString": "a.\t It will be 9 times longer.",
+"answerString": "It will be 9 times longer.",
 "answerIsRight": 1
 },
 {
 "answerID": 201,
 "questionID": 57,
-"answerString" : "b.\t It will be 3 times longer.",
+"answerString" : "It will be 3 times longer.",
 "answerIsRight": 0
 },
 {
@@ -1221,7 +1221,7 @@
 {
 "answerID": 204,
 "questionID" : 58,
-"answerString": "a.\t Road church",
+"answerString": "Road church",
 "answerIsRight": 0
 },
 {
@@ -1233,7 +1233,7 @@
 {
 "answerID": 206,
 "questionID": 58,
-"answerString" : "c.\t Low-speed section",
+"answerString" : "Low-speed section",
 "answerIsRight": 0
 },
 {
@@ -1245,19 +1245,19 @@
 {
 "answerID": 208,
 "questionID": 59,
-"answerString": "a.\t I am obliged to give way since it is a roundabout.",
+"answerString": "I am obliged to give way since it is a roundabout.",
 "answerIsRight" : 0
 },
 {
 "answerID": 209,
 "questionID" : 59,
-"answerString": "b.\t The silver car is obliged to give way as the right-hand rule applies.",
+"answerString": "The silver car is obliged to give way as the right-hand rule applies.",
 "answerIsRight": 0
 },
 {
 "answerID": 210,
 "questionID": 59,
-"answerString": "c.\t I am obliged to give way since the silver car is driving on a priority road.",
+"answerString": "I am obliged to give way since the silver car is driving on a priority road.",
 "answerIsRight": 0
 },
 {
@@ -1269,7 +1269,7 @@
 {
 "answerID" : 212,
 "questionID": 60,
-"answerString": "a.\t At 3.5 metres",
+"answerString": "At 3.5 metres",
 "answerIsRight": 0
 },
 {
@@ -1305,7 +1305,7 @@
 {
 "answerID": 218,
 "questionID": 61,
-"answerString": "c.\t Yes, provided that I do not need to cross over the solid line.",
+"answerString": "Yes, provided that I do not need to cross over the solid line.",
 "answerIsRight" : 0
 },
 {
@@ -1317,7 +1317,7 @@
 {
 "answerID": 220,
 "questionID": 62,
-"answerString": "b.\t That I am obliged to stop in 100 metres.",
+"answerString": "That I am obliged to stop in 100 metres.",
 "answerIsRight": 1
 },
 {
@@ -1371,13 +1371,13 @@
 {
 "answerID": 229,
 "questionID" : 65,
-"answerString": "b.\t Reduces engine noise (silencer).",
+"answerString": "Reduces engine noise (silencer).",
 "answerIsRight": 0
 },
 {
 "answerID": 230,
 "questionID": 65,
-"answerString": "c.\t Converts over 80% of the harmful substances in the exhaust to water and carbon dioxide.",
+"answerString": "Converts over 80% of the harmful substances in the exhaust to water and carbon dioxide.",
 "answerIsRight": 1
 },
 {
@@ -1389,7 +1389,7 @@
 {
 "answerID" : 232,
 "questionID": 66,
-"answerString": "a.\t Parking is prohibited directly under this sign. No prohibition to the right and left.",
+"answerString": "Parking is prohibited directly under this sign. No prohibition to the right and left.",
 "answerIsRight": 0
 },
 {
@@ -1419,7 +1419,7 @@
 {
 "answerID" : 237,
 "questionID": 67,
-"answerString": "c.\t Yes, if you have not witnessed the accident and it is clear that your help is not needed.",
+"answerString": "Yes, if you have not witnessed the accident and it is clear that your help is not needed.",
 "answerIsRight": 1
 }
 ]

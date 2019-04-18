@@ -3,32 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_height="80dp"
-        android:layout_width="match_parent">
-
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:toolbarId="@+id/toolbar"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="?attr/colorPrimary">
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimaryDark"
-                android:elevation="4dp"
-                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-            </android.support.v7.widget.Toolbar>
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
+    android:layout_height="match_parent"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/container"
@@ -40,29 +16,49 @@
 
 
         <Button
-            android:id="@+id/buttonExam"
+            android:id="@+id/buttonExam2"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="109dp"
             android:layout_height="51dp"
-            android:layout_marginStart="92dp"
-            android:layout_marginBottom="88dp"
-            android:background="@android:color/holo_blue_bright"
+            android:layout_marginEnd="46dp"
+            android:layout_marginBottom="120dp"
+            android:background="@color/colorPrimary"
             android:fontFamily="sans-serif"
-            android:onClick="buttonToExam"
-            android:text="@string/title_exam"
+            android:onClick="toExamSe"
+            android:text="@string/title_exam_SE"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/buttonExam"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="109dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginBottom="88dp"
+            android:background="@color/colorPrimary"
+            android:fontFamily="sans-serif"
+            android:onClick="toExamFi"
+            android:text="@string/title_exam_fi"
+            android:textColor="@color/colorWhite"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/buttonResults"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="100dp"
             android:layout_height="53dp"
             android:layout_marginTop="132dp"
             android:layout_marginEnd="32dp"
-            android:background="@android:color/holo_blue_bright"
-            android:onClick="buttonToResults"
+            android:background="@color/colorPrimary"
 
+            android:onClick="buttonToResults"
             android:text="@string/button_results"
+            android:textColor="@color/colorWhite"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -81,35 +77,31 @@
 
         <Button
             android:id="@+id/buttonInformation"
-            android:layout_width="wrap_content"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="120dp"
             android:layout_height="42dp"
-            android:layout_marginStart="106dp"
             android:layout_marginTop="296dp"
-            android:layout_marginEnd="120dp"
-            android:layout_marginBottom="247dp"
+            android:layout_marginEnd="80dp"
+            android:background="@color/colorPrimary"
             android:onClick="buttonToInformations"
-            android:text="DRIVING TIPS"
-            app:layout_constraintBottom_toTopOf="@+id/buttonExam"
+            android:text="@string/button_driving_tips"
+            android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="wrap_content"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="169dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="77dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="58dp"
-            android:layout_marginEnd="247dp"
-            android:layout_marginBottom="379dp"
+            android:background="@color/colorPrimary"
             android:onClick="buttonToDrivingSymbols"
-            android:text="DRIVING SYMBOLS"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.559"
+            android:text="@string/traffic_signs"
+            android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Home"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/Home" />
         <!--tools:context=".MainActivity"-->
         <!--tools:layout_editor_absoluteY="81dp">-->
 
@@ -124,30 +116,33 @@
 
         <Button
             android:id="@+id/Home"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="117dp"
-            android:background="@android:color/holo_blue_bright"
+            android:background="@color/colorPrimary"
             android:fontFamily="sans-serif-condensed-light"
             android:text="@string/title_home"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textSize="24sp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
 
-        app:menu="@menu/navigation" />
-
-            <!--app:layout_constraintBottom_toTopOf="@+id/button4"-->
+    <!--app:layout_constraintBottom_toTopOf="@+id/button4"-->
     <!--app:layout_constraintTop_toBottomOf="@+id/button"-->
     <!--/>-->
 

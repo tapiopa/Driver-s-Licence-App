@@ -6,9 +6,9 @@
     <string name="button_previous">Previous</string>
     <string name="button_next">Next</string>
     <string name="button_take_exam">Start Exam</string>
-    <string name="button_take_new_exam">Start New Exam</string>
+    <string name="button_take_new_exam">New Exam FI</string>
     <string name="title_your_answer">Your Answer</string>
-    <string name="question_progress">Question </string>
+    <string name="question_progress" translatable="false">Question </string>
     <string name="progress_of"> of </string>
     <string name="results_exhortation">Go take an exam!</string>
     <string name="menu_results">Results</string>
@@ -18,12 +18,14 @@
     <string name="title_language">Language</string>
     <string name="button_driving_tips">Driving Tips</string>
     <string name="title_exam_SE">Exam SE</string>
-    <string name="title_exam_fi">Exam</string>
+    <string name="title_exam_fi">Exam FI</string>
     <string name="button_take_exam_se">Exam SE</string>
-    <string name="button_take_new_exam_se">Take New Exam SE</string>
+    <string name="button_take_new_exam_se">New Exam SE</string>
 
-    <string name="title_activity_fullscreen_image">FullscreenImageActivity</string>
+    <string name="title_activity_fullscreen_image" translatable="false">FullscreenImageActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="title_activity_image">ImageActivity</string>
+    <string name="title_activity_image" translatable="false">ImageActivity</string>
+    <string name="button_change_results">Change Answers</string>
+    <string name="traffic_signs">DRIVING SYMBOLS</string>
 </resources>

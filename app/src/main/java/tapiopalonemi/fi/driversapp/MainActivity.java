@@ -24,61 +24,35 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-
-//    private TextView mTextMessage;
-//
-//    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-//            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-//
-//        @Override
-//        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//            switch (item.getItemId()) {
-//                case R.id.navigation_home:
-//                    mTextMessage.setText(R.string.title_home);
-////                    navigation.setSelectedItemId(R.id.navigation_home);
-////                    Log.i("HOME BOTTOM NAVIGATION", "HOME CLICKED");
-//                    return true;
-//                case R.id.navigation_exam:
-//                    mTextMessage.setText(R.string.title_exam);
-////                    Log.i("HOME BOTTOM NAVIGATION", "EXAM CLICKED");
-//                    return true;
-////                case R.id.navigation_exam_se:
-////                    mTextMessage.setText(R.string.title_exam_SE);
-////                    return true;
-//                case R.id.navigation_results:
-//                    mTextMessage.setText(R.string.title_results);
-////                    Log.i("HOME BOTTOM NAVIGATION", "RESULTS CLICKED");
-//                    return true;
-//            }
-//            return false;
-//        }
-//    };
+    MyDBHandler db;
 
     //Go to home page
-    public void toHome(MenuItem menuItem) {
-        Log.i("BOTTOM NAVIGATION", "to home navigation item clicked");
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
-    }
+//    public void toHome(View view) {
+//        Log.i("BOTTOM NAVIGATION", "to home navigation item clicked");
+//        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//        startActivity(intent);
+//    }
 
     //Go to Finnish exam page
-    public void toExam(MenuItem menuItem) {
+    public void toExamFi(View view) {
         Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
         intent.putExtra("finnish", true);
+        db.setIsFinnishQuestions(true);
         startActivity(intent);
     }
 
     //Go to Swedish exam page
-    public void toExamSe(MenuItem menuItem) {
+    public void toExamSe(View view) {
         Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
         intent.putExtra("finnish", false);
+        db.setIsFinnishQuestions(false);
         startActivity(intent);
     }
 
     //Go to results page
-    public void toResults(MenuItem menuItem) {
+    public void toResults(View view) {
         Log.i("BOTTOM NAVIGATION", "to results navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
         startActivity(intent);
@@ -117,23 +91,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MyDBHandler db = new MyDBHandler(this);
+        db = new MyDBHandler(this);
         //Do some housekeeping if first time run of this app
         if (db.isNotDataLoaded()) {
             Log.d("HOME", "data is not loaded");
             db.firstRun(this);
         }
 
-        //Set some action bar items
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.setSubtitle("Go Places>");
-//        actionBar.setHomeButtonEnabled(true);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
+        myToolbar.setTitle(R.string.app_name);
 
-//        mTextMessage = findViewById(R.id.message);
-//        BottomNavigationView navigation = findViewById(R.id.navigation);
-//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         Fresco.initialize(this);
     }
 

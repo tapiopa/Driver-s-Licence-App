@@ -1,0 +1,22 @@
+{
+  "tips": [
+    {
+      "tipID": 1,
+      "tipsString": "11111Adjust your mirrors correctly",
+      "tipPage": 1
+    },
+    {
+      "tipID": 2,
+      "tipsString":  "If the car don't start turn high beams on",
+      "tipPage": 1
+    },
+
+    ...
+    {
+      "tipID": 11,
+      "tipsString":  "222222Adjust your mirrors correctly",
+      "tipPage": 2
+    }
+
+  ]
+}

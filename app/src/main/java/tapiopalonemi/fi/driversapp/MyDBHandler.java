@@ -36,6 +36,7 @@ class MyDBHandler extends SQLiteOpenHelper {
     private static final String COLUMN_APPLICATION_ID = "applicationID";
     private static final String COLUMN_IS_DATA_LOADED = "isDataLoaded";
     private static final String COLUMN_LAST_ANSWERED_QUESTION = "lastAnsweredQuestion";
+    private static final String COLUMN_IS_FINNISH_QUESTIONS = "isFinnishQuestions";
     private static final String COLUMN_QUESTION_ID = "questionID";
     private static final String COLUMN_QUESTION_STRING = "questionString";
     private static final String COLUMN_QUESTION_PICTURE = "picture";
@@ -152,7 +153,8 @@ class MyDBHandler extends SQLiteOpenHelper {
         String CREATE_APPLICATION = "CREATE TABLE IF NOT EXISTS " + TABLE_APPLICATION + "(" +
                 COLUMN_APPLICATION_ID + " INTEGER PRIMARY KEY, " +
                 COLUMN_IS_DATA_LOADED + " INTEGER, " +
-                COLUMN_LAST_ANSWERED_QUESTION+ " INTEGER" +
+                COLUMN_LAST_ANSWERED_QUESTION+ " INTEGER, " +
+                COLUMN_IS_FINNISH_QUESTIONS + " INTEGER" +
                 ")";
         db.execSQL(CREATE_APPLICATION);
         db.execSQL(CREATE_QUESTION);
@@ -163,8 +165,9 @@ class MyDBHandler extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + TABLE_APPLICATION + " (" +
                 COLUMN_APPLICATION_ID + ", " +
                 COLUMN_IS_DATA_LOADED + ", " +
-                COLUMN_LAST_ANSWERED_QUESTION + ") " +
-                "VALUES (1, 0, -1)");
+                COLUMN_LAST_ANSWERED_QUESTION + ", " +
+                COLUMN_IS_FINNISH_QUESTIONS + ") " +
+                "VALUES (1, 0, -1, 1)");
     }
 
     @Override
@@ -297,6 +300,33 @@ class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_LAST_ANSWERED_QUESTION, questionID);
+        String where = COLUMN_APPLICATION_ID + " = 1";
+        db.update(TABLE_APPLICATION, values, where, null);
+    }
+
+    public boolean isFinnishQuestions() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int isFinnishQuestions = -1;
+        String query = "SELECT " + COLUMN_IS_FINNISH_QUESTIONS +
+                " FROM " + TABLE_APPLICATION +
+                " WHERE " + COLUMN_APPLICATION_ID + " = 1";
+//                " LIMIT 1";
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            isFinnishQuestions = Integer.parseInt(cursor.getString(0));
+        }
+//        Log.i("DB", "get last answered question: " + lastQuestionID);
+        cursor.close();
+        return isFinnishQuestions == 1;
+    }
+
+    //Sets the id for the question the user answered last.
+    public void setIsFinnishQuestions(boolean isFinnish) {
+        Log.i("DB", "set last answered question: " + isFinnish);
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_IS_FINNISH_QUESTIONS, isFinnish ? 1 : 0);
         String where = COLUMN_APPLICATION_ID + " = 1";
         db.update(TABLE_APPLICATION, values, where, null);
     }
@@ -742,7 +772,7 @@ class MyDBHandler extends SQLiteOpenHelper {
 
     //Choices
     //Get choice from choices table by question id.
-    private Choice getChoiceByQuestionID(int questionID) {
+    public Choice getChoiceByQuestionID(int questionID) {
         String query = "SELECT * FROM " + TABLE_USER_CHOICE + " WHERE " + COLUMN_QUESTION_ID + " = " + questionID;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
@@ -766,9 +796,9 @@ class MyDBHandler extends SQLiteOpenHelper {
             values.put(COLUMN_ANSWER_ID, answer.getAnswerID());
             values.put(COLUMN_QUESTION_ID, question.getQuestionID());
             values.put(COLUMN_ANSWER_IS_RIGHT, answer.isRightAnswer());
-            Log.i("DB", "add choice, questionID" + question.getQuestionID() +
+            Log.i("DB", "add choice, questionID: " + question.getQuestionID() +
                             ", answerID: " + answer.getAnswerID() +
-                    ", answer id right: " + answer.isRightAnswer()
+                    ", answer is right: " + answer.isRightAnswer()
                     );
             SQLiteDatabase db = this.getWritableDatabase();
             if (oldChoice == null) {
