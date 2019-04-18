@@ -33,9 +33,27 @@ public class Informationactivity extends AppCompatActivity {
                 "Keep winter Survival kit in winter time","plan route in advanced for long trips"
 
         };
+
+        final String[] INFORMATIONS3 = new String[]{
+                "Don't take alcohol and drugs while drive", "Don't assume that other cars know what you are doing",
+                "Don't play loud music in your vehicle","Don't Talk on your cellphone and drive",
+                "Don't treat your vehicle like a toy","Don't leave your valueables in your car",
+                "Give priority to emergency vehicles"
+
+        };
+
+        final String[] INFORMATIONS4 = new String[]{
+                "If you face an accident make sure nobody in car is injured","Check the conditions of other side",
+                "Call Police immediately","Stay at the scene","Stay Calm and contact your insurance provider",
+                "Give your liscence and other documents to Insurance and Police","Don't be Abusive"
+
+        };
+
         listOfLists = new ArrayList<>();
         listOfLists.add(INFORMATIONS);
         listOfLists.add(INFORMATIONS2);
+        listOfLists.add(INFORMATIONS3);
+        listOfLists.add(INFORMATIONS4);
         nextInformation(null);
         previousInformation(null);
 
@@ -77,10 +95,9 @@ public class Informationactivity extends AppCompatActivity {
         } else {
             previousButton.setEnabled(true);
         }
-        if (index >= listOfLists.size()) {
+        if (index >= listOfLists.size() - 1) {
             index = listOfLists.size() - 1;
             nextButton.setEnabled(false);
-
         } else {
             if (index == listOfLists.size() - 1) {
                 nextButton.setEnabled(false);
@@ -90,5 +107,4 @@ public class Informationactivity extends AppCompatActivity {
         }
 
     }
-
 }
