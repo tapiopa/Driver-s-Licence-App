@@ -33,6 +33,7 @@ class MyDBHandler extends SQLiteOpenHelper {
     private static final String TABLE_ANSWER = "answer";
     private static final String TABLE_ANSWER_SE = "answerSE";
     private static final String TABLE_USER_CHOICE = "userChoice";
+    private static final String TABLE_DRIVING_TIPS = "drivingTips";
     private static final String COLUMN_APPLICATION_ID = "applicationID";
     private static final String COLUMN_IS_DATA_LOADED = "isDataLoaded";
     private static final String COLUMN_LAST_ANSWERED_QUESTION = "lastAnsweredQuestion";
@@ -44,6 +45,9 @@ class MyDBHandler extends SQLiteOpenHelper {
     private static final String COLUMN_ANSWER_ID = "answerID";
     private static final String COLUMN_ANSWER_STRING = "answerString";
     private static final String COLUMN_ANSWER_IS_RIGHT = "answerIsRight";
+    private static final String COLUMN_TIP_ID = "tipId";
+    private static final String COLUMN_TIP_STRING = "tipString";
+    private static final String COLUMN_TIP_PAGE = "tipPage";
 //    public static final String COLUMN_ANSWER_CHOSEN = "answerChosen";
     private static final String COLUMN_CHOICE_ID = "choiceID";
 
@@ -63,6 +67,7 @@ class MyDBHandler extends SQLiteOpenHelper {
         String dropAnswers = "DROP TABLE IF EXISTS " + TABLE_ANSWER;
         String dropSEAnswers = "DROP TABLE IF EXISTS " + TABLE_ANSWER_SE;
         String dropChoices = "DROP TABLE IF EXISTS " + TABLE_USER_CHOICE;
+        String dropTips = "DROP TABLE IF EXISTS " + TABLE_DRIVING_TIPS;
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(dropApplication);
         db.execSQL(dropQuestions);
@@ -70,6 +75,7 @@ class MyDBHandler extends SQLiteOpenHelper {
         db.execSQL(dropAnswers);
         db.execSQL(dropSEAnswers);
         db.execSQL(dropChoices);
+        db.execSQL(dropTips);
     }
 
     private void pushData() {
@@ -114,6 +120,11 @@ class MyDBHandler extends SQLiteOpenHelper {
                 COLUMN_ANSWER_IS_RIGHT + ", " +
                 COLUMN_QUESTION_ID + ") " +
                 " VALUES('SOUTH', 0, 2)");
+//        db.execSQL("INSERT INTO " + TABLE_DRIVING_TIPS + "(" +
+//                COLUMN_TIP_ID + ", " +
+//                COLUMN_TIP_STRING + ", " +
+//                COLUMN_TIP_PAGE + ")"
+//        );
     }
 
 
@@ -156,12 +167,17 @@ class MyDBHandler extends SQLiteOpenHelper {
                 COLUMN_LAST_ANSWERED_QUESTION+ " INTEGER, " +
                 COLUMN_IS_FINNISH_QUESTIONS + " INTEGER" +
                 ")";
+        String CREATE_TIPS = "CREATE TABLE IF NOT EXISTS " + TABLE_DRIVING_TIPS + "(" +
+                COLUMN_TIP_ID + " INTEGER PRIMARY KEY, " +
+                COLUMN_TIP_STRING + " VARCHAR, " +
+                COLUMN_TIP_PAGE + " INTEGER )";
         db.execSQL(CREATE_APPLICATION);
         db.execSQL(CREATE_QUESTION);
         db.execSQL(CREATE_QUESTION_SE);
         db.execSQL(CREATE_ANSWER);
         db.execSQL(CREATE_ANSWER_SE);
         db.execSQL(CREATE_CHOICE);
+        db.execSQL(CREATE_TIPS);
         db.execSQL("INSERT INTO " + TABLE_APPLICATION + " (" +
                 COLUMN_APPLICATION_ID + ", " +
                 COLUMN_IS_DATA_LOADED + ", " +
@@ -194,11 +210,18 @@ class MyDBHandler extends SQLiteOpenHelper {
                 jsonObject = new JSONObject(this.loadJSONFromResources(context, R.raw.answers));
                 jsonArray = jsonObject.getJSONArray("answers");
                 this.loadAnswersFromJson(jsonArray, true);
-                this.setDataIsLoaded();
+                //this.setDataIsLoaded();
 
                 jsonObject = new JSONObject(this.loadJSONFromResources(context, R.raw.answers_se));
                 jsonArray = jsonObject.getJSONArray("answers");
                 this.loadAnswersFromJson(jsonArray, false);
+
+
+                //
+                jsonObject = new JSONObject(this.loadJSONFromResources(context, R.raw.drivingtips));
+                jsonArray = jsonObject.getJSONArray("info");
+                loadTipsFromJSON(jsonArray);
+
                 this.setDataIsLoaded();
             } catch (JSONException e) {
                 Log.d("JSONEXCEPTION", e.getLocalizedMessage());
@@ -416,6 +439,55 @@ class MyDBHandler extends SQLiteOpenHelper {
         }
     }
 
+    public ArrayList<DrivingInfo> loadQuestions() {
+        ArrayList<DrivingInfo> tips = new ArrayList<>();
+        String query = "SELECT * FROM " + TABLE_DRIVING_TIPS;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        cursor.moveToFirst();
+        do {
+            int tipId = cursor.getInt(0);
+            String tipString = cursor.getString(1);
+            int tipPage = cursor.getInt(2);
+            tips.add(new DrivingInfo(tipId, tipString, tipPage));
+        }  while (cursor.moveToNext());
+        cursor.close();
+        return tips;
+    }
+
+    //Adds a question to database, either in Finnish or Swedish table of questions.
+    private void addTip(DrivingInfo tip) {
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_TIP_ID, tip.getTipID());
+        values.put(COLUMN_TIP_STRING, tip.getTipString());
+        values.put(COLUMN_TIP_PAGE, tip.getTipPage());
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.insert(TABLE_DRIVING_TIPS, null, values);
+    }
+
+    private void addTip(JSONObject tipJSON) {
+        DrivingInfo tip = new DrivingInfo();
+        try {
+            tip.setTipID(tipJSON.getInt("infoID"));
+            tip.setTipString(tipJSON.getString("infoString"));
+            tip.setTipPage(tipJSON.getInt("infoPage"));
+            this.addTip(tip);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Loops through JSON data and calls a method to parse and save each question.
+    private void loadTipsFromJSON(JSONArray jsonTips/*, boolean finnish*/) {
+        for (int i=0; i < jsonTips.length(); i++) {
+            try {
+
+                this.addTip(jsonTips.getJSONObject(i));
+            } catch (JSONException e)  {
+                e.printStackTrace();
+            }
+        }
+    }
 //    //Finds and returns a question (either from Finnish or Swedish exam question) by a question string.
 //    public Question findQuestionBy(String questionString, boolean finnish) {
 //        String query;
