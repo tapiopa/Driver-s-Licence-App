@@ -43,7 +43,7 @@ public class Informationactivity extends AppCompatActivity {
         };
 
         final String[] INFORMATIONS4 = new String[]{
-                "If you face an accident make sure nobody in car is injured","Check the conditions of other side",
+                "If you face an accident make sure nobody in car is injured","Check the conditions of other side vehicles",
                 "Call Police immediately","Stay at the scene","Stay Calm and contact your insurance provider",
                 "Give your liscence and other documents to Insurance and Police","Don't be Abusive"
 
