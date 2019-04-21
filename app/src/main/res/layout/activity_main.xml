@@ -13,11 +13,12 @@
         android:background="@drawable/drive"
         android:minHeight="181dp"
         tools:context=".MainActivity">
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryLight"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/AppBarOverlay"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,14 +30,12 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="109dp"
             android:layout_height="51dp"
-            android:layout_marginEnd="46dp"
-            android:layout_marginBottom="120dp"
-            android:background="@color/colorPrimary"
-            android:fontFamily="sans-serif"
+            android:layout_marginEnd="56dp"
+            android:layout_marginBottom="96dp"
+            android:background="@color/colorPrimaryLight"
             android:onClick="toExamSe"
             android:text="@string/title_exam_SE"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp"
+            android:textAppearance="@style/TextAppearance.AppCompat"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -45,14 +44,12 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="109dp"
             android:layout_height="51dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginBottom="88dp"
-            android:background="@color/colorPrimary"
-            android:fontFamily="sans-serif"
+            android:layout_marginStart="52dp"
+            android:layout_marginBottom="96dp"
+            android:background="@color/colorPrimaryLight"
             android:onClick="toExamFi"
             android:text="@string/title_exam_fi"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp"
+            android:textAppearance="@style/TextAppearance.AppCompat"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -61,15 +58,16 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="100dp"
             android:layout_height="53dp"
+            android:layout_marginStart="110dp"
             android:layout_marginTop="132dp"
             android:layout_marginEnd="32dp"
-            android:background="@color/colorPrimary"
 
+            android:background="@color/colorPrimaryLight"
             android:onClick="buttonToResults"
             android:text="@string/button_results"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp"
+            android:textAppearance="@style/TextAppearance.AppCompat"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/Home"
             app:layout_constraintTop_toTopOf="parent" />
         <!--app:layout_constraintBottom_toTopOf="@+id/navigation"-->
         <!--<TextView-->
@@ -87,14 +85,14 @@
         <Button
             android:id="@+id/buttonInformation"
             style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="120dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="296dp"
-            android:layout_marginEnd="80dp"
-            android:background="@color/colorPrimary"
+            android:layout_width="186dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="368dp"
+            android:layout_marginEnd="116dp"
+            android:background="@color/colorPrimaryLight"
             android:onClick="buttonToInformations"
             android:text="@string/button_driving_tips"
-            android:textColor="@color/colorWhite"
+            android:textAppearance="@style/TextAppearance.AppCompat"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,12 +101,12 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="169dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="58dp"
-            android:background="@color/colorPrimary"
+            android:layout_marginStart="108dp"
+            android:layout_marginTop="72dp"
+            android:background="@color/colorPrimaryLight"
             android:onClick="buttonToDrivingSymbols"
             android:text="@string/traffic_signs"
-            android:textColor="@color/colorWhite"
+            android:textAppearance="@style/TextAppearance.AppCompat"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Home" />
         <!--tools:context=".MainActivity"-->
