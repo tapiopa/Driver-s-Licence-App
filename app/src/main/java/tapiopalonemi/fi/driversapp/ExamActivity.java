@@ -381,6 +381,7 @@ public class ExamActivity extends AppCompatActivity {
             answerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Log.i("EXAM ACTIVITY", "onClickListener, position: " + position);
                     TextView chosenAnswerView = findViewById(R.id.user_answer);
                     Answer answer = question.getAnswers().get(position);
                     db.addChoice(question, answer);
@@ -388,10 +389,12 @@ public class ExamActivity extends AppCompatActivity {
                     answer.getQuestion().setAnswered(true);
                     question.setChosenAnswer(answer);
                     question.setAnswered(true);
+
                     chosenAnswerView.setText(convertToAlphabet(position));
 //                    Log.d("EXAM",)
                     arrayAdapter.notifyDataSetChanged();
 //                    chosenAnswerView.setVisibility(View.GONE);
+                    Log.i("EXAM ACTIVITY", "END onClickListener");
                 }
             });
         }

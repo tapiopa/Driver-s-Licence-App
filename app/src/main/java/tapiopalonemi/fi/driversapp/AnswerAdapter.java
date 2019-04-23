@@ -58,6 +58,9 @@ class AnswerAdapter extends ArrayAdapter<Answer> {
         TextView usersAnswerView = parent.getRootView().findViewById(R.id.user_answer);
 //        Log.i("ANSWER ADAPTER", "was called 2");
         answerString.setPadding(0, 12, 0, 12);
+        chosenAnswer.setText(null);
+
+        Log.i("ANSWER ADAPTER", "answer id: " + answer.getAnswerID());
 //
 //        if (null != answer.getQuestion()) {
 //            Log.i("ANSWER ADAPTER", "QUESTION: " + answer.getQuestion().toString());
@@ -66,10 +69,10 @@ class AnswerAdapter extends ArrayAdapter<Answer> {
 //                answer.getQuestion().isAnswered() &&
 //                null != answer.getQuestion().getChosenAnswer() &&
 //                answer.getQuestion().getChosenAnswer().getAnswerID() >= 0 &&
-//                answer.getQuestion().getChosenAnswer().getAnswerID() == answer.getAnswerID()) {
+//                answer.ge tQuestion().getChosenAnswer().getAnswerID() == answer.getAnswerID()) {
         if (question != null && question.isAnswered() && question.getChosenAnswer() != null &&
             question.getChosenAnswer().getAnswerID() == answer.getAnswerID()) {
-            Log.i("$$$$$$$$$ANSWER ADAPTER", "answered, answer: " + answer.getAnswerID());
+            Log.i("$$$$$$$$$ANSWER ADAPTER", "answered, answer id: " + answer.getAnswerID());
             Log.i("$$$$$$$$$ANSWER ADAPTER", "answered answer.questionID: " + answer.getQuestion().getQuestionID());
             Log.i("$$$$$$$$$ANSWER ADAPTER", "answered, answer.question.chosenAnswer ID: " + answer.getQuestion().getChosenAnswer().getAnswerID());
 //            chosenAnswer.setBackgroundColor(Color.CYAN);
