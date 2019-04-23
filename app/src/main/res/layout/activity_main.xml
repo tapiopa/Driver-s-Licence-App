@@ -28,8 +28,8 @@
         <Button
             android:id="@+id/buttonExam2"
             style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="109dp"
-            android:layout_height="51dp"
+            android:layout_width="107dp"
+            android:layout_height="45dp"
             android:layout_marginTop="165dp"
             android:layout_marginEnd="56dp"
             android:layout_marginBottom="250dp"
@@ -44,8 +44,8 @@
         <Button
             android:id="@+id/buttonExam"
             style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="109dp"
-            android:layout_height="51dp"
+            android:layout_width="103dp"
+            android:layout_height="46dp"
             android:layout_marginTop="165dp"
             android:layout_marginEnd="84dp"
             android:layout_marginBottom="96dp"
