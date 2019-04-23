@@ -1,13 +1,26 @@
 package tapiopalonemi.fi.driversapp;
 
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+
+
 
 public class DrivingSymbols extends AppCompatActivity{
 
@@ -47,7 +60,11 @@ public class DrivingSymbols extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_symbols);
+        Toolbar myToolbar = findViewById(R.id.toolbar_DrivingSymbols);
+        setSupportActionBar(myToolbar);
 
+        // Get a support ActionBar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
         List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
 
         for (int i = 0; i < 17; i++) {
@@ -65,6 +82,58 @@ public class DrivingSymbols extends AppCompatActivity{
         ListView androidListView = (ListView) findViewById(R.id.list_view);
         androidListView.setAdapter(simpleAdapter);
     }
-}
 
+
+    @Override
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.language, menu);
+        return true;
+    }
+
+
+    //Handle selecting a language in language menu
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.english:
+                Log.i("LANGUAGE SELECTION", "english");
+                setLocale("en");
+                return true;
+            case R.id.finnish:
+                Log.i("LANGUAGE SELECTION", "finnish");
+                setLocale("fi");
+                return true;
+            case R.id.swedish:
+                Log.i("LANGUAGE SELECTION", "swedish");
+                setLocale("sv");
+                return true;
+            case R.id.hungarian:
+                Log.i("LANGUAGE SELECTION", "hungarian");
+                setLocale("hu");
+                return true;
+            case R.id.nepali:
+                Log.i("LANGUAGE SELECTION", "nepali");
+                setLocale("ne");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    //Set locale according to language selection
+    private void setLocale(String lang) {
+        Locale myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.setLocale(myLocale);
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, DrivingSymbols.class);
+        startActivity(refresh);
+        finish();
+    }
+}
 
