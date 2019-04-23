@@ -13,14 +13,15 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+
 import java.util.ArrayList;
 import java.util.Locale;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 public class Informationactivity extends AppCompatActivity {
-
 
 
     private MyDBHandler db;
@@ -30,17 +31,23 @@ public class Informationactivity extends AppCompatActivity {
     ArrayList<DrivingInfo> tips;
 
 
-
     @Override
 //
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
-            Toolbar myToolbar = findViewById(R.id.toolbar_Information);
-            setSupportActionBar(myToolbar);
+        Toolbar myToolbar = findViewById(R.id.toolbar_Information);
+        setSupportActionBar(myToolbar);
 
-            // Get a support ActionBar corresponding to this toolbar
-            ActionBar ab = getSupportActionBar();
+        // Get a support ActionBar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
+        // Enable the Up button
+        if (null != ab) {
+            ab.setDisplayHomeAsUpEnabled(true);
+            String abTitle = "Driver's App ";
+            ab.setTitle(abTitle);
+            ab.setSubtitle(R.string.button_driving_tips);
+        }
 
         db = new MyDBHandler(this);
 

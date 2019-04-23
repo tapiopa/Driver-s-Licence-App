@@ -65,6 +65,17 @@ public class DrivingSymbols extends AppCompatActivity{
 
         // Get a support ActionBar corresponding to this toolbar
         ActionBar ab = getSupportActionBar();
+        // Enable the Up button
+        if (null != ab) {
+            ab.setDisplayHomeAsUpEnabled(true);
+            String abTitle = "Driver's App";
+            ab.setTitle(abTitle);
+            ab.setSubtitle(R.string.traffic_signs);
+        }
+
+
+
+
         List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
 
         for (int i = 0; i < 17; i++) {
