@@ -40,7 +40,18 @@ public class Informationactivity extends AppCompatActivity {
             setSupportActionBar(myToolbar);
 
             // Get a support ActionBar corresponding to this toolbar
-            ActionBar ab = getSupportActionBar();
+
+        ActionBar ab = getSupportActionBar();
+//
+//        // Enable the Up button
+        if (null != ab) {
+            ab.setDisplayHomeAsUpEnabled(true);
+            String abTitle = "Driver's App";
+            ab.setTitle(abTitle);
+            ab.setSubtitle("Driving Tips");
+
+        }
+
 
         db = new MyDBHandler(this);
 
