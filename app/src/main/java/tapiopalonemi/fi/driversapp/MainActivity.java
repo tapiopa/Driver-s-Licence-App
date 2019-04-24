@@ -72,7 +72,13 @@ public class MainActivity extends AppCompatActivity {
 //        intent.putExtra("extra", "extra");
         startActivity(intent);
     }
-    
+    public void buttonToDrivingschool(View view) {
+        Log.i("BOTTOM NAVIGATION", "to DRIVING School button clicked");
+        Intent intent = new Intent(getApplicationContext(), DrivingschoolActivity.class);
+//        intent.putExtra("extra", "extra");
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
