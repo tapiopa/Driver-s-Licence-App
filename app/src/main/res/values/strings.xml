@@ -23,8 +23,8 @@
     <string name="button_take_new_exam_se">New Exam SE</string>
 
     <string name="title_activity_fullscreen_image" translatable="false">FullscreenImageActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="dummy_button" translatable="false">Dummy Button</string>
+    <string name="dummy_content" translatable="false">DUMMY\nCONTENT</string>
     <string name="title_activity_image" translatable="false">ImageActivity</string>
     <string name="button_change_results">Change Answers</string>
     <string name="traffic_signs">Driving Symbols</string>

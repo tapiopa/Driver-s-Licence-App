@@ -11,7 +11,7 @@
         android:id="@+id/toolbar_results"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:background="@color/colorPrimary"
+        android:background="@android:color/holo_green_light"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/AppBarOverlay"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,42 +55,25 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar_results" />
 
     <TextView
-        android:id="@+id/results_title"
-        android:layout_width="383dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="32dp"
-        android:clickable="false"
-        android:ems="10"
-        android:singleLine="true"
-        android:text="@string/title_results"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/message" />
-
-    <TextView
         android:id="@+id/empty_result"
         android:layout_width="370dp"
         android:layout_height="174dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="@string/results_exhortation"
         android:textAlignment="center"
         android:textSize="30sp"
         android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/results_list"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/results_title" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_results" />
 
     <Button
         android:id="@+id/new_exam_button"
         style="@style/Widget.AppCompat.Button.Colored"
+        android:background="@android:color/holo_green_light"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:layout_width="wrap_content"
         android:layout_height="49dp"
         android:layout_marginEnd="24dp"
@@ -104,6 +87,8 @@
     <Button
         android:id="@+id/new_exam_button_se"
         style="@style/Widget.AppCompat.Button.Colored"
+        android:background="@android:color/holo_green_light"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:layout_width="wrap_content"
         android:layout_height="49dp"
         android:layout_marginEnd="24dp"
@@ -118,13 +103,15 @@
         android:id="@+id/score_text"
         android:layout_width="195dp"
         android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
         android:text="Score: 00 / 00"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:textStyle="bold"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="630dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button_change_exam"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_home"
@@ -133,6 +120,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
+        android:background="@android:color/holo_green_light"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:onClick="toHome"
         android:text="@string/title_home"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -141,6 +130,8 @@
     <Button
         android:id="@+id/button_home_from_results"
         style="@style/Widget.AppCompat.Button.Colored"
+        android:background="@android:color/holo_green_light"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -158,7 +149,8 @@
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/colorPrimary"
+        android:background="@android:color/holo_green_light"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:onClick="toExamFiSe"
         android:text="@string/button_change_results"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -171,8 +163,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="60dp"
+        android:background="@android:color/holo_green_light"
         android:onClick="takeNewExam"
         android:text="@string/button_take_new_exam"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -182,11 +176,16 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/holo_green_light"
+        android:onClick="takeNewExamSe"
         android:text="@string/button_take_new_exam_se"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_new_exam_FI" />
 
 </android.support.constraint.ConstraintLayout>

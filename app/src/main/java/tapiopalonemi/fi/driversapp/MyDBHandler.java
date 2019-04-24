@@ -265,10 +265,10 @@ class MyDBHandler extends SQLiteOpenHelper {
                 if (isDataLoaded != 0) {
                     cursor.close();
 //                    db.close();
-//                    Log.i("DB", "data is loaded");
+                    Log.i("##DB", "data is loaded");
                     return false;
                 } else {
-//                    Log.i("DB", "data is NOT loaded");
+                    Log.i("##DB", "data is NOT loaded");
                     cursor.close();
 //                    db.close();
                     return true;
@@ -289,13 +289,14 @@ class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         //DEBUG
-//        query = "SELECT " + COLUMN_IS_DATA_LOADED + " FROM " + TABLE_APPLICATION;
-//        Cursor cursor1 = db.rawQuery(query, null);
-//        if (cursor.moveToFirst()) {
-//            cursor.moveToFirst();
-//            int isDataLoaded = Integer.parseInt(cursor.getString(0));
-//            Log.d("DB", "data loaded is: " + isDataLoaded);
-//        }
+        query = "SELECT " + COLUMN_IS_DATA_LOADED + " FROM " + TABLE_APPLICATION;
+        Cursor cursor1 = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            int isDataLoaded = Integer.parseInt(cursor.getString(0));
+            Log.d("DB DEBUG", "(debug) data loaded is: " + isDataLoaded);
+        }
+        Log.i("DBHANDLER", "set data is loaded");
         cursor.close();
     }
 
