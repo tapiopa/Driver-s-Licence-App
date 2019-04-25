@@ -116,4 +116,3 @@ public class DrivingschoolActivity extends AppCompatActivity {
         androidListView.setAdapter(adapter);
     }
 }
-
