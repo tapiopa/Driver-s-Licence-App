@@ -5,7 +5,6 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Button;
 import java.util.ArrayList;
 import java.util.HashMap;
 import android.view.View;
@@ -17,10 +16,10 @@ public class DrivingschoolActivity extends AppCompatActivity {
 
     // Array of strings for ListView Title
     String[] listviewName = new String[]{
-            "ListView Title 1", "ListView Title 2", "ListView Title 3",
+            "ListView Title 1"
     };
     String[] listviewMap = new String[]{
-            "button6"
+            "Map"
 
     };
 
@@ -31,7 +30,7 @@ public class DrivingschoolActivity extends AppCompatActivity {
             "call"
     };
     String[] listviewwebsite = new String[]{
-            "button7"
+            "go"
     };
     int[] listviewImage = new int[]{
             R.drawable.drive
@@ -45,9 +44,9 @@ public class DrivingschoolActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drivingschool);
-        Button listview_item_call = (Button) findViewById(R.id.listview_item_call);
-        Button listview_item_go = (Button) findViewById(R.id.listview_item_go);
-        Button listview_item_map = (Button) findViewById(R.id.listview_item_map);
+        Button listview_item_call = (Button) findViewById(R.id.call);
+        Button listview_item_go = (Button) findViewById(R.id.go);
+        Button listview_item_map = (Button) findViewById(R.id.map);
         editText = (EditText) findViewById(R.id.editText);
 
         listview_item_map.setOnClickListener(new View.OnClickListener() {
@@ -97,8 +96,8 @@ public class DrivingschoolActivity extends AppCompatActivity {
         }
 
         String[] from = {"listview_image", "listview_name", "listview_phone","listview_Map","listview_website","listview_editText"};
-        int[] to = {R.id.listview_image, R.id.listview_item_name, R.id.listview_item_call, R.id.listview_item_go,R.id.listview_item_map,
-        R.id.listview_item_editText};
+        int[] to = {R.id.listview_image, R.id.listview_name, R.id.listview_call, R.id.listview_go,R.id.listview_map,
+        R.id.listview_editText};
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), aList, R.layout.activity_drivingschools, from, to);
         ListView androidListView = (ListView) findViewById(R.id.list_view);

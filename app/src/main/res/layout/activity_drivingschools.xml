@@ -46,7 +46,7 @@
             android:layout_marginStart="36dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="37dp"
-            android:layout_marginBottom="560dp"
+            android:layout_marginBottom="564dp"
             android:ems="10"
             android:hint="Go to......"
             android:inputType="textUri|textWebEmailAddress"
@@ -76,8 +76,8 @@
             android:layout_width="73dp"
             android:layout_height="41dp"
             android:text="call"
-            tools:layout_editor_absoluteX="161dp"
-            tools:layout_editor_absoluteY="71dp" />
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="63dp" />
 
         <Button
             android:id="@+id/go"
