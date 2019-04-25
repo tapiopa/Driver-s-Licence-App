@@ -15,27 +15,6 @@ import android.widget.EditText;
 import java.util.List;
 public class DrivingschoolActivity extends AppCompatActivity {
 
-    // Array of strings for ListView Title
-    String[] listviewName = new String[]{
-            "ListView Title 1"
-    };
-    String[] listviewMap = new String[]{
-            "Map"
-
-    };
-
-    String[] listvieweditText = new String[]{
-            "editText"
-    };
-    String[] listviewcall = new String[]{
-            "call"
-    };
-    String[] listviewwebsite = new String[]{
-            "go"
-    };
-    int[] listviewImage = new int[]{
-            R.drawable.drive
-    };
 
 
 
@@ -107,7 +86,8 @@ public class DrivingschoolActivity extends AppCompatActivity {
 
         ArrayList<AdItem> adItems = new ArrayList<>();
         adItems.add(adItem);
-//        adItems.add(new AdItem());
+     adItems.add(new AdItem("ListView Title 2", "map2", "editText2", "call2", R.drawable.drive));
+        adItems.add(new AdItem("ListView Title 3", "map3", "editText3", "call3", R.drawable.drive));
 
         ArrayAdapter<AdItem> adapter = new AdAdapter(this, adItems);
 

@@ -41,6 +41,7 @@
 
             android:hint="Go to......"
             android:inputType="textUri|textWebEmailAddress"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <!--app:layout_constraintBottom_toBottomOf="parent"-->
@@ -50,6 +51,8 @@
             android:layout_width="65dp"
             android:layout_height="44dp"
 
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
             android:text="Map"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -58,16 +61,19 @@
             android:id="@+id/call"
             android:layout_width="73dp"
             android:layout_height="41dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="16dp"
             android:text="call"
             app:layout_constraintStart_toEndOf="@+id/map"
             app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <Button
             android:id="@+id/go"
-            android:layout_width="53dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="7dp"
-            android:text="Go"
+            android:layout_width="87dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="16dp"
+            android:text="WeBsite"
             app:layout_constraintStart_toEndOf="@+id/call"
             app:layout_constraintTop_toBottomOf="@+id/name" />
 
