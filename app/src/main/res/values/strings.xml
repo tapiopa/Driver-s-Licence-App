@@ -28,4 +28,5 @@
     <string name="title_activity_image" translatable="false">ImageActivity</string>
     <string name="button_change_results">Change Answers</string>
     <string name="traffic_signs">Driving Symbols</string>
+    <string name="driving_schools">Driving Schools</string>
 </resources>

@@ -24,4 +24,5 @@
     <string name="title_exam_fi">Testi FI</string>
     <string name="button_change_results">Muuta vastauksia</string>
     <string name="traffic_signs">Liikennemerkit</string>
+    <string name="driving_schools">Ajokouluja</string>
 </resources>

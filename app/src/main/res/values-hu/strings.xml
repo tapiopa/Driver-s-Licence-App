@@ -20,4 +20,5 @@
     <string name="title_exam_fi">Vizsga FI</string>
     <string name="title_exam_SE">Vizsga SE</string>
     <string name="button_take_exam_se">Vizsga SE</string>
+    <string name="driving_schools">Körskolor</string>
 </resources>
