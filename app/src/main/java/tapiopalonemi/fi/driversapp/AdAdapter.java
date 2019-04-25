@@ -33,6 +33,7 @@ class AdAdapter extends ArrayAdapter<AdItem> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_drivingschools, parent, false);
         }
         ImageView image = convertView.findViewById(R.id.image);
+        image.setImageResource(ad.getImage());
 
         TextView name = convertView.findViewById(R.id.name);
         name.setText(ad.getName());
