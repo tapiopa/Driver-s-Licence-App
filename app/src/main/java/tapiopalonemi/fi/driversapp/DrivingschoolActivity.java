@@ -81,11 +81,16 @@ public class DrivingschoolActivity extends AppCompatActivity {
 //        int[] to = {R.id.listview_image, R.id.listview_name, R.id.listview_call, R.id.listview_go,R.id.listview_map,
 //        R.id.listview_editText};
 
-        AdItem adItem = new AdItem("CAP AUTOCOULU OULU", "geo:0,0?q=1600+Isokatu+22,+Mountain+View,+Oulu", "https://cap.fi/fi","34567", R.drawable.drive);
+        AdItem adItem = new AdItem("CAP AUTOCOULU OULU", "geo:0,0?q=Isokatu+22,+Oulu,+Finland", "https://cap.fi/fi","tel:050 913 0300", R.drawable.cap);
         ArrayList<AdItem> adItems = new ArrayList<>();
         adItems.add(adItem);
-     adItems.add(new AdItem("ListView Title 2", "map2", "editText2", "call2", R.drawable.drive));
-        adItems.add(new AdItem("ListView Title 3", "map3", "editText3", "call3", R.drawable.drive));
+     adItems.add(new AdItem("Autokoulu Liikennekoulu", "geo:0,0?q=Saaristonkatu+1,+Oulu,+Finland", "https://www.safetycar.fi/", "tel:08 5301300", R.drawable.drive));
+        adItems.add(new AdItem("Driving Team Autokoulu", "geo:0,0?q=geo:0,0?q=Merikoskenkatu+10,+Oulu,+Finland", "https://www.drivingteam.com/", "tel:044 5567453", R.drawable.drive2));
+        adItems.add(new AdItem("Ajo-opisto VIP", "geo:0,0?q=geo:0,0?q=Isokatu+11,+Oulu,+Finland", "http://www.autokouluajox.fi/", "tel: 0400 526207", R.drawable.priority));
+        adItems.add(new AdItem("Oulun Liikennekoulu", "geo:0,0?q=geo:0,0?q= Pakkahuoneenkatu +17,+Oulu,+Finland", "https://www.oulunliikennekoulu.com/", "tel: 0400 526207", R.drawable.roundabout));
+
+
+
 
         ArrayAdapter<AdItem> adapter = new AdAdapter(this, adItems);
 
