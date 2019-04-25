@@ -43,9 +43,10 @@ class AdAdapter extends ArrayAdapter<AdItem> {
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("OPEN MAP", "MAP address: " + ad.getMap() +  ", onClick: OPEN MAP");
+                //Log.d("OPEN MAP", "MAP address: " + ad.getMap() +  ", onClick: OPEN MAP");
                 // Map point based on address
-                Uri location = Uri.parse("geo:0,0?q=1600+Amphitheatre+Parkway,+Mountain+View,+California");
+                Uri location = Uri.parse(ad.getMap());
+                //Uri location = Uri.parse("geo:0,0?q=1600+Amphitheatre+Parkway,+Mountain+View,+California");
                 // Or map point based on latitude/longitude
                 // Uri location = Uri.parse("geo:37.422219,-122.08364?z=14"); // z param is zoom level
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);
@@ -57,8 +58,8 @@ class AdAdapter extends ArrayAdapter<AdItem> {
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("CALL", "onClick: MAKE A CALL, phone: " + ad.getCall());
-                Uri number = Uri.parse("tel:4567123");
+                //Log.d("CALL", "onClick: MAKE A CALL, phone: " + ad.getCall());
+                Uri number = Uri.parse(ad.getCall());
                 Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
                 parent.getContext().startActivity(callIntent);
             }
@@ -68,9 +69,9 @@ class AdAdapter extends ArrayAdapter<AdItem> {
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text = editText.getText().toString();
-                Log.d("text", "GO, web page address: " + ad.getWebPage() + ", onClick: Go " + text);
-                Uri webpage = Uri.parse(text);
+               // String text = editText.getText().toString();
+                //Log.d("text", "GO, web page address: " + ad.getWebPage() + ", onClick: Go " + text);
+                Uri webpage = Uri.parse(ad.getWebPage());
                 Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
                 parent.getContext().startActivity(webIntent);
             }

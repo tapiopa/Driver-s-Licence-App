@@ -29,8 +29,7 @@ public class DrivingschoolActivity extends AppCompatActivity {
 //        Button listview_item_go = (Button) findViewById(R.id.go);
 //        Button listview_item_map = (Button) findViewById(R.id.map);
 //        EditText editText = (EditText) findViewById(R.id.editText);
-//
-//        listview_item_map.setOnClickListener(new View.OnClickListener() {
+//                 listview_item_map.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
 //                Log.d("OPEN MAP", "onClick: OPEN MAP");
@@ -82,8 +81,7 @@ public class DrivingschoolActivity extends AppCompatActivity {
 //        int[] to = {R.id.listview_image, R.id.listview_name, R.id.listview_call, R.id.listview_go,R.id.listview_map,
 //        R.id.listview_editText};
 
-        AdItem adItem = new AdItem("ListView Title 1", "map", "editText", "call", R.drawable.drive);
-
+        AdItem adItem = new AdItem("CAP AUTOCOULU OULU", "geo:0,0?q=1600+Isokatu+22,+Mountain+View,+Oulu", "https://cap.fi/fi","34567", R.drawable.drive);
         ArrayList<AdItem> adItems = new ArrayList<>();
         adItems.add(adItem);
      adItems.add(new AdItem("ListView Title 2", "map2", "editText2", "call2", R.drawable.drive));

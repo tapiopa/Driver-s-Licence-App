@@ -52,7 +52,6 @@
             android:layout_height="44dp"
 
             android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
             android:text="Map"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -61,8 +60,7 @@
             android:id="@+id/call"
             android:layout_width="73dp"
             android:layout_height="41dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
             android:text="call"
             app:layout_constraintStart_toEndOf="@+id/map"
             app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -71,8 +69,7 @@
             android:id="@+id/go"
             android:layout_width="87dp"
             android:layout_height="38dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"
             android:text="WeBsite"
             app:layout_constraintStart_toEndOf="@+id/call"
             app:layout_constraintTop_toBottomOf="@+id/name" />
