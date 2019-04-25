@@ -88,9 +88,11 @@ public class DrivingschoolActivity extends AppCompatActivity {
             HashMap<String, String> hm = new HashMap<String, String>();
             hm.put("listview_name", listviewName[i]);
             hm.put("listview_editText", listvieweditText[i]);
-            hm.put("listview_phone", listviewcall[i]);
+            hm.put("listview_call", listviewcall[i]);
             hm.put("listview_website", listviewwebsite[i]);
             hm.put("listview_map", listviewMap[i]);
+            hm.put("listview_image", listviewImage[i]);
+
 
             aList.add(hm);
         }
