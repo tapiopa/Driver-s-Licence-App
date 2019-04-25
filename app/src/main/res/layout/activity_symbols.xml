@@ -9,7 +9,7 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_DrivingSymbols"
         android:layout_width="0dp"
-        android:layout_height="74dp"
+        android:layout_height="wrap_content"
         android:background="@android:color/holo_green_light"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/AppBarOverlay"
@@ -20,9 +20,8 @@
     <ListView
         android:id="@+id/list_view"
         android:layout_width="fill_parent"
-        android:layout_height="642dp"
+        android:layout_height="684dp"
         android:background="@color/colorExtra"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_DrivingSymbols" />
