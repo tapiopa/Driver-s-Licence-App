@@ -1,7 +1,15 @@
 package tapiopalonemi.fi.driversapp;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -13,6 +21,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.EditText;
 import java.util.List;
+import java.util.Locale;
+
 public class DrivingschoolActivity extends AppCompatActivity {
 
 
@@ -25,6 +35,19 @@ public class DrivingschoolActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drivingschool);
+        Toolbar myToolbar = findViewById(R.id.toolbar_drivingschool);
+        setSupportActionBar(myToolbar);
+
+        // Get a support ActionBar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
+
+        if (null != ab) {
+            ab.setDisplayHomeAsUpEnabled(true);
+            String abTitle = "Driver's App";
+            ab.setTitle(abTitle);
+            ab.setSubtitle(R.string.driving_schools);
+
+        }
 //        Button listview_item_call = (Button) findViewById(R.id.call);
 //        Button listview_item_go = (Button) findViewById(R.id.go);
 //        Button listview_item_map = (Button) findViewById(R.id.map);
@@ -97,5 +120,55 @@ public class DrivingschoolActivity extends AppCompatActivity {
 //        SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), aList, R.layout.activity_drivingschools, from, to);
         ListView androidListView = (ListView) findViewById(R.id.list_view);
         androidListView.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.language, menu);
+        return true;
+    }
+
+    //Handle selecting a language in language menu
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.english:
+                Log.i("LANGUAGE SELECTION", "english");
+                setLocale("en");
+                return true;
+            case R.id.finnish:
+                Log.i("LANGUAGE SELECTION", "finnish");
+                setLocale("fi");
+                return true;
+            case R.id.swedish:
+                Log.i("LANGUAGE SELECTION", "swedish");
+                setLocale("sv");
+                return true;
+            case R.id.hungarian:
+                Log.i("LANGUAGE SELECTION", "hungarian");
+                setLocale("hu");
+                return true;
+            case R.id.nepali:
+                Log.i("LANGUAGE SELECTION", "nepali");
+                setLocale("ne");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    //Set locale according to language selection
+    private void setLocale(String lang) {
+        Locale myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.setLocale(myLocale);
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, DrivingschoolActivity.class);
+        startActivity(refresh);
+        finish();
     }
 }
