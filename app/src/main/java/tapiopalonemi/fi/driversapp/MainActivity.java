@@ -19,12 +19,14 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     MyDBHandler db;
+    boolean finnish;
 
     //Go to Finnish exam page
     public void toExamFi(View view) {
         Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
         intent.putExtra("finnish", true);
+        intent.putExtra("startNewExam", true);
         db.setIsFinnishQuestions(true);
         startActivity(intent);
     }
@@ -34,14 +36,16 @@ public class MainActivity extends AppCompatActivity {
         Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
         intent.putExtra("finnish", false);
+        intent.putExtra("startNewExam", true);
         db.setIsFinnishQuestions(false);
         startActivity(intent);
     }
 
     //Go to results page
     public void toResults(View view) {
-        Log.i("BOTTOM NAVIGATION", "to results navigation item clicked");
+        Log.i("@#@#@#@#@#MAIN", "to results navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
+        intent.putExtra("finnish", finnish);
         startActivity(intent);
     }
 
@@ -55,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
     //Go to Swedish exam page (button)
     public void buttonToResults(View view) {
-        Log.i("BOTTOM NAVIGATION", "to results button clicked");
+        Log.i("%&%&%&%&%&%&%&", "to results button clicked, finnish: " + finnish);
         Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
-//        intent.putExtra("extra", "extra");
+        intent.putExtra("finnish", finnish);
         startActivity(intent);
     }
     public void buttonToInformations(View view) {
@@ -90,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
             Log.d("HOME", "data is not loaded");
             db.firstRun(this);
         }
+
+        finnish = db.isFinnishQuestions();
+        Log.i("!!!!!!!!MAIN", "onCreate, finnish: " + finnish);
 
         Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);

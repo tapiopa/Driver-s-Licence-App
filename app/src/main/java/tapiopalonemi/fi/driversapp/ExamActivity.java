@@ -55,6 +55,8 @@ public class ExamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_exam);
 
         db = new MyDBHandler(this);
+        finnish = getIntent().getBooleanExtra("finnish", finnish);
+        boolean newExam = getIntent().getBooleanExtra("startNewExam", false);
 
         Toolbar myToolbar = findViewById(R.id.toolbar_exam);
         setSupportActionBar(myToolbar);
@@ -80,7 +82,15 @@ public class ExamActivity extends AppCompatActivity {
         // Create the gesture detector with the gesture listener.
         gestureDetectorCompat = new GestureDetectorCompat(this, gestureListener);
 
-        finnish = getIntent().getBooleanExtra("finnish", finnish);
+
+
+        if (newExam) {
+            if (finnish) {
+                startNewExam(null);
+            } else {
+                startNewExamSe(null);
+            }
+        }
 //        db.setIsFinnishQuestions(finnish);
 
         Log.i("EXAM", "country is: " + (finnish ? "Finnish" : "Swedish"));
@@ -112,6 +122,12 @@ public class ExamActivity extends AppCompatActivity {
             currentQuestion = -1;
         }
     }
+
+//    //Initialize some variables for a new exam
+//    private void startNewExam(boolean finnish) {
+//        db.deleteAllChoices();
+//        db.setLastAnsweredQuestion(-1);
+//    }
 
     //Create language options menu
     @Override
@@ -166,6 +182,8 @@ public class ExamActivity extends AppCompatActivity {
         conf.setLocale(myLocale);
         res.updateConfiguration(conf, dm);
         Intent refresh = new Intent(this, ExamActivity.class);
+        refresh.putExtra("finnish", finnish);
+        refresh.putExtra("startNewExam", false);
         startActivity(refresh);
         finish();
     }
