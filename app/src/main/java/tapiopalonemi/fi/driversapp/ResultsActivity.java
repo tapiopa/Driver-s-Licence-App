@@ -25,7 +25,7 @@ import java.util.Locale;
 public class ResultsActivity extends AppCompatActivity  {
 //    private TextView mTextMessage;
     private MyDBHandler db;
-    private boolean finnish = false;
+    private boolean finnish;
 
 //    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
 //            = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -72,19 +72,36 @@ public class ResultsActivity extends AppCompatActivity  {
 
     //Go to Finnish exam page
     public void toExam(View view) {
-        Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
+        Log.i("BOTTOM NAVIGATION", "to finnish exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
         intent.putExtra("finnish", true);
+        intent.putExtra("startNewExam", false);
         startActivity(intent);
     }
 
-    //Go to Finnish or Swedish exam page
-    public void toExamFiSe(View view) {
-        Log.i("BOTTOM NAVIGATION", "to exam navigation item clicked");
-        boolean finnish = db.isFinnishQuestions();
+    //Go to Swedish exam page
+    public void toExamSE(View view) {
+        Log.i("BOTTOM NAVIGATION", "to swedish exam navigation item clicked");
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
-        intent.putExtra("finnish", finnish);
+        intent.putExtra("finnish", false);
+        intent.putExtra("startNewExam", false);
         startActivity(intent);
+    }
+
+    //Go to back to Finnish or Swedish exam page to change or add answers
+    public void toExamFiSe(View view) {
+        Log.i("BOTTOM NAVIGATION", "to exam FI/SE navigation item clicked");
+        Log.i("toEXAMFISE", "is finnish: " + finnish);
+        if (finnish) {
+            toExam(view);
+        } else {
+            toExamSE(view);
+        }
+//        boolean finnish = db.isFinnishQuestions();
+//        Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
+//        intent.putExtra("finnish", finnish);
+//        intent.putExtra("startNewExam", false);
+//        startActivity(intent);
     }
 
     //Go to new Finnish exam
@@ -93,6 +110,7 @@ public class ResultsActivity extends AppCompatActivity  {
         db.deleteAllChoices();
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
         intent.putExtra("finnish", true);
+        intent.putExtra("startNewExam", false);
         startActivity(intent);
     }
 
@@ -102,28 +120,48 @@ public class ResultsActivity extends AppCompatActivity  {
         db.deleteAllChoices();
         Intent intent = new Intent(getApplicationContext(), ExamActivity.class);
         intent.putExtra("finnish", false);
+        intent.putExtra("startNewExam", false);
         startActivity(intent);
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void
+    onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
+        finnish = getIntent().getBooleanExtra("finnish", finnish);
+        Log.i("!!!!!!!!RESULTS", "onCreate, finnish: " + finnish);
         Toolbar myToolbar = findViewById(R.id.toolbar_results);
         setSupportActionBar(myToolbar);
 
         // Get a support ActionBar corresponding to this toolbar
         ActionBar ab = getSupportActionBar();
+        if (null != ab) {
+            ab.setDisplayHomeAsUpEnabled(true);
+//            String abTitle = "Driver's | ";
+//            if (finnish) {
+//                abTitle += getText(R.string.title_exam_fi);
+//            } else {
+//                abTitle += getText(R.string.title_exam_SE);
+//            }
+//            ab.setTitle(abTitle);
+        }
 //
 //        // Enable the Up button
         if (null != ab) {
             ab.setDisplayHomeAsUpEnabled(true);
 //            ab.setTitle("Driver's App");
-            ab.setSubtitle(R.string.title_results);
+            String subTitle = getString(R.string.title_results);
+            if (finnish) {
+                subTitle += " " + getText(R.string.title_exam_fi);
+            } else {
+                subTitle += " " + getText(R.string.title_exam_SE);
+            }
+            ab.setSubtitle(subTitle);
         }
 
-        finnish = getIntent().getBooleanExtra("finnish", finnish);
+
 
         final ListView resultsList = findViewById(R.id.results_list);
         final TextView emptyResults  = findViewById(R.id.empty_result);
@@ -211,6 +249,7 @@ public class ResultsActivity extends AppCompatActivity  {
         conf.setLocale(myLocale);
         res.updateConfiguration(conf, dm);
         Intent refresh = new Intent(this, ResultsActivity.class);
+        refresh.putExtra("finnish", finnish);
         startActivity(refresh);
         finish();
     }
