@@ -84,7 +84,7 @@ public class DrivingschoolActivity extends AppCompatActivity {
 
         List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i <= 1; i++) {
             HashMap<String, String> hm = new HashMap<String, String>();
             hm.put("listview_name", listviewName[i]);
             hm.put("listview_editText", listvieweditText[i]);
@@ -98,7 +98,7 @@ public class DrivingschoolActivity extends AppCompatActivity {
         }
 
         String[] from = {"listview_image", "listview_name", "listview_phone","listview_Map","listview_website","listview_editText"};
-        int[] to = {R.id.listview_image, R.id.listview_name, R.id.listview_call, R.id.listview_go,R.id.listview_map,
+        int[] to = {R.id.listview_image, R.id.name, R.id.call, R.id.go,R.id.map,
         R.id.listview_editText};
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), aList, R.layout.activity_drivingschools, from, to);
