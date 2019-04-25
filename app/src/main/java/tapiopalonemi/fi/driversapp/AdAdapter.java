@@ -35,6 +35,7 @@ class AdAdapter extends ArrayAdapter<AdItem> {
         ImageView image = convertView.findViewById(R.id.image);
 
         TextView name = convertView.findViewById(R.id.name);
+        name.setText(ad.getName());
         final EditText editText = convertView.findViewById(R.id.editText);
 
         Button map = convertView.findViewById(R.id.map);
