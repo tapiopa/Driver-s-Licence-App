@@ -11,25 +11,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import java.util.ArrayList;
-import java.util.HashMap;
-import android.view.View;
 import android.content.Intent;
-import android.net.Uri;
-import android.widget.EditText;
-import java.util.List;
 import java.util.Locale;
 
 public class DrivingschoolActivity extends AppCompatActivity {
-
-
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +94,7 @@ public class DrivingschoolActivity extends AppCompatActivity {
         AdItem adItem = new AdItem("CAP AUTOCOULU OULU", "geo:0,0?q=Isokatu+22,+Oulu,+Finland", "https://cap.fi/fi","tel:050 913 0300", R.drawable.cap);
         ArrayList<AdItem> adItems = new ArrayList<>();
         adItems.add(adItem);
-     adItems.add(new AdItem("Autokoulu Liikennekoulu", "geo:0,0?q=Saaristonkatu+1,+Oulu,+Finland", "https://www.safetycar.fi/", "tel:08 5301300", R.drawable.drive));
+        adItems.add(new AdItem("Autokoulu Liikennekoulu", "geo:0,0?q=Saaristonkatu+1,+Oulu,+Finland", "https://www.safetycar.fi/", "tel:08 5301300", R.drawable.drive));
         adItems.add(new AdItem("Driving Team Autokoulu", "geo:0,0?q=geo:0,0?q=Merikoskenkatu+10,+Oulu,+Finland", "https://www.drivingteam.com/", "tel:044 5567453", R.drawable.drive2));
         adItems.add(new AdItem("Ajo-opisto VIP", "geo:0,0?q=geo:0,0?q=Isokatu+11,+Oulu,+Finland", "http://www.autokouluajox.fi/", "tel: 0400 526207", R.drawable.priority));
         adItems.add(new AdItem("Oulun Liikennekoulu", "geo:0,0?q=geo:0,0?q= Pakkahuoneenkatu +17,+Oulu,+Finland", "https://www.oulunliikennekoulu.com/", "tel: 0400 526207", R.drawable.roundabout));
